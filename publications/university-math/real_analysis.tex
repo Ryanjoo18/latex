@@ -1,0 +1,827 @@
+\part{Real Analysis}
+\chapter{Properties of the real numbers}
+% https://math.libretexts.org/Bookshelves/Analysis/Introduction_to_Mathematical_Analysis_I_(Lafferriere_Lafferriere_and_Nguyen)
+\section{Construction of the real numbers}
+This book assumes familiarity with the rational numbers $\QQ$, i.e. numbers of the form $\dfrac{m}{n}$, where $m$, $n$ are integers and $n \neq 0$). 
+
+$\QQ$ contains \emph{gaps} at irrational numbers such as $\sqrt{2}$ and $\pi$. In this section, we aim to construct $\RR$ from $\QQ$.
+
+In 1872, German mathematician Richard Dedekind pointed out that a real number $x$ can be determined by its lower set $A$ and upper set $B$:
+\[ A \coloneqq \{a:\QQ \mid a<x\} \]
+\[ B \coloneqq \{b:\QQ \mid x<b\} \]
+He defined a ``real number" as a pair of sets of rational numbers, the lower and upper sets shown above. Such a pair of sets of rational numbers are known as a \vocab{Dedekind cut}.
+
+\begin{itemize}
+\item $A$ is a \vocab{lower set}: $\forall a, b \in \RR$, if $a<b$ where $b \in A$, then $a \in A$.
+\item $B$ is an \vocab{upper set}: $\forall a, b \in \RR$, if $a<b$ where $a \in B$, then $b \in B$.
+\end{itemize}
+
+\begin{defn}{Dedekind cut}{}
+Given that $B$ is the complement of $A$ in the reals, a non-empty subset $(A, B) \subset \QQ$ is a Dedekind cut if:
+\begin{enumerate}[label=\textbf{D\arabic*}]
+\item $A$ is non-empty: $A \neq \emptyset$
+\item $A$ and $B$ are disjoint: $A \cap B = \emptyset, A \cup B = \QQ$
+\item $A$ is closed downwards: $\forall x,y \in \QQ$ with $x<y, y \in A$, then $x \in A$
+\item $A$ does not contain a greatest element: $\forall x \in A, \exists y \in A$ such that $x<y$
+\end{enumerate}
+\end{defn}
+
+Perhaps a not-so-intuitive fact here is that there are two possible things happening to $B$:
+\begin{enumerate}
+\item $B$ contains a least element
+\item $B$ does not contain a least element
+\end{enumerate}
+Case 1 and 2 are known as rational and irrational Dedekind cuts respectively.
+
+\begin{defn}{Real numbers}{} 
+The set of real numbers $\RR$ is defined to be the set of all Dedekind cuts.
+\end{defn}
+
+\begin{remark}
+The way we think about this is that Dedekind cuts are real numbers, and real numbers are Dedekind cuts.
+\end{remark}
+\pagebreak
+
+\subsection{Order relations}
+Given real numbers $\alpha$ and $\beta$, let $\alpha = (A,B)$ and $\beta = (C,D)$. Then
+\[ \alpha < \beta \iff A \subset C \]
+\begin{remark}
+Since $B$ is the complement of $A$, $\alpha$ is completely determined by $A$ itself.
+\end{remark}
+
+This ordering on the real numbers satisfies the following properties:
+\begin{itemize}
+\item $x<y$ and $y<z$ $\implies$ $x<z$
+\item Exactly one of $x<y$, $x=y$ or $x>y$ holds
+\item $x<y \implies x+z<y+z$
+\end{itemize}
+
+\begin{property}[Ordering]
+For any two real numbers $\alpha$ and $\beta$, one of the following must hold:
+\[ \alpha < \beta \quad \alpha = \beta \quad \alpha > \beta \]
+\end{property}
+
+\begin{proof}
+We prove by contradiction.
+
+Note that $\alpha \le \beta \iff A \subseteq C$ ($A=C$ is possible).
+
+Suppose otherwise, that all three of the above are false, then neither of the sets $A$ and $C$ can be a subset of the other.
+
+We pick two rational numbers from each set:
+Pick $p$ where $p \in A$, $p \notin C$, pick $q$ where $q \in C$, $q \notin A$
+\begin{itemize}
+\item Obviously we cannot have $p=q$.
+\item If $p<q$, then since $q \in C$, according to property 3, we have $p \in C$, a contradiction.
+\item Similarly for $p>q$, we would find that $q \in A$, a contradiction.
+\end{itemize}
+
+Hence our assumption is false.
+
+$\therefore$ One of the three cases $\alpha < \beta$, $\alpha = \beta$, $\alpha > \beta$ must hold.
+\end{proof}
+\pagebreak
+
+\subsection{Addition}
+\begin{property}[Addition]
+Let $\alpha = (A,B)$, $\beta = (C,D)$, then $\alpha + \beta = (X,Y)$ where
+\[ X = \{a+c \mid a \in A, c \in C\} \]
+\end{property}
+
+\begin{proof}
+To show that $(X,Y)$ is a Dedekind cut, we simply need to check the conditions for Dedekind cuts. 
+\begin{itemize}
+\item Property 1 is trivial.
+
+\item Property 2 is by definition.
+
+\item Property 3:
+
+Let $x,y \in X$ satisfy $x<y$, $y \in X$. 
+
+Let $y = a + c$, $a \in A$, $c \in C$.
+
+Let $\epsilon = y - x$.
+
+Let $a^\prime = a - \dfrac{\epsilon}{2}$, $c^\prime = c - \dfrac{\epsilon}{2}$.
+
+Then \[ a^\prime + c^\prime = a + c - \epsilon = x \]
+$a^\prime < a, a \in A \implies a^\prime \in A$. Similarly, $c^\prime \in C$.\\
+$\therefore\:x = a^\prime +c^\prime \in X$.
+
+\item Property 4:
+
+$\forall a+c \in X, a \in A, c \in C$, $\exists a^\prime \in A, c^\prime \in C$ such that $a<a^\prime, c<c^\prime$.
+
+$\therefore\:a^\prime +c^\prime \in X$ satisfies $a+c < a^\prime+c^\prime$.
+\end{itemize}
+\end{proof}
+
+\begin{property}[Commutativity]
+Addition is \textbf{commutative}:
+\[ \alpha + \beta = \beta + \alpha \]
+\end{property}
+
+\begin{proof}
+The proof is trivial.
+\end{proof}
+
+\begin{property}[Associativity]
+Addition is \textbf{associative}:
+\[ \alpha + (\beta + \gamma)=(\alpha + \beta)+ \gamma \]
+\end{property}
+
+\begin{proof}
+Let $\alpha = (A,A^\prime)$, $\beta = (B,B^\prime)$, $\gamma = (C,C^\prime)$
+\[ \beta + \gamma = (B+C, (B+C)^\prime) \]
+In this notation we only need to show that $A+(B+C)=(A+B)+C$.
+\begin{align*}
+x \in A+(B+C) 
+&\iff \exists a \in A, p \in B+C \suchthat x=a+p \\
+&\iff \exists a \in A, b \in B, c \in C \suchthat x=a+b+c \\
+&\iff x \in (A+B)+C
+\end{align*}
+Hence proven.
+\end{proof}
+
+\begin{exmp}{}{}
+Prove that
+\[ \alpha+0 = \alpha = 0+\alpha \]
+\end{exmp}
+
+\begin{proof}
+Let $0=(O,O^\prime)$ where $O=\{x \mid x<0\}, O^\prime=\{x \mid x\ge0\}$.
+
+Let $\alpha=(A,B)$, then $\alpha+0=(C,D)$ where
+\begin{align*}
+C&=\{a + \epsilon  \mid  a \in A, \epsilon<0\} \\
+&=\{a - \epsilon  \mid  a \in A, \epsilon>0\}
+\end{align*}
+\[ a - \epsilon < a, a \in A \implies a - \epsilon \in A \implies C \subseteq A \]
+
+According to Property 4, $\forall a \in A, \exists a^\prime \in A$ such that $a < a^\prime$.
+
+Let $\epsilon = a^\prime - a > 0$, then 
+\[ a = a^\prime - \epsilon, a^\prime \in A, \epsilon>0 \implies a \in C \]
+
+So $A=C$.
+
+$\therefore\:\alpha+0=\alpha$
+\end{proof}
+
+\begin{exmp}{}{}
+Express $-\alpha$ in terms of $\alpha$; show
+\[ \alpha+(-\alpha)=0=(-\alpha)+\alpha \]
+\end{exmp}
+
+\begin{proof}
+We split this into two cases.
+
+\textbf{Case 1}: $\alpha$ is a rational number, then $\alpha=(A,B)$ where $A = \{x \mid x < \alpha\}$, $B = \{x \mid x \ge \alpha\}$.
+
+Let $-\alpha=(A^\prime,B^\prime)$, where $A^\prime = \{x \mid x < -\alpha\}$, $B^\prime = \{x \mid x\ge -\alpha\}$. 
+We see that $\alpha+(-\alpha) \le 0$ is obvious.
+
+On the other hand, since $0=(O,O^\prime)$, for any $\epsilon<0$ we have
+\[ \epsilon = \brac{\alpha+\frac{\epsilon}{2}} + \brac{-\alpha+\frac{\epsilon}{2}} \in A+A^\prime \]
+Hence $\alpha+(-\alpha)=0$.
+
+\vspace{1cm}
+
+\textbf{Case 2}: $\alpha$ is irrational, let $\alpha = (A,B)$ where $B$ does not have a lowest value. 
+Then $-B = \{-x  \mid  x \in B\}$ does not have a highest value.
+
+We wish to define $-\alpha=(-B,-A)$, but first we need to show that this is well-defined by checking through all the conditions.
+
+\begin{itemize}
+\item Property 1: This is trivial.
+
+\item Property 2: Prove that $- A$ and $B$ are disjoint.
+
+Note that $\forall x \in \RR$, if $x=-y$, then exactly one out of $y \in A$ and $y \in B$ is true $\implies$ exactly one out of $x \in -B$ and $x \in -A$ is true.
+
+\item Property 3: Prove $-B$ is closed downwards.
+
+Suppose otherwise, that $x<y, y \in -B$ but $x \notin -B$. Then $-y \in B$, $-x \notin B$. Since $A$ is the complement of $B$, $-y \notin A$, $-x \in A$. But $-y<-x$, which is a contradiction.
+
+\item Property 4 is already guaranteed by the irrationality of $\alpha$.
+\end{itemize}
+
+All of these properties imply that the real numbers form a commutative group by addition.
+\end{proof}
+
+\subsection{Negation}
+Given any set $X \subset \RR$, let $-X$ denote the set of the negatives of those rational numbers. That is $x \in X$ if and only if $-x \in -X$. 
+
+If $(A,B)$ is a Dedekind cut, then $-(A,B)$ is defined to be
+$(-B,-A)$.
+
+This is pretty clearly a Dedekind cut. - proof
+
+\subsection{Signs}
+A Dedekind cut $(A,B)$ is \textbf{positive} if $0 \in A$ and \textbf{negative} if $0 \in B$. If $(A,B)$ is neither positive nor negative, then $(A,B)$ is the cut representing 0.
+
+If $(A,B)$ is positive, then $-(A,B)$ is negative. Likewise, if $(A,B)$ is negative, then $-(A,B)$ is positive. The cut $(A,B)$ is non-negative if it is either positive or 0.
+
+\subsection{Multiplication}
+% Define multiplication of real numbers; you will need to define them for positive real numbers first
+
+\subsubsection{Positive multiplication}
+Let $\alpha = (A,B)$ and $\beta = (C,D)$ where $\alpha, \beta$ are both non-negative.
+
+We define $\alpha \times \beta$ to be the pair $(X,Y)$ where
+
+$X$ is the set of all products $ac$ where $a \in A, c \in C$ and at least one of the two numbers is non-negative. 
+$Y$ is the set of all products $bd$ where $b \in B, d \in D$.
+
+\subsubsection{General Multiplication}
+
+
+% https://www.math.brown.edu/reschwar/INF/handout3.pdf
+
+Intermediate Value Theorem
+
+Bolzano-Weiersstrass Theorem
+
+Connectedness of $\RR$
+
+
+\section{Supremum and Infimum}
+\subsection{Ordered sets}
+Let $A$ be a set.
+
+\begin{defn}{Order}{}
+An \vocab{order} on $A$ is a relation, denoted by $<$, with the following two properties:
+\begin{enumerate}[label=\textbf{O\arabic*}]
+\item $\forall x,y \in A$, one and only one of the following statements is true:
+\[ x<y, \quad x=y, \quad y<x \]
+\item $\forall x,y,z \in A$, if $x<y$ and $y<z$, then $x<z$.
+\end{enumerate}
+\end{defn}
+
+\begin{notation}
+The notation $x \le y$ indicates that $x<y$ or $x = y$, without specifying which of these two is to hold. In other words, $x \le y$ is the negation of $x > y$.
+\end{notation}
+
+\begin{defn}{Ordered set}{}
+An \vocab{ordered set} is a set $S$ in which an order is defined.
+\end{defn}
+
+For example, $\QQ$ is an ordered set if $r<s$ is defined to mean that $s-r$ is a positive rational number.
+
+\subsection{Boundedness}
+Let $A\subset\RR$.
+
+\begin{defn}{Bounded}{}
+$A$ is \vocab{bounded from above} if there exists an \vocab{upper bound} $M \in \RR$ such that $x \le M$ for all $x\in A$.
+
+$A$ is \vocab{bounded from below} if there exists a \vocab{lower bound} $m \in \RR$ such that $x \ge m$ for all $x\in A$.
+
+A is \vocab{bounded} in the real numbers if it is bounded above and below.
+\end{defn}
+
+\begin{defn}{Supremum}{}
+The \vocab{supremum} of $A$, denoted by $\sup A$, is defined as the smallest real number $M$ such that $x \le M$ for all $x\in A$.
+\begin{enumerate}[label=(\roman*)]
+\item $M$ is an upper bound for $A$.
+\item If $N$ is an upper bound for $A$, then $M \le N$.
+\end{enumerate}
+The suprenum is also known as the \emph{least upper bound}.
+\end{defn}
+
+\begin{remark}
+If $M \in A$, then $M$ is the \textbf{maximum value} of $A$.
+\end{remark}
+
+The following proposition is convenient in working with suprema.
+\begin{proposition}
+Let $A$ be a nonempty subset of $\RR$ that is bounded above. Then  $M = \sup A$ if an only if
+\begin{enumerate}[label=(\roman*)]
+\item $x \le M$ for all $x \in A$
+\item For any $\epsilon>0$, there exists $a \in A$ such that $M - \epsilon < a$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+Suppose first that $M=\sup A$. Then clearly (i) holds (since this is identical to condition (1) in the definition of supremum). Now let $\epsilon>0$. Since $M-\epsilon<a$, condition (ii) in the definition of supremum implies that $M-\epsilon$ is not an upper bound of $A$. Therefore, there must exist an element $a$ in $A$ such that $M-\epsilon<a$, as desired.
+\end{proof}
+
+\begin{defn}{Infimum}{}
+The \vocab{infimum} of $A$, denoted by $\inf A$, is defined as the largest real number $m$ such that $x \ge m$ for all $x\in A$.
+\begin{enumerate}[label=(\roman*)]
+\item $m$ is a lower bound for $A$.
+\item If $n$ is a lower bound for $A$, then $m \ge n$.
+\end{enumerate}
+The infimum is also known as the \emph{greatest lower bound}.
+\end{defn}
+
+\begin{remark}
+If $m \in A$, then $m$ is the \textbf{minimum value} of $A$.
+\end{remark}
+
+\begin{proposition}[Uniqueness of suprenum]
+If a set $A \subset \RR$ has a supremum, then it is unique.
+\end{proposition}
+
+\begin{proof}
+Assume that $M$ and $N$ are suprema of a set $A$.
+
+Since $N$ is a supremum, it is an upper bound for $A$. Since $M$ is a supremum, then it is the least upper bound and thus $M \le N$. 
+
+Similarly, since $M$ is a supremum, it is an upper bound for $A$; since $N$ is a supremum, it is a least upper bound and thus $N \le M$. 
+
+Since $N \le M$ and $M \le N$, thus $M = N$. Therefore, a supremum for a set is unique if it exists.
+\end{proof}
+
+\begin{thrm}{Comparison Theorem}{}
+Let $S, T \subset \RR$ be non-empty sets such that $s \le t$
+for every $s \in S$ and $t \in T$. If $T$ has a supremum, then so does $S$, and $\sup S \le \sup T$.
+\end{thrm}
+
+\begin{proof}
+Let $\tau = \sup T$. Since $\tau$ is a supremum for $T$, then $t \le \tau$ for all $t \in T$. Let $s \in S$ and choose any $t \in T$. Then, since $s \le t$ and $t \le \tau$ , then $s \le t$. Thus, $\tau$ is an upper bound for $S$. 
+
+By the Completeness Axiom, $S$ has a supremum, say $\sigma = \sup S$. We will show that $\sigma \le \tau$. Notice that, by the above, $\tau$ is an upper bound for $S$. Since $\sigma$ is the least upper bound for $S$, then $\sigma \le \tau$. Therefore,
+\[\sup S \le \sup T.\]
+\end{proof}
+
+Let's explore some useful properties of sup and inf.
+
+\begin{proposition}
+Let $S, T$ be non-empty subsets of $\RR$, with $S \subseteq T$ and with $T$ bounded above. Then $S$ is bounded above, and $\sup S \le \sup T$.
+\end{proposition}
+\begin{proof}
+Since $T$ is bounded above, it has an upper bound, say $b$. Then $t \le b$ for all $t \in T$, so certainly $t \le b$ for all $t \in S$, so $b$ is an upper bound for $S$.
+
+Now $S, T$ are non-empty and bounded above, so by completeness each has a supremum. Note that $\sup T$ is an upper bound for $T$ and hence also for $S$, so $\sup T \ge \sup S$ (since $\sup S$ is the least upper bound for $S$).
+\end{proof}
+
+\begin{proposition}
+Let $T \subseteq \RR$ be non-empty and bounded below. Let $S = \{-t \mid t \in T\}$. Then $S$ is non-empty and bounded above. Furthermore, $\inf T$ exists, and $\inf T = -\sup S$.
+\end{proposition}
+\begin{proof}
+Since $T$ is non-empty, so is $S$. Let $b$ be a lower bound for $T$, so $t \ge b$ for all $t \in T$. Then $-t \le -b$ for all $t \in T$, so $s \le -b$ for all $s \in S$, so $-b$ is an upper
+bound for $S$.
+
+Now $S$ is non-empty and bounded above, so by completeness it has a
+supremum. Then $s \le \sup S$ for all $s \in S$, so $t \ge -\sup S$ for all $t \in T$, so $-\sup S$ is a lower bound for $T$.
+
+Also, we saw before that if $b$ is a lower bound for $T$ then $-b$ is an upper bound for $S$. Then $-b \ge \sup S$ (since $\sup S$ is the least upper bound), so $b \le -\sup S$. So $-\sup S$ is the greatest lower bound.
+
+So $\inf T$ exists and $\inf T = -\sup S$.
+\end{proof}
+
+\begin{proposition}[Approximation Property]
+Let $S \subseteq \RR$ be non-empty and bounded above. For any $\epsilon > 0$, there is $s_\epsilon \in S$ such that $\sup S-\epsilon < s_\epsilon \le \sup S$.
+\end{proposition}
+\begin{proof}
+Take $\epsilon > 0$.
+
+Note that by definition of the supremum we have $s \le \sup S$ for all $s \in S$. Suppose, for a contradiction, that $\sup S-\epsilon \ge s$ for all $s \in S$.
+
+Then $\sup S-\epsilon$ is an upper bound for $S$, but $\sup S-\epsilon < \sup S$, which is a contradiction.
+
+Hence there is $s_\epsilon \in S$ with $\sup S-\epsilon<s_\epsilon$.
+\end{proof}
+
+\begin{prbm}
+Consider the set $\{\frac{1}{n} \mid n\in\ZZ^{+}\}$.
+\begin{enumerate}[label=(\alph*)]
+\item Show that $\max S = 1$.
+\item Show that if $d$ is a lower bound for $S$, then $d \le 0$.
+\item Use (b) to show that $0 = \inf S$.
+\end{enumerate}
+\end{prbm}
+
+\begin{proof}
+
+\end{proof}
+
+If we are dealing with rational numbers, the sup/inf of a set may not exist. For example, a set of numbers in $\QQ$, defined by $\{[\pi\cdot10^n]/10^n\}$.
+3,3.1,3.14,3.141,3.1415,3.14159,...
+But this set does not have an infimum in $\QQ$.
+
+By ZFC, we have the Completeness Axiom, which states that any non-empty set $A \subset \RR$ that is bounded above has a supremum; in other words, if $A$ is a non-empty set of real numbers that is bounded above, there exists a $M \in \RR$ such that $M = \sup A$.
+
+
+
+
+\begin{prbm}
+Find, with proof, the supremum and/or infimum of $\{\frac{1}{n}\}$.
+\end{prbm}
+
+\begin{proof}
+sup{1/n} = max{1/n} = 1
+inf{1/n}=0 as for all positive a, we can pick n=[1/a]+1, then a>1/n
+\end{proof}
+
+\begin{prbm}
+Find, with proof, the supremum and/or infimum of $\{\sin n\}$.
+\end{prbm}
+
+\begin{proof}
+The answer is easy to guess: $\pm1$
+
+For the supremum, we need to show that $1$ is the smallest we can pick, so for any $a=1-\epsilon<1$ we want to find an integer $n$ close enough to $2k\pi+\dfrac{\pi}{2}$ so that $\sin n > a$.
+
+Whenever we want to show the approximations between rational and irrational numbers we should think of the \textbf{pigeonhole principle}.
+\[ 2k\pi+\frac{\pi}{2}=6k+(2\pi-6)k+\frac{\pi}{2} \]
+Consider the set of fractional parts $\{(2\pi-6)k\}$. Since this an infinite set, for any small number $\delta$ there is always two elements $\{(2\pi-6)a\}<\{(2\pi-6)b\}$ such that
+\[ |\{(2\pi-6)b\}-\{(2\pi-6)a\}|<\epsilon \]
+
+Then $\{(2\pi-6)(b-a)\}<\delta$
+
+We then multiply by some number $m$ (basically adding one by one) so that
+\[ 0 \le \{(2\pi-6)\cdot m(b-a)\}-\brac{2-\frac{\pi}{2}}<\delta \]
+
+Picking $k=m(b-a)$ thus gives
+\begin{align*}
+2k\pi+\frac{\pi}{2} &= 6k+(2\pi-6)k+\frac{\pi}{2} \\
+&= 6k+[(2\pi-6)k]+2+{(2\pi-6)k}-(2-\frac{\pi}{2})
+\end{align*}
+
+Thus $n=6k+[(2\pi-6)k]+2$ satisfies $\absolute{2k\pi+\dfrac{\pi}{2}-n}<\delta$
+
+Now we're not exactly done here because we still need to talk about how well $\sin n$ approximates to 1.
+
+We need one trigonometric fact: $\sin x<x$ for $x>0$. (This simply states that the area of a sector in the unit circle is larger than the triangle determined by its endpoints.)
+
+\begin{align*}
+\sin n &= sin\brac{n-\brac{2k\pi+\frac{\pi}{2}}+\brac{2k\pi+\frac{\pi}{2}}} \\
+&= \cos\brac{n-\brac{2k\pi+\frac{\pi}{2}}} \\
+&= \cos\theta
+\end{align*}
+
+\[ 1 - \sin n = 2 \sin^2 \frac{\theta}{2} = 2 \sin^2 \absolute{\frac{\theta}{2}} \le \frac{\theta^2}{2}<\delta \]
+
+Hence we simply pick $\delta=\epsilon$ to ensure that $1 - \sin n<\epsilon$, and we're done.
+\end{proof}
+
+\begin{thrm}{Archimedean Principle}{}
+If $a,b \in \RR$ with $a>0$, then there exists $n \in \NN$ such that $na>b$.
+\end{thrm}
+\begin{proof}
+Suppose that the Archimedean Property is false. Then there exists $a, b \in \RR, a > 0$ such that $na \le b$ for all $n \in \NN$.
+
+For these particular $a$ and $b$, we can say that $b$ is an upper bound of $S \coloneqq \{na \mid n \in \NN\}$. From the completeness axiom, $s_0 \coloneqq \sup S$ exists. Let $n \in \NN$, we have $n+1 \in \NN$. So $s_0 \ge (n+1)a = na+a$.
+
+Then we have $s_0-a \ge na$. This is true for all $n \in \NN$. So $s_0-a$ is an upper bound of $S$. However, $s_0-a<s_0$, which contradicts that $s_0$ is the least upper bound of $S$. This contradiction shows that the Archimedean Property is true.
+\end{proof}
+% https://mth32015.files.wordpress.com/2015/01/jan-26-30.pdf
+\pagebreak
+
+\section{Completeness}
+\subsection{Completeness axiom}
+\begin{thrm}{Completeness axiom for the real numbers}{}
+Let $A$ be a non-empty subset of $\RR$ that is bounded above. Then $A$ has a supremum.
+\end{thrm}
+
+Any set in the reals bounded from above/below must have a supremum/infimum.
+
+\begin{proof}
+We prove this using Dedekind cuts.
+
+Let $S$ be a real number set. 
+We consider the rational number set $A = \{x \in \QQ \mid \exists y \in S\}$. Set $B$ is defined to be the complement of $A$ in $\QQ$.
+
+We go through the definitions to check that $(A|B)$ is a Dedekind cut.
+\begin{enumerate}
+\item Since $S \neq \emptyset$, pick $y \in S$, then $[y]-1$ is a real number smaller than some element in $S$, hence $[y]-1 \in A$ and thus $A \neq \emptyset$.
+
+Since we're given that $S$ is bounded, $\exists M>0$ as the upper bound for $S$, thus $B \neq \emptyset$.
+
+(Note that an upper bound is simply a number that is bigger than anything from the set, and is not the supremum
+
+\item We defined $B$ to be the complement of $A$ in $\QQ$, so this condition is trivial.
+
+\item For any $x,y \in A$, if $x<y$ and $y\in A$, then $\exists z \in S$ such that $y<z \implies x<z \implies x \in A$.
+
+\item Suppose otherwise that $x \in A$ is the largest element in A, then $\exists y \in S$ such that $x<y$
+We then pick a rational number $z$ between $x$ and $y$. 
+Since we still have $z<y$, we have $z \in A$ but $z>x$, contradictory to $z$ being the largest.
+
+Now there's actually an issue with the proof for property 4 here
+How exactly are we finding z?
+
+First $x \in \QQ$. 
+Then $y \in \RR$ so we rewrite it as $y=(C|D)$ via definition.
+
+$x<y$ translates to the fact that $x \in C$.
+
+Since $y$ is real, by definition we know that $C$ must not have a largest element.
+
+In particular, $x$ is not largest and we can pick $z \in C$ such that $z>x$. 
+This is in fact the $z$ that we need
+\end{enumerate}
+
+Now that all the properties of a real number are validated, we may finally conclude that $\alpha=(A|B)$ is indeed a real number.
+
+Now we need to show that $\alpha = \sup S$.
+
+Let $x \in S$. 
+If $x$ is not the maximum value of $S$, i.e. $\exists y \in S,x<y$, then $x \in A$ and thus $x<\alpha$.
+
+If $x$ is the maximum value of $S$, then for any rational number $y<x$ we have $y \in A$, and for any rational number $y \ge x$ we have $y \in B$.
+Thus $x=(A|B)=\alpha$.
+
+In conclusion, $x \le \alpha$ for all $x \in S$.
+
+For any upper bound $x$ of $S$, since $\forall y \in S, x \ge y$ we have $x \in B$ and thus $x \ge \alpha$.
+
+$\therefore$ $\alpha$ is the smallest upper bound of $S$ and thus $\sup S = \alpha$ exists.
+\end{proof}
+
+\begin{thrm}{Archimedean property of $\NN$}{}
+$\NN$ is not bounded above.
+\end{thrm}
+\begin{proof}
+Suppose, for a contradiction, that $\NN$ is bounded above. Then $\NN$ is non-empty and bounded above, so by completeness (of $\RR$) $\NN$ has a supremum.
+
+By the Approximation property with $\epsilon=\frac{1}{2}$, there is a natural number $n\in\NN$ such that $\sup\NN-\frac{1}{2}<n\le\sup\NN$.
+
+Now $n+1\in\NN$ and $n+1>\sup\NN$. This is a contradiction.
+\end{proof}
+
+\section{Order properties of the real numbers}
+
+\section{Topological properties of the real numbers}
+
+\chapter{Sequences and Series}
+\textbf{References:} Rudin (Chapter 3)
+
+\section{Limit of a sequence}
+\subsection{Definition}
+\begin{defn}{Convergence of sequence}{}
+Let $\{a_n\}$ be a real sequence, let $L \in \RR$. We say that $\{a_n\}$ \textbf{converges} to $L$ as $n \to \infty$ if
+\[ \forall\epsilon>0,\:\exists N \in\NN \text{ such that } \forall n \ge N,\:|a_n-L| < \epsilon. \]
+In this case we write $a_n \to L$ as $n \to \infty$, and we say that $L$ is the \textbf{limit} of $\{a_n\}$.
+
+If $\{a_n\}$ does not converge, then we say that it \textbf{diverges}.
+\end{defn}
+
+\begin{remark}
+Take note of the use of logical statements:
+\begin{itemize}
+\item $\epsilon$ is independent, so it is literally for all $\epsilon>0$.
+\item $N$ is dependent on $\epsilon$; if $\epsilon$ is very small we would expect the sequence $\{a_n\}$ to get close enough to $L$ further down the line.
+\item The order of the quantifiers matters.
+\end{itemize}
+\end{remark}
+
+\begin{exmp}{}{}
+What do we really mean by saying that $\frac{1}{n}\to 0$ as $n\to\infty$?
+
+We mean that the sequence of numbers $\frac{1}{n}$ converges to 0, proven as follows:
+
+\begin{proof}
+$\forall\epsilon>0$, pick $N=\frac{1}{\epsilon}+1$. Then $\forall n>N$,
+\[ \frac{1}{n} < \frac{1}{N} < \frac{1}{\frac{1}{\epsilon}} = \epsilon. \]
+\end{proof}
+\end{exmp}
+
+\subsection{Characteristics of limits}
+\begin{enumerate}
+\item Given a sequence of points $\{x_k\}$ and a point $x\in\RR^n$, $x_k$ converges to $x$ if and only if all neighbourhoods of x ``eventually" contain all $x_k$.
+
+By eventually we mean something similar to the definition above: there exists some large $N$ such that the property is satisfied for all $n>N$.
+
+\begin{proof}
+
+\textbf{Forward direction:} 
+
+If $\{x_k\}$ converges to $x$, we wish to prove: given any neighbourhood $U$ of $x$, $U$ eventually contains all $x_k$.
+
+Since $U$ is a neighbourhood of $x$, we pick a ball of radius $\epsilon$ centered at x, $B(x,\epsilon)$, so that $B(x,\epsilon)$ is contained in $U$.
+
+Then since $B(x,\epsilon)$ is precisely the set of points whose distance to $x$ is no larger than $\epsilon$, we then apply the fact that $\{x_k\}$ converges to $x$.
+
+So for this particular $\epsilon$, we take a natural number $N$ so that $|x_k-x|<\epsilon$, or $x_k \in B(x,\epsilon)$, for all $k>N$.
+
+Then simultaneously $x_k$ are in $U$ since $B(x,\epsilon)$ is a subset of $U$, thus we've shown that $U$ will contain all $x_k$ after a certain point $N$.
+
+\vspace{.5cm}
+
+\textbf{Backward direction:}
+
+Suppose that all neighbourhoods of $x$ will eventually contain all $x_k$, then in particular for any $\epsilon>0$, since $B(x,\epsilon)$ is a neighbourhood of $x$, it will also eventually contain all $x_k$.
+
+This then easily translates to the fact that $\{x_k\}$ converges to $x$.
+\end{proof}
+
+\item \textbf{Uniqueness of the limit}
+
+Suppose that $\{x_k\}$ converges to both $x$ and $x^\prime$, then $x=x^\prime$.
+
+\begin{proof}
+$\forall \epsilon>0$, we know that the terms in $\{x_k\}$ must be less than $\epsilon$ away from its limit after a certain point. 
+
+However, this certain point may not be the same for both limits; for the two limits $x$ and $x^\prime$, we must first assume two separate numbers $N$ and $N^\prime$ so that $|x_k-x|<\epsilon$ when $k>N$, and $|x_k-x^\prime|<\epsilon$ when $k>N^\prime$.
+
+Now if you look at the book here, it says that we have a stronger requirement:
+$|x_k-x|<\epsilon/2$ when $k>N$,
+$|x_k-x^\prime|<\epsilon/2$ when $k>N^\prime$.
+This is simply because we want to prove certain statements strictly by definition
+
+
+
+There is an important detail to take note, regarding $\max\{N,N^\prime\}$.
+
+We're taking the larger one of these, so it means that, after this certain point, we in fact have $|x_k-x|<\frac{\epsilon}{2}$ and $|x_k-x^\prime|<\frac{\epsilon}{2}$ at the same time.
+
+Therefore by triangle inequality,
+\[ |x-x^\prime| \le |x_k-x| + |x_k-x|<\epsilon \]
+The choice of k actually vanished in the final statement; you can think of this as if picking this particular choice of k helps us to establish some kind of property for the original objects
+
+Finally, since we've in fact proven that $|x-x^\prime|<\epsilon$ holds for any given positive $\epsilon>0$, we must have $|x-x^\prime|=0$ and therefore $x=x^\prime$.
+
+Strictly speaking, for the first part we need to explain why $a<\epsilon$ for any positive $\epsilon$ implies that $a \le 0$. 
+This is very easy to prove (by contradiction) so let's not be too redundant
+The second part simply relies on the fact that |x-y| is the Euclidean metric and so by positive definiteness |x-y|=0 if and only if x=y.
+\end{proof}
+
+\item \textbf{Boundedness of converging sequences}
+
+If $\{x_k\}$ converges, then $\{x_k\}$ is bounded.
+
+Obviously this doesn't work the other way around
+
+We simply take the limit $x$ and note that the sequence is eventually contained in some ball centered at $x$, say $B(x,1)$.
+
+There are several outlying points prior to this, but since there are only a finite number of these, it doesn't change the fact that the sequence (viewed as a set) is bounded nevertheless.
+
+This argument is precisely expressed by the construction of r given in the book: let $|x_k-x|<1$ whenever $k>N$, then $\{x_k\}$ is in $B(x,r)$ where $r=\max\{1,|x_1-x|,\dots,|x_N-x|\}$
+
+\item We talk about the relationship between the limit of a sequence and the limit points of a set.
+
+Generally, limit points are a weaker construction.
+
+
+Suppose that $\{x_k\}$ converges to $x$
+If we view $\{x_k\}$ as a set, then $x$ will be a limit point of this set
+
+The converse, however, is not true
+
+Exercise 1: Construct a sequence in R that is bounded and contains a single limit point but is divergent (not convergent)
+
+The thing about convergence of a series is that, unlike for limit points where we only require that there are other points that get arbitrarily close, but moreover we have to ensure that this pattern ensues for each and every term in the sequence
+
+Me:Suppose that $\{x_k\}$ converges to $x$
+If we view $\{x_k\}$ as a set, then $x$ will be a limit point of this set”
+- - - - - - - - - - - - - - -
+Sorry I forgot something crucial about this
+:
+There is the strange possibility that the sequence $\{x_k\}$ is constant
+:
+(or at least eventually constant)
+:
+Then in fact $x$ by definition is not a limit point of $x_k$ because you can find a ball around $x$ that only contains the element $x$ itself, since that point is merely what the entire sequence $\{x_k\}$ amounts to
+:
+Anyways, we simply can't say that a sequence $\{x_k\}$ converges to $x$ if we're only provided with the fact that $x$ is a limit point of $\{x_k\}$
+
+However, we can say the following:
+(d) If $x$ is a limit point of $E$, then there exists a sequence $\{x_n\}$ in $E\setminus x$ such that $\{x_n\}$ converges to $x$
+
+In fact this is correct in both ways so let's rewrite this as follows:
+(d) x is a limit point of $E$, if and only if there exists a sequence $\{x_n\}$ in $E\setminus x$ such that $\{x_n\}$ converges to $x$
+
+($E\setminus x$ is important here, otherwise we simply pick the constant sequence $x_k=x$)
+
+→: If x is a limit point, then for all $\epsilon>0$, $B_0(x,\epsilon)$ contains points in $E$
+We then construct such a sequence $\{x_k\}$ in $E\setminus x$: pick any $x_k \in E$ so that $x_k$ is contained in $B_0(x,1/k)$
+
+Then it is easy to show that $\{x_k\}$ is a sequence in $E\setminus x$ which converges to $x$.
+
+←: Suppose that there exists a sequence $\{x_n\}$ in $E\setminus x$ such that $\{x_n\}$ converges to $x$
+We wish to show that $B_0(x,\epsilon)$ contains points in $E$ for all $\epsilon>0$
+
+Since $\{x_n\}$ converges to $x$, for all $\epsilon>0$ the sequence is eventually contained in $B(x,\epsilon)$
+However because we have the precondition that $\{x_n\}$ has to be in $E\setminus x$, the sequence is in fact eventually contained in $B_0(x,\epsilon)$.
+\end{enumerate}
+
+\section{Subsequences}
+
+
+Properties:
+\begin{enumerate}
+\item $\{x_k\}$ converges to $x$ if and only if every subsequence of $\{x_k\}$ converges to $x$.
+
+We only need to prove this in the forwards direction
+Every subsequence of $\{x_k\}$ can be written in the form $\{x_{k_i}\}$ where $k_1<k_2<\dots$ is a strictly increasing sequence of natural numbers
+
+Intuitively, if every neighbourhood of x eventually contains all $x_k$, then since $\{x_{k_i}\}$ is just a subset of $\{x_k\}$ they should all be contained in the neighbourhood eventually as well.
+For every $\epsilon>0$, pick $N$ such that for $k>N$, $|x_k-x|<\epsilon$.
+Pick $M$ such that $k_M>N$, then for all $i>M$ we have $|x_(k_i)-x|<\epsilon$.
+
+\item Subsequential limits of a sequence are precisely the limit points of the sequence (viewed as a set)
+
+This is just part (d) of the previous section.
+
+Again, to make this work, we need to assume that nothing funny is going on at subsequential limits
+If the limits appear due to eventually constant subsequences, then they need not be limit points of the original sequence when viewed as a set
+
+3.6, 3.7 are precisely the statements we've prepared for last week
+
+\item If $\{x_n\}$ is a sequence in a compact set (bounded closed set), then there exists a convergent subsequence of $\{x_n\}$
+This is Weierstrass-Bolzano together with part (b)
+
+Ah yes, regarding compact sets
+I need to emphasize this again, but the definition that we are currently using for compact sets is not the actual definition
+
+I've sent a video before the lesson which talks about the real definition for compact sets
+Essentially, compact sets satisfies the property akin to the statement in Heine-Borel:
+Given a topological space $(X,\tau)$, a compact set $K$ in $X$ is a set satisfying that, given any open covering $\{U_i\}$ of $X$, there exists a finite open cover $\{U_1,\dots,U_n\}$ of $X$
+
+This is difficult to process at this stage
+Since we're currently only working with Euclidean spaces it would be more beneficial if you consider the Heine-Borel Theorem as a property first
+It would be a lot easier to accept the definition after you're more accustomed to applying the theorem
+
+\item (Rudin 3.7) Subsequential limits form a closed subset
+
+Actually we've done this two weeks before, it is simply saying that A'' is a subset of A'.
+
+
+(A'' is not always A'; consider the set in R² given by
+{(1/n,1/m)|n,m in N}
+Then (1,0),(0,1) are in A' but not in A''
+\end{enumerate}
+
+\section{Cauchy Sequences}
+\begin{defn}{Cauchy sequence}{}
+A sequence $\{x_k\}$ in $\RR^n$ is a \textbf{Cauchy sequence}, if the distances between any two terms is sufficiently small after a certain point.
+
+Formally, this is given by: $\forall \epsilon>0$, there exists integer $N$ such that 
+\[ \forall k,l>N, |x_k-x_l|<\epsilon. \]
+\end{defn}
+
+It is easy to prove that a converging sequence is Cauchy using the triangle inequality. The idea is that, if all the points are becoming arbitrarily close to a given point p, then they are also becoming close to each other. The converse is not always true, however.
+
+\begin{lemma}
+A sequence $\{x_k\}$ in $\RR^n$ is convergent if and only if it is Cauchy.
+\end{lemma}
+
+\begin{proof}
+\textbf{Forward direction:}
+
+Suppose that $\{x_k\}$ converges to $x$, then there exists $N$ such that for $k>N$, $|x_k-x|<\dfrac{\epsilon}{2}$
+Then for $k,l>N$, 
+\[ |x-k-x_l| \le |x_k-x|+|x_l-x| < \epsilon \]
+
+\textbf{Backward direction:}
+
+First, we show that $\{x_k\}$ must be bounded. 
+Pick $N$ such that for all $k,l>N$ we have $|x_k-x_l|<1$. 
+Centered at $x_k$, we show that $\{x_k\}$ is bounded; to do this we pick
+\[ r = \max\{1,|x_k-x_1|,\dots,|x_k-x_N|\} \]
+Then the sequence ${x_k}$ is in $B(x_k,r)$ and thus is bounded.
+
+Since $\{x_k\}$ is bounded, by the collolary of Bolzano-Weierstrass we know that $\{x_k\}$ contains a subsequence $\{x_{k_i}\}$ that converges to a limit $x$.
+
+Then for all $\epsilon>0$, pick $N_1$ such that for all $k,l>N$, $|x_k-x_l|<\dfrac{\epsilon}{2}$. 
+Simultaneously, since $\{x_{k_i}\}$ converges to $x$, pick $M$ such that for $i>M$, $|x_{k_i}-x|<\dfrac{\epsilon}{2}$.
+
+Now, since $k_1<k_2<\dots$ is a sequence of strictly increasing natural numbers, we can pick $i>M$ such that $k_i>N$. Then for all $k>N$, by setting $l=k_i$ we obtain
+\[ |x_k-x_{k_i}| < \frac{\epsilon}{2}, \quad |x_{k_i}-x| < \frac{\epsilon}{2} \]
+and hence
+\[ |x_k-x| \le |x_k-x_{k_i}|+|x_{k_i}-x| < \epsilon \]
+\end{proof}
+
+\section{Upper and Lower Limits}
+
+\section{Limits of multiple sequences}
+
+\chapter{Continuity}
+\section{Limit of Functions}
+\begin{defn}{Limit}{}
+Let $X$ and $Y$ be metric spaces; suppose $E \subset X$, $f:E\to Y$ and $p$ is a limit point of $E$. We write $f(x) \to q$ as $x \to p$, or
+\[ \lim_{x\to p}f(x)=q \]
+if there is a point $q \in Y$ with the following property: $\forall \epsilon > 0 \exists \delta > 0$ such that \[ d_Y(f(x), q) < \epsilon \] for all points $x \in E$ for which \[ 0 < d_X(x, p) < \delta. \]
+\end{defn}
+
+\begin{remark}
+The symbols $d_X$ and $d_Y$ refer to the distances in $X$ and $Y$ respectively. If $X$ and/or $Y$ are replaced by the real line, the complex plane, or some euclidean space $\RR^k$, the distances $d_X$ and $d_Y$ are replaced by absolute values, or by norms of differences.
+\end{remark}
+
+We can recast this definition in terms of limits of sequences:
+\[ \lim_{n\to\infty}f(p_n)=q \]
+for every sequence $(p_n) \in E$ so that $p_n \neq p$ and $\lim_{n\to\infty} p_n = p$.
+
+By the same proofs as for sequences, limits are unique, and in R they add/multiply/divide as expected.
+
+\begin{defn}{Continuity}{}
+$f$ is continuous at $p$ if
+\[ \lim_{x\to p}f(x) = f(p). \]
+In the case where $p$ is not a limit point of the domain $E$, we say $f$ is continuous at $p$. If $f$ is continuous at all points of $E$, then we say $f$ is continuous on $E$.
+\end{defn}
+
+\section{Continuous Functions}
+
+\section{Continuity and Compactness}
+
+\section{Continuity and Connectedness}
+
+\section{Discontinuities}
+
+\section{Monotonic Functions}
+
+\section{Infinite Limits and Limits at Infinity}
+
+\chapter{Sequences and Series of Functions}

@@ -1,0 +1,667 @@
+\part{Number Theory}
+\chapter{Divisibility}
+\begin{itemize}
+\item \href{https://s3.amazonaws.com/aops-cdn.artofproblemsolving.com/resources/articles/olympiad-number-theory.pdf}{Olympiad Number Theory Through Challenging Problems}
+\item \href{https://web.math.ucsb.edu/~agboola/teaching/2021/fall/8/liebeck.pdf}{A Concise Introduction to Pure Mathematics, Fourth Edition}
+\item \href{https://artofproblemsolving.com/articles/files/SatoNT.pdf}{NT notes}
+\end{itemize}
+
+\section{Division Algorithm}
+\begin{thrm}{Division Algorithm}{}
+For every integer pair $a$ and $b$, there exists distinct integer \textbf{quotient} and \textbf{remainder}, denoted by $q$ and $r$ respectively, that satisfy
+\[ a = bq + r, \quad \text{ where } 0 \le r < b \]
+\end{thrm}
+
+\begin{defn}{Divisible}{}
+An integer $b$ is said to be \textbf{divisible} by an integer $a \neq 0$, denoted by $a \mid b$, if there exists some integer $c$ such that $b = ac$. 
+
+We write $a \nmid b$ to indicate that $b$ is not divisible by $a$.
+\end{defn}
+
+\begin{remark}
+If $a$ is a divisor of $b$, then $b$ is also divisible by $-a$, so the divisors of an integer always occur in pairs. To find all the divisors of a given integer, it is sufficient to obtain the positive divisors and then adjoin them to the corresponding negative integers. For this reason, we usually limit ourselves to the consideration of the positive divisors.
+\end{remark}
+
+Using the definition above, for integers $a$, $b$, $c$, the following properties hold:
+\begin{enumerate}[label=(\roman*)]
+\item $a \mid 0$, $1\mid a$, $a \mid a$
+\item $a \mid 1$ if and only if $a = \pm 1$
+\item If $a \mid b$ and $c \mid d$, then $ac \mid bd$
+\item If $a \mid b$ and $b \mid c$, then $a \mid c$
+\item $a \mid b$ and $b \mid a$ if and only if $a = \pm b$
+\item If $a \mid b$ and $b \neq 0$, then $a \le b$
+\item If $a \mid b$ and $a \mid c$ , then $a \mid(bx + cy)$ for arbitrary integers $x$ and $y$.
+\end{enumerate}
+
+\begin{remark}
+Property (vii) extends by induction to sums of more than two terms. That is, if $a \mid bk$ for $k=1,2,\dots,n$, then
+\[  a \mid(b_1x_1 + b_2x_2 + \dots + b_n x_n) \]
+for all integers $x_i$.
+\end{remark}
+\pagebreak
+
+\section{Greatest Common Divisor and Lowest Common Multiple}
+\subsection{Greatest Common Divisor (GCD)}
+Of special significance is the case in which the remainder in the Division Algorithm turns out to be zero.
+
+Let $a$ and $b$ be two non-zero integers.
+
+\begin{defn}{Greatest common divisor}{}
+The \vocab{greatest common divisor} of $a$ and $b$, denoted by $\gcd(a,b)$, is the \emph{largest} positive integer $d$ where $d \mid a$ and $d \mid b$.
+\end{defn}
+
+\begin{defn}{Coprime}{}
+$a$ and $b$ are said to be \vocab{coprime} (or relatively prime) when $\gcd(a,b)=1$.
+\end{defn}
+
+\subsection{Lowest Common Multiple (LCM)}
+\begin{defn}{Lowest common multiple}{}
+The \vocab{lowest common multiple} of $a$ and $b$, denoted by $\lcm(a,b)$, is the \emph{smallest} positive integer $m$ where $a \mid m$ and $b \mid m$.
+\end{defn}
+
+\begin{thrm}{}{}
+For positive integers $a$ and $b$,
+\[ \gcd(a,b) \times \lcm(a,b) = ab. \]
+\end{thrm}
+
+\subsection{Primes}
+\begin{defn}{Prime and composite numbers}{}
+An integer $p > 1$ is \vocab{prime} if its only positive divisors are 1 and $p$. 
+
+It is \vocab{composite} if it is not prime.
+\end{defn}
+
+\begin{thrm}{Prime Number Theorem}{}
+The \textbf{Riemann Zeta Function} describes the distribution of prime numbers. For a positive real $x$, the function $\pi(x)$ denotes the number of primes less than or equal to $x$.
+
+Then the number of primes not exceeding $x$ is asymptotic to $\dfrac{x}{\ln x}$; that is,
+\[ \lim_{x\to\infty}\pi(x)=\frac{x}{\ln x} \]
+\end{thrm}
+
+Also, regarding prime numbers,
+\begin{thrm}{Euler}{}
+There are infinitely many primes.
+\end{thrm}
+
+\begin{proof}
+We prove this by contradiction. Suppose there is only a finite number $m$ of primes, say $p_1 < p_2 < \dots < p_m$. Consider the number $P = p_1 p_2\cdots p_m +1$. 
+
+\textbf{Case 1:} If $P$ is prime, then $P > p_m$, contradicting the maximality of $p_m$. 
+
+\textbf{Case 2:} If $P$ is composite, it has a prime divisor $p_k>1$ which is one of $p_1,p_2,\dots,p_m$. Then it follows that $p_k \mid p_1 p_2\cdots p_m +1$. But this means that $p_k\mid 1$, which is a contradiction.
+\end{proof}
+
+\begin{thrm}{Fundamental Theorem of Arithmetic}{}
+Every positive integer $n>1$ is either a prime or a product of primes; this representation is unique, apart from the order in which the factors occur.
+\end{thrm}
+
+\begin{proof}
+We prove this by strong induction. Consider some integer $n > 1$. Either it is prime or it is composite. 
+
+\textbf{Case 1:} If $n$ is prime, we are done. 
+
+\textbf{Case 2:} If $n$ is composite, then there exists an integer $d \mid n$ and $1 < d < n$. Among all such integers $d$, choose the smallest, say $p_1$. Then $p_1$ must be prime. Hence we can write $n = p_1 n_1$ for some integer $n_1$ satisfying $1 < n_1 < n$. This completes the induction.
+\end{proof}
+\pagebreak
+
+\section{Euclidean Algorithm}
+Before introducing the Euclidean Algorithm, we need to prove this fact:
+\begin{proposition}
+For integers $a$ and $b$, 
+\[ \gcd(a,b) = \gcd(a-b,b) \]
+\end{proposition}
+\begin{proof}
+
+\end{proof}
+
+The Euclidean Algorithm makes use of the following properties:
+\begin{itemize}
+\item $\gcd(a,0) = a$
+\item $\gcd(a,b) = \gcd(a-b,b)$
+\end{itemize}
+
+The Euclidean Algorithm may be described as follows: Let a and b be two integers whose greatest common divisor is desired. WLOG $a \ge b > 0$. 
+The first step is to apply the Division Algorithm to a and b to obtain
+\[ a = q_1b + r_1 \quad 0 \le r_1 < b \]
+
+In the case where $r_1 = 0$, then $b | a$ and $\gcd(a, b) = b$. When $r_1 \neq 0$, divide $b$ by $r_1$ to obtain integers $q_2$ and $r_2$ satisfying
+\[ b = q_2r_1 + r_2 \quad 0 \le r_2 < r_1 \]
+
+If $r_2 = 0$, we stop; otherwise, proceed as before to obtain
+\[ r_1 = q_3r_2 + r_3 \quad 0 \le r_3 < r_2 \]
+
+This division process continues until some zero remainder appears, say at the $(n+1)$-th step where $r_{n+1}$ is divided by $r_n$ Note that this process will stop eventually as the strictly decreasing sequence $b > r_1 > r_2 > \dots > r_{n+1} > r_{n+2} = 0$ cannot contain more than $b$ integers.
+
+The result is the following sequence of equations (or operations):
+\begin{align*}
+a &= q_1b + r_1 & 0 \le r_1 < b \\
+b &= q_2r_1 + r_2 & 0 \le r_2 < r_1 \\
+r_1 &= q_3r_2 + r_3 & 0 \le r_3 < r_2 \\
+\vdots \\
+r_{n-2} &= q_nr_{n-1} + r_n & 0 \le r_n < r_{n-1} \\
+r_{n-1} &= q_{n+1} r_n + 0
+\end{align*}
+
+The claim is that the last nonzero remainder $r_n = \gcd(a,b)$. 
+
+\begin{exmp}{}{}
+Find $\gcd(682,264)$.
+\end{exmp}
+\begin{proof}[Solution]
+\begin{align*}
+682 &= 3(264) -110 \\
+264 &= 2(110) + 44 \\
+110 &= 2(44) + 22 \\
+44 &= 2(22) + 0
+\end{align*}
+Hence $\gcd(682,264)=\boxed{22}$.
+\end{proof}
+
+\section{Divisibility Rules}
+These divisibility rules help determine when positive integers are divisible by particular other integers. All of these rules apply for base-10 only -- other bases have their own, different versions of these rules.
+
+\begin{itemize}
+\item 2 and powers of 2
+
+A number is divisible by $2^n$ if and only if the last $n$ digits of the number are divisible by $2^n$. Thus, in particular, a number is divisible by 2 if and only if its units digit is divisible by 2, i.e. if the number ends in 0, 2, 4, 6 or 8.
+
+\item 3 and 9
+
+A number is divisible by 3 or 9 if and only if the sum of its digits is divisible by 3 or 9, respectively. Note that this does not work for higher powers of 3. For instance, the sum of the digits of 1899 is divisible by 27, but 1899 is not itself divisible by 27.
+
+\item 5 and powers of 5
+A number is divisible by $5^n$ if and only if the last $n$ digits are divisible by that power of 5.
+
+\item 7
+
+Partition $N$ into 3 digit numbers from the right ($d_3d_2d_1,d_6d_5d_4,\dots$). The alternating sum ($d_3d_2d_1 - d_6d_5d_4 + d_9d_8d_7 - \dots$) is divisible by 7 if and only if $N$ is divisible by 7.
+
+\item 10 and powers of 10
+
+If a number is power of 10, define it as a power of 10. The exponent is the number of zeros that should be at the end of a number for it to be divisible by that power of 10.
+
+Example: A number needs to have 6 zeroes at the end of it to be divisible by 1,000,000 because $1,000,000=10^6$.
+
+\item 11
+
+A number is divisible by 11 if and only if the alternating sum of the digits is divisible by 11.
+
+\item 13
+
+Partition $N$ into 3 digit numbers from the right ($d_3d_2d_1,d_6d_5d_4,\dots$). The alternating sum ($d_3d_2d_1 - d_6d_5d_4 + d_9d_8d_7 - \dots$) is divisible by 13 if and only if $N$ is divisible by 13.
+
+\item 17
+
+Truncate the last digit, multiply it by 5 and subtract from the remaining leading number. The number is divisible if and only if the result is divisible. The process can be repeated for any number.
+
+\item 19
+
+Truncate the last digit, multiply it by 2 and add to the remaining leading number. The number is divisible if and only if the result is divisible. This can also be repeated for large numbers.
+
+\item 29
+
+Truncate the last digit, multiply it by 3 and add to the remaining leading number. The number is divisible if and only if the result is divisible. This can also be repeated for large numbers.
+\end{itemize}
+
+\chapter{Modular Arithmetic}
+% https://sites.millersville.edu/bikenaga/abstract-algebra-1/modular-arithmetic/modular-arithmetic.pdf
+
+\section{Definition}
+\begin{defn}{Modulo}{}
+Given integers $a$, $b$, and $n$, with $n > 0$, we say that $a$ is congruent to $b$ modulo $n$, or $a \equiv b \pmod n$, if the difference $a-b$ is divisible by $n$.
+\end{defn}
+
+\subsection{Modular operations}
+Consider four integers $a,b,c,d$ and positive integer $n$ such that $a \equiv b \pmod n$ and $c \equiv d \pmod n$. In modular arithmetic, the following identities hold:
+\begin{itemize}
+\item Addition: $a+c\equiv b+d\pmod n$.
+\item Subtraction: $a-c\equiv b-d\pmod n$.
+\item Multiplication: $ac\equiv bd\pmod n$.
+\item Division: $\dfrac{a}{e}\equiv \dfrac{b}{e}\pmod {\dfrac{n}{\gcd(n,e)}}$, where $e$ is a positive integer that divides ${a}$ and $b$.
+\item Exponentiation: $a^e\equiv b^e\pmod n$ where $e$ is a positive integer.
+\end{itemize}
+
+\subsection{Integers modulo $n$}
+The relation $a \equiv b \pmod{n}$ allows us to divide the set of integers into sets of equivalent elements. For example, if $n = 3$, then the integers are divided into the following sets:
+\[ \{ \dots, -6, -3, 0, 3, 6, \dots \} \]
+\[ \{ \dots, -5, -2, 1, 4, 7, \dots \} \]
+\[ \{ \dots, -4, -1, 2, 5, 8, \dots \} \]
+
+Notice that if we pick two numbers $a$ and $b$ from the same set, then $a$ and $b$ differ by a multiple of $3$, and therefore $a \equiv b \pmod{3}.$
+
+We sometimes refer to one of the sets above by choosing an element from the set, and putting a bar over it. For example, the symbol $\bar{0}$ refers to the set containing $0$; that is, the set of all integer multiples of $3$. The symbol $\bar{1}$ refers to the second set listed above, and $\bar{2}$ the third. The symbol $\bar{3}$ refers to the same set as $\bar{0}$, and so on.
+
+Instead of thinking of the objects $\bar{0}$, $\bar{1}$, and $\bar{2}$ as sets, we can treat them as algebraic objects -- like numbers -- with their own operations of addition and multiplication. Together, these objects form the integers modulo $3$, or $\mathbb{Z}_3$. More generally, if $n$ is a positive integer, then we can define
+\[ \ZZ_n = \{\bar{0}, \bar{1}, \bar{2}, \ldots, \bar{n-1} \}, \]
+where for each $k$, $\bar{k}$ is defined by
+\[ \bar{k} = \{ m \in \ZZ \suchthat m \equiv k \pmod n \}. \]
+
+\subsection{Addition, Subtraction, and Multiplication mod $n$}
+We define addition, subtraction, and multiplication in $\ZZ_n$ according to the following rules:
+\begin{itemize}
+\item Addition: $\bar{a} + \bar{b} = \overline{a+b}$ for all $a, b \in \ZZ$.
+\item Subtraction: $\bar{a} - \bar{b} = \overline{a-b}$ for all $a, b \in \ZZ$.
+\item Multiplication: $\bar{a} \cdot \bar{b} = \overline{ab}$ for all $a, b \in \ZZ$.
+\end{itemize}
+\pagebreak
+
+\section{Modular inverse}
+For coprime $a$ and $n$, there exists an inverse of $a \pmod n$. In other words, there exists $b$ such that 
+\[ ab \equiv 1 \pmod n \]
+
+We can find the modular inverse using the extended Euclidean algorithm.
+
+\begin{exmp}{}{}
+Solve the following modular equation.
+\[ 7x \equiv 1 \pmod {26} \]
+\end{exmp}
+\begin{solution}
+Compute GCD and keep the tableau:
+\[ \gcd(26,7) = \gcd(7,5) = \gcd(5,2) = \gcd(2,1) = \gcd(1,0) = 1 \]
+
+Solve the equations for $r$ in the tableau:
+\begin{align*}
+a &= qb + r \\
+26 &= 3(7) + 5 \\
+7 &= 1(5) + 2 \\
+5 &= 2(2) + 1
+\end{align*}
+
+Back substitute the equations for $r$:
+\begin{align*}
+1 &= 5 - 2 \times (7 - 1 \times 5) \\
+&= (-2) \times 7 + 3 \times 5 \\
+&= (-2) \times 7 + 3 \times (26 - 3 \times 7) \\
+&= 3 \times 26 + (-11) \times 7
+\end{align*}
+
+Modular inverse of $7 \pmod {26}$ is $-11 \pmod {26} = 15$. Hence $x = 26k + 15$ for $k\in\ZZ$.
+\end{solution}
+\pagebreak
+
+\section{Orders Modulo A Prime}
+https://web.evanchen.cc/handouts/ORPR/ORPR.pdf
+
+\section{Theorems}
+For $n={p_1}^{a_1} {p_2}^{a_2} \dots {p_k}^{a_k}$,
+\begin{itemize}
+\item Number of factors: 
+\[ \tau(n) = \prod_{i=1}^k (a_i+1) \]
+\item Sum of factors:
+\[ d(n) = \prod_{i=1}^k (1+p_i+\cdots+{p_i}^{a_i}) \]
+\item Number of positive integers less than $n$ which are coprime to $n$:
+\[ \phi(n) = n \prod_{i=1}^k \left(1-\frac{1}{p_i}\right) \]
+This is known as the \textbf{totient function}.
+\end{itemize}
+
+\begin{thrm}{Fermat's Little Theorem}{}
+For prime $p$ and $1 \le a < p$,
+\begin{equation}
+a^p \equiv a \pmod p 
+\end{equation} 
+\end{thrm}
+\begin{proof}
+We prove by induction.
+
+The base case $a=1$ is obviously true: $1^p \equiv 1 \pmod p$.
+
+For the inductive hypothesis, assume $a^p \equiv a \pmod p$. We want to show that $(a+1)^p \equiv a+1 \pmod p$.
+
+By binomial theorem, 
+\[ (a+1)^p = a^p + \binom{p}{1}a^{p-1} + \binom{p}{2}a^{p-2} + \cdots + \binom{p}{p-1}a + 1 \]
+
+$\because p \mid p!, p \nmid k!, p \nmid (p-k)! \therefore p \mid \binom{p}{k}$
+
+This gives us 
+\begin{align*}
+(a+1)^p &\equiv a^p+1 \pmod p \\
+&\equiv a+1 \pmod p
+\end{align*}
+
+$\therefore a^p \equiv a \pmod p$ for all positive $a$.
+\end{proof}
+
+\begin{exmp}{}{}
+If $n\in\NN$ and $\gcd(n,35)=1$, prove that $n^{12} \equiv 1 \pmod 35$.
+\end{exmp}
+\begin{proof}
+By Fermat's Little Theorem,
+\[ n^4 \equiv 1 \pmod 5 \iff n^{12} \equiv 1 \pmod 5 \]
+\[ n^6 \equiv 1 \pmod 7 \iff n^{12} \equiv 1 \pmod 7 \]
+$\therefore n^{12} \equiv 1 \pmod 35$
+\end{proof}
+
+\begin{thrm}{Euler's Totient Theorem}{}
+For coprime $a$ and $n$, 
+\begin{equation} a^{\phi(n)} \equiv 1 \pmod n \end{equation}
+\end{thrm} 
+
+\begin{thrm}{Wilson's Theorem}{} 
+For odd prime $p$, 
+\begin{equation} (p-1)! \equiv -1 \pmod p \end{equation}
+\end{thrm}
+
+\begin{thrm}{Chinese Remainder Theorem}{}
+Given pairwise coprime positive integers $n_i$ and arbitrary integers $a_i$, the system of simultaneous congruences 
+\begin{align*} 
+x &\equiv a_1 \pmod {n_1} \\ 
+x &\equiv a_2 \pmod {n_2} \\ 
+&\vdots \\ 
+x &\equiv a_k \pmod {n_k} 
+\end{align*} 
+has a unique solution modulo $n_1 n_2 \cdots n_k$.
+\end{thrm}
+
+\begin{exmp}{}{}
+Find the set of values of $n$ that satisfy the following system of modular equations.
+\[ \begin{cases}
+n \equiv 4 \pmod 5 \\
+n \equiv 5 \pmod 9 \\
+n \equiv 3 \pmod {11}
+\end{cases} \]
+\end{exmp}
+\begin{solution}
+From the first equation, let $n=4+5x$. Substituting this into the second equation gives $4+5x \equiv 5 \pmod 9$, which reduces to $x \equiv 2 \pmod 9$.
+
+Let $x=2+9y$. Substituting this into the third equation gives $14+45y \equiv 3 \pmod 11$, which reduces to $y \equiv 0 \pmod 11$. 
+
+Let $y=0+11z$. Substituting expressions for $x$ and $y$ into $n=4+5x$ gives $n=14+495z$. Hence the set of values are $\{z\in\ZZ \mid 14+495z\}$.
+
+\begin{remark}
+To check our answer, using the Chinese Remainder Theorem, we can see that there is indeed a unique solution modulo $5 \times 9 \times 11 = 495$.
+\end{remark}
+\end{solution}
+\pagebreak
+
+\section{Quadratic Residues}
+\begin{defn}{Quadratic residue}{}
+For prime $p$ and integer $a$, $a$ is a \textbf{quadratic residue} modulo $p$ if there is a perfect square in the congruence class $a \pmod p$.
+\[ x^2 \equiv a \pmod p \]
+
+Otherwise, $a$ is a non-quadratic residue modulo $p$.
+\end{defn}
+
+Some examples:
+\begin{align*}
+n^2 &\equiv 0/1 \pmod 3 \\
+n^2 &\equiv 0/1 \pmod 4 \\
+n^2 &\equiv 0/1/4 \pmod 5 \\
+n^2 &\equiv 0/1/4 \pmod 8
+\end{align*}
+
+Notice that the numbers that are colored above are in the order of $\{1,4,9,5,3,3,5,9,4,1\}$. That is, the first number and the last number are equal; the second number and the second last number are equal; the third number and the third last number are equal, and so on. This is because $x^2 \equiv (-x)^2 \pmod p$, so the squares of the first half of the nonzero numbers mod $p$ give a complete list of the nonzero quadratic residues mod $p$. In general, we have the following fact:
+\begin{proposition}
+If $p$ is an odd prime, the residue classes of $0^2,1^2,\dots,(\frac{p-1}{2})^2$ are distinct and give a complete list of the quadratic residues modulo $p$. So there are $\frac{p-1}{2}$ residues and $\frac{p-1}{2}$ non-residues.
+\end{proposition}
+\begin{proof}
+They give a complete list because $x^2$ and $(p-x)^2$ are congruent mod $p$. To see that they are distinct, note that 
+\begin{align*}
+x^2 \equiv y^2 \pmod p
+&\iff p \mid x^2-y^2 \\
+&\iff p \mid (x+y)(x-y) \\
+&\iff p \mid x+y \text{ or } p \mid x-y
+\end{align*}
+which is impossible if $x$ and $y$ are two different members of the set $\{0,1,\dots,\frac{p-1}{2}\}$.
+\end{proof}
+
+\begin{exmp}{CANADA 1969}{}
+Show that there are no integers $a,b,c$ for which 
+\[ a^2+b^2-8c=6. \]
+\end{exmp}
+
+\begin{proof}
+Using quadratic residues, all perfect squares are equivalent to $0,1,4\pmod8$. Hence, the problem statement is equivalent to $a^2+b^2\equiv 6\pmod8$. It is impossible to obtain a sum of $6$ with two of $0,1,4$, so our proof is complete.
+\end{proof}
+\pagebreak
+
+\subsection{Legendre symbol}
+\begin{defn}{Legendre symbol}{}
+For any integer $a$ and prime $p$, we define
+\begin{equation}
+\brac{\frac{a}{p}} = 
+\begin{cases}
+    0 & p \mid a \\
+	1 & p \nmid a \text{ and } x^2 \equiv a \pmod p \text{ has solutions}\\
+	-1 & p \nmid a \text{ and } x^2 \equiv a \pmod p \text{ has no solutions}
+\end{cases}
+\end{equation}
+\end{defn}
+
+In other words, the Legendre symbol returns the following values:
+\begin{itemize}
+\item 0 if $n$ is divisible by $p$;
+\item 1 if $n$ is a non-zero quadratic residue modulo $p$; and
+\item -1 if $a$ is a non-quadratic residue modulo $p$.
+\end{itemize}
+
+Properties of the Legendre Symbol:
+\begin{enumerate}
+\item Euler's Criterion
+
+\begin{thrm}{Euler's Criterion}{}
+Let $p$ be an odd prime and let $a$ be an integer not divisible by $p$, then
+\begin{equation}
+\leg{a}{p} \equiv a^{\frac{p-1}{2}} \pmod p
+\end{equation}
+\end{thrm}
+
+\begin{proof}
+By Fermat's little theorem, $a^(p-1) \equiv 1 \pmod p$, so $\brac{a^{\frac{p-1}{2}}}^2 - 1 \equiv 0 (mod p)$.
+
+The LHS can be factorised, and one of them must be divisible by $p$ due to the above.
+
+If $a$ is a non-zero quadratic residue modulo $p$, then $a \equiv x^2 \pmod p$ where $x \neq 0$; taking the $\frac{p-1}{2}$-th power on both sides give $a^{\frac{p-1}{2}} \equiv 1 \pmod p$.
+
+We claim that for all non-quadratic residues a we have $a^{\frac{p-1}{2}} \equiv -1 \pmod p$. This is sufficient as its contrapositive gives the following statement: if $a^{\frac{p-1}{2}} \equiv 1 \pmod p$, then $a$ is a nonzero quadratic residue modulo $p$. So the iff case is derived automatically.
+
+For this one we need the following fact from abstract algebra: 
+\begin{lemma}
+Let $P(x)$ be a polynomial of degree $n$, then $P(x) \equiv 0 \pmod p$ has at most $n$ roots modulo $p$.
+\end{lemma}
+
+Now consider the modular equation
+$x^{\frac{p-1}{2}} \equiv 1 \pmod p$.
+
+As we've proven above, all non-zero quadratic residues modulo $p$ are roots to the above equation. 
+
+However, we can actually show that there are at least $\frac{p-1}{2}$ quadratic residues by direct constructions: Consider the set of congruence classes modulo $p$ denoted by  
+
+Now we consider $\{1^2,2^2,\dots,(p-1)^2\}$. If the congruence class $a \pmod p$ lies in the above set, then by construction we know that $a$ is a quadratic residue modulo $p$. Conversely, if $a$ is a quadratic residue modulo $p$, then some of the elements in $\{1^2,2^2,\dots,(p-1)^2\}$ correspond to $a$.
+
+However, there are in fact at most two of them that are actually $a$. This is because the element must satisfy $x^2 \equiv a \pmod p$, and $x^2-a$ is a polynomial of degree 2. So there are at most two roots, meaning at most two elements. In fact we know exactly which of the elements are the same: $x^2 \equiv (p-x)^2 \pmod p$. So the set of quadratic residues is precisely the set $\{1^2,2^2,\dots,(\frac{p-1}{2})^2\}$.
+
+And thus, there are at least $\frac{p-1}{2}$ quadratic residues modulo $p$ (Note that at this point we still haven't proven the fact that $\{1^2,2^2,\dots,(\frac{p-1}{2})^2\}$ accounts for all quadratic residues; we're very close though)
+
+The final step is to combine the two:
+1. $x^\frac{p-1}{2} \equiv 1 \pmod p$ has at most $\frac{p-1}{2}$ roots
+2. Since $x^2 \equiv a$ has at most 2 roots, there are at least $\frac{p-1}{2}$ quadratic residues, each satisfying $x^\frac{p-1}{2} \equiv 1 \pmod p$.
+
+Therefore, if $a$ is a non-quadratic residue modulo $p$, the congruence class a (mod p) is distinct from all elements in $\{1^2,\dots,(p-1)^2\}$ and thus together with the at least $\frac{p-1}{2}$ quadratic residues in $\{1^2,\dots,(p-1)^2\}$, there will be more than (p-1)/2 distinct roots in $x^{\frac{p-1}{2}} \equiv 1 \pmod p$, a contradiction.
+
+This finally proves that $a^{\frac{p-1}{2}} \equiv -1 \pmod p$, and everything falls into place due to this.
+\end{proof}
+
+\item Multiplicity
+
+For prime $p$ and integers $a$, $b$ not divisible by $p$,
+\[ \leg{a}{p} \leg{b}{p} = \leg{ab}{p} \]
+
+\begin{proof}
+This follows from Euler's Criterion.
+
+1b) is a direct consequence of 1a), although there is in fact a way to prove this directly
+:
+The nontrivial deduction is that the product of two nonquadratic residues must be a quadratic residue
+:
+First note that the proof in 1a) actually provided a proof for 1c)
+:
+Now that I think about it, this feels strange because we are still referring to the proof of 1a)
+The thing is that, if we know 1c), then we can show 1b)
+\end{proof}
+
+\item For odd prime $p$, then there are an equal number of non-zero quadratic residues and non-quadratic residues modulo $p$.
+
+\item Gauss' Lemma
+
+\begin{thrm}{Gauss' Lemma}{}
+For odd prime $p$ and integer $a$ where $p \nmid a$,
+\[ \leg{a}{p} = (-1)^n \]
+where $n$ is the number of integers $0 < k < \frac{p}{2}$ such that $k \cdot a$ belongs to the congruence class $m \pmod p$ where $\frac{p}{2} < m < p$.
+\end{thrm}
+
+\item Second Supplementary Law
+
+\begin{thrm}{Second Supplementary Law}{}
+For odd prime $p$,
+\[ \leg{2}{p} = (-1)^{\frac{p^2-1}{8}} \]
+\end{thrm}
+
+\item Eisenstein’s Lemma
+
+\begin{thrm}{Eisenstein’s Lemma}{}
+For distinct odd primes $p$ and $q$,
+\begin{equation}
+\leg{q}{p} = (-1)^\alpha
+\end{equation}
+where
+\[ \alpha = \sum_{k=1}^{\frac{p-1}{2}}\floor{\frac{kq}{p}} \]
+\end{thrm}
+
+\item Law of Quadratic Reciprocity
+
+\begin{thrm}{Law of Quadratic Reciprocity}{}
+For distinct odd primes $p$ and $q$, 
+\begin{equation}
+\leg{p}{q} \leg{q}{p} = (-1)^{\frac{p-1}{2}\cdot\frac{q-1}{2}}
+\end{equation}
+\end{thrm}
+
+\begin{proof}
+Evaluate the product $a \cdot 2a \cdots \frac{p-1}{2}a \pmod p$ in two different ways. By rearranging terms, we get
+\[ a^\frac{p-1}{2} \brac{\frac{p-1}{2}}! \]
+But the product can also be evaluated by noticing that each of the distinct integers in Gauss's lemma is either $x$ or $p-x$ for $1 \le x \le \frac{p-1}{2}$, and showing that each of the $x$'s is distinct. Multiplying them together modulo $p$ gives $(\frac{p-1}{2})!$ multiplied by $n$ minus signs due to the number of $p-x$ terms of which there are $n$, hence the sign is $(-1)^n$. The result follows by Euler's criterion and cancelling the $(\frac{p-1}{2})!$.
+\end{proof}
+\end{enumerate}
+
+Special cases
+\begin{itemize}
+\item $\brac{\dfrac{-1}{p}} = (-1)^{\frac{p-1}{2}}$
+\item $\brac{\dfrac{2}{p}} = (-1)^{\frac{p^2-1}{8}}$
+\item $\brac{\dfrac{-3}{p}} = \begin{cases}
+    1 & \quad p=1\pmod 6 \\
+    -1 & \quad p=5\pmod 6
+\end{cases}$
+\item $\brac{\frac{5}{p}} = \begin{cases}
+    1 & \quad p=1,9\pmod {10} \\
+    -1 & \quad p=3,7\pmod {10}
+\end{cases}$
+\end{itemize}
+
+\chapter{Diophantine Equations}
+\section{Linear diophantine equation}
+One famous problem is the McNugget Numbers. 
+McNugget Numbers (Henri Picciotto, 1980s)
+I Original boxes had 6, 9, and 20 nuggets.
+I Worked out the largest non-McNugget number on a napkin.
+I g(6, 9, 20) = 43.
+
+A Diophantine equation in the form $ax+by=c$ is known as a linear combination. There will always be an infinite number of solutions when $\gcd(a,b)=1$ and $\gcd(a,b)\mid c$.
+
+\begin{thrm}{Bezout's Lemma}{}
+For non-zero integers $a$ and $b$, let $d = \gcd(a,b)$, there exists integers $x$ and $y$ that satisfy
+\[ ax + by = d. \] 
+\end{thrm}
+
+An important case: 
+\[ ax+by=1, x,y\in\ZZ \iff a,b \text{ coprime} \]
+
+\begin{exmp}{}{}
+Find integers $x$ and $y$ that satisfy \[ 102x+38y=2.\] 
+\end{exmp}
+
+\begin{proof}[Solution]
+Apply the extended Euclidean algorithm on $a$ and $b$ to calculate $\gcd(a,b)$:
+\begin{align*}
+102 &= 2 \times 38 + 26\\
+38 &= 1 \times 26 + 12\\
+26 &= 2 \times 12 + 2\\
+12 &= 6 \times 2 + 0\\
+6 &= 3 \times 2 + 0
+\end{align*}
+Work backwards and substitute the numbers from above:
+\begin{align*}
+2 &= 26 - 2 \times 12\\
+&= 3 \times 26 - 2 \times 38\\
+&= 3 \times 102 - 8 \times 38
+\end{align*}
+Hence $x=3$, $y=-8$.
+\end{proof}
+
+All solutions of linear diophantine equations:
+\begin{thrm}{}{}
+If $(x_0,y_0)$ is a solution of $ax + by = n$, then all solutions are given by 
+\[ \{(x,y)\::\:x = x_0 + bt, y = y_0 - at,t \in \ZZ\} \]
+\end{thrm}
+
+For three variables in the equation $ax + by + cz = d$, this is the equation of a plane, instead of a line.
+
+\section{Pythagorean Triples}
+\vocab{Pythagorean triples} are triplets $(a,b,c)$, where $a,b,c$ are positive integers, that satisfy $a^2+b^2=c^2$.
+
+The smallest and best-known Pythagorean triple is $(a,b,c)=(3,4,5)$. The right triangle having these side lengths is sometimes called the $3, 4, 5$ triangle.
+
+In fact, all Pythagorean triples can be expressed in the form of 
+\[ a=k(m^2-n^2) \quad b=k(2mn) \quad c=k(m^2+n^2) \]
+
+\section{Pell's Equation}
+\begin{thrm}{Pell's Equation}{} 
+If $n>0$ is not a perfect square, then the equation 
+\[ x^2-ny^2=1 \]
+has infinitely many solutions.
+\end{thrm}
+Note that $(x,y)=(1,0)$ is a trivial solution.
+
+Steps:
+\begin{enumerate}
+	\item Find one non-trivial solution $(x,y)$.
+	\item Let $\alpha^n = (x+y\sqrt{d})^n$ where $n=2,3,\dots$. The coefficients of the integer and square root give us the values of $x$ and $y$ respectively.
+\end{enumerate}
+
+\begin{exmp}{}{}
+Find positive integers $x$ and $y$ that satisfy \[ x^2-2y^2=1. \] 
+\end{exmp}
+
+\begin{solution}
+We first observe that $(x,y)=(3,2)$ is a solution.
+\begin{align*}
+\alpha &= (3+2\sqrt{2}) \\
+\alpha^n &= (3+2\sqrt{2})^n
+\end{align*}
+For $n=2$,
+\begin{align*}
+\alpha^2 &= (3+2\sqrt{2})^2 \\&= 17 + 12\sqrt{2}
+\end{align*}
+From this, we deduce that another solution is $(x,y)=(17,12)$.
+
+Simply repeat the above method to find further solutions.
+\end{solution}
+
+\begin{thrm}{Frobenius coin problem}{}
+What is the largest number n such that $ax + by = n$ has no solutions for $x,y \ge 0$?
+
+Let the Frobenius Number be $n=g(a,b)$.
+
+The claim is 
+\[ g(a, b) = ab - a - b.\]
+\end{thrm}
+% https://artofproblemsolving.com/wiki/index.php/Chicken_McNugget_Theorem
+\begin{proof}
+
+\end{proof}
+
+\begin{thrm}{Fermat's Last Theorem}{}
+For $n>2$, there are no non-zero solutions to 
+\[ a^n+b^n=c^n. \]
+\end{thrm}
+
+The proof is quite complicated and can be found \href{https://people.math.wisc.edu/~nboston/869.pdf}{here}.

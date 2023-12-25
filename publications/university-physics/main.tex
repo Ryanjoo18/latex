@@ -1,0 +1,74 @@
+\documentclass[12pt,a4 paper]{extreport}
+\usepackage{ryan}
+\usepackage[bottom]{footmisc}
+\usepackage{pdfpages}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\arraystretch}{1.2}
+\derivset{\odv}[switch-*=false]
+
+\begin{document}
+\includepdf{cover_page_phy}
+% https://docs.google.com/document/d/1qOQRpuGP99Hcuc8FrVnswpaaACO5ar8KCU8HAPHfC7g/edit?usp=sharing
+
+\begin{titlepage}
+\title{Physics:\\
+A University-Level Introduction}
+\author{Ryan Joo Rui An}
+\date{\today}
+\end{titlepage}
+
+\maketitle
+
+\chapter*{Preface}
+\textbf{Resources:}
+\begin{itemize}
+\item \href{https://www.geeksforgeeks.org/}{Geeks for Geeks}
+\item \href{https://irp-cdn.multiscreensite.com/721e955d/files/uploaded/Physics-Olympiad-Basic-To-Advanced-Exercises.pdf}{Physics Olympiad: Basic to Advanced Exercises}
+\item \href{https://knzhou.github.io/}{Kevin Zhou's Physics handouts} % https://knzhou.github.io/notes/phy.pdf
+\item \href{https://ocw.mit.edu/}{MIT OpenCourseware}
+\item \href{https://www.physicswithelliot.com/all-notes}{Physics with Elliot}
+\end{itemize}
+% https://docs.google.com/document/d/1CW8sE9ywo62TN0KBZ6tZdhfpyfhgVe2CL6uUotVR1W0/edit
+% H3 Physics: https://docs.google.com/document/d/1yMKfgNPBtp0PYMXbVSWEPPSWXL5XQY7plDMGZnue8Is/edit#heading=h.wn92jsim7s8t
+% Finish up AP Phy2: https://www.youtube.com/playlist?list=PLoGgviqq4845KrxuxxrWj4WM7oM6Wxl1m
+
+\tableofcontents
+
+\chapter{Mathematics}
+\section{Coordinate system}
+A vector can be defined in 2 or 3 (or even more) dimensions.
+
+\begin{itemize}
+\item Cartesian coordinates
+
+In Cartesian components, the position of a given point $A$ in space is specified by three numbers $(A_x,A_y,A_z)$: $A_x$ is the distance along the $x$-axis, $A_y$ is the distance along the $y$-axis, $A_z$ is the distance along the $z$-axis.
+
+A vector $\vb{A}$ connecting the origin and point $A$ is given by
+\[ \vb{A} = A_x\hat{i}+A_y\hat{j}+A_z\hat{k} \]
+
+\item Spherical polar coordinates
+
+The position of a given point in space is specified by three numbers $(r,\theta,\phi)$:
+\begin{itemize}
+\item $r$: radial distance of the radial line connecting the point to the fixed point of origin
+\item $\theta$: polar angle of the radial line, measured between the $z$-axis and the radial line
+\item $\phi$: azimuthal angle of the radial line, measured between the orthogonal projection of the radial line $r$ onto the reference $xy$-plane.
+\end{itemize}
+\end{itemize}
+
+
+
+
+\input{mechanics}
+\input{oscilations_waves}
+\input{em_fields}
+\input{quantum}
+\input{thermo}
+\input{stats}
+
+\end{document}

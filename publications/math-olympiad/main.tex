@@ -1,0 +1,57 @@
+\documentclass[12pt,a4 paper]{extreport}
+\usepackage{ryan}
+\usepackage[bottom]{footmisc}
+\usepackage{pdfpages}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\arraystretch}{1.2}
+
+\begin{document}
+\includepdf{cover_page_oly}
+% https://docs.google.com/document/d/16kOeQzcc1JQYCoyodSDyo9ZaX-T8cB4_vS0aQazFpfc/edit?usp=sharing
+
+\begin{titlepage}
+\title{The Road to Mastery:\\
+Mathematics Olympiad}
+\author{Ryan Joo Rui An}
+\date{Last updated: \today}
+\end{titlepage}
+
+\maketitle
+
+\chapter*{Preface}
+\section*{About the Author}
+Ryan Joo Rui An is a high school student currently completing his A Levels in Singapore. He has participated in numerous Mathematics Olympiad competitions and consistently achieved decent results, including the Singapore Mathematics Olympiad (SMO) and IMO National Selection Test (IMONST), which are the two selection tests for the prestigious International Mathematics Olympiad (IMO) by Singapore and Malaysia respectively.
+
+\section*{About the Book}
+The motivation of the writer to write this book was to the author for Mathematics Olympiad competitions by summarising important topics in Mathematics Olympiad, with a focus on SMO and MAA-AMC, which feature rather challenging problems.
+
+Do reach out to the author at \texttt{ryanjooruian18@gmail.com} if you wish to point out any (glaring) mistakes, or provide comments and suggestions regarding the content and/or formatting of the book.
+
+\section*{Resources}
+Here are some notes and materials that you might find useful when learning Mathematics Olympiad:
+\begin{itemize}
+\item \href{http://www.overleaf.comhttps://web.evanchen.cc/handouts/Syllabus/Syllabus.pdf}{Unofficial syllabus for math olympiads, by Evan Chen}
+\item \href{https://web.evanchen.cc/handouts/english/english.pdf}{Notes on proof-writing style}
+\item \href{https://artofproblemsolving.com/community/c13_contests}{AoPS Contest Collections}
+\item \href{https://yufeizhao.com/olympiad/}{Yufei Zhao's olympiad handouts}
+\item \href{https://web.evanchen.cc/olympiad.html}{Evan Chen's olympiad handouts}
+\item \href{https://web.evanchen.cc/problems.html}{Olympiad Problems and Solutions, by Evan Chen}
+\item \href{https://cms.math.ca/competitions/problem-solving-resources/}{Canadian Mathematical Society Resources}
+\item \href{https://www.awesomemath.org/}{Mathematical Reflections}
+\item \href{https://www.youtube.com/@3blue1brown}{3Blue1Brown}
+\end{itemize}
+
+\tableofcontents
+
+\input{NumberTheory}
+\input{Algebra}
+\input{Geometry}
+\input{Combinatorics}
+\input{Others}
+
+\end{document}

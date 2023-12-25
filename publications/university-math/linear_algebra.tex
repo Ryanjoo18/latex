@@ -1,0 +1,201 @@
+\part{Linear Algebra}
+\chapter{Basics}
+\section{Vectors}
+\subsection{Linear Combinations}
+\textbf{Linear combinations} of vectors $\vb{u}$ and $\vb{v}$ are given by
+\[ \lambda\vb{u}+\mu\vb{v} \]
+where $\lambda,\mu\in\RR$.
+
+For $a_1,a_2,a_3\in\RR$, 
+\begin{itemize}
+\item the combinations $a_1\vb{u}$ fill a \textbf{line} through the origin; 
+\item the combinations $a_1\vb{u}+a_2\vb{v}$ fill a \textbf{plane} through the origin; 
+\item the combinations $a_1\vb{u}+a_2\vb{v}+a_3\vb{w}$ fill the \textbf{three-dimensional space}. (Provided $\vb{w}$ does not lie in the plane of $\vb{u}$ and $\vb{v}$.)
+\end{itemize}
+
+The \textbf{Euclidean space} $\RR^n$, as a set, is defined as the set of vertical vectors with $n$ coordinates in the real numbers. Algebraically, $\RR^n$ is an $n$-dimensional vector space over $\RR$. Vectors in $\RR^n$ are expressed as vertical vectors 
+\[ \vb{x} = \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix} \]
+To save space, we usually express the above vector compactly as follows:
+\[ \vb{x}=(x_1,\dots,x_n) \]
+
+\subsection{Length and Dot Product}
+\begin{defn}{Dot product}{}
+The dot product (or inner product) of $\vb{v}=(v_1,\dots,v_n)$ and $\vb{w}=(w_1,\dots,w_n)$ is given by
+\begin{equation}
+\vb{v} \cdot \vb{w} = \sum_{i=1}^nv_iw_i = v_1w_1 + \cdots + v_nw_n
+\end{equation}
+\end{defn}
+
+It is easy to verify that the dot product is commutative; that is, $\vb{v} \cdot \vb{w} = \vb{w} \cdot \vb{v}$.
+
+For perpendicular vectors, the dot product is zero.
+
+An important case is the dot product of a vector \emph{with itself}. In this case $\vb{v}$ equals $\vb{w}$. The dot product $\vb{v} \cdot \vb{v}$ gives the \textbf{length of $\vb{v}$ squared}.
+
+\begin{defn}{Length}{}
+The length $\norm{\vb{v}}$ of a vector $\vb{v}=(v_1,\dots,v_n)$ is the square root of $\vb{v}\cdot\vb{v}$, given by
+\begin{equation}
+\norm{\vb{v}} = \sqrt{\vb{v}\cdot\vb{v}} = \sqrt{\sum_{i=1}^nv_i^2}
+\end{equation}
+\end{defn}
+
+\begin{proof}
+This simply follows from Pythagoras' theorem.
+\end{proof}
+
+The word ``unit” indicates that some measurement equals ``one”. Hence we can define the \textbf{unit vector} as follows.
+
+\begin{defn}{Unit vector}{}
+A unit vector of vector $\vb{v}$, denoted by $\hat{\vb{v}}$, is a vector whose length equals one; that is, $\hat{\vb{v}}\cdot\hat{\vb{v}}=1$.
+\end{defn}
+
+The standard unit vectors along the $x$- and $y$-axes are written $\hat{\vb{i}}$ and $\hat{\vb{j}}$ respectively. In the $xy$-plane, the unit vector that makes an angle $\theta$ with the $x$-axis is $(\cos\theta,\sin\theta)$.
+\[ \hat{\vb{i}}=\begin{pmatrix} 1 \\ 0 \end{pmatrix} \quad \hat{\vb{j}}=\begin{pmatrix} 0 \\ 1 \end{pmatrix} \quad \hat{\vb{u}}=\begin{pmatrix} \cos\theta \\ \sin\theta \end{pmatrix} \]
+
+To get the unit vector, divide any non-zero vector $\vb{v}$ by its length $\norm{v}$.
+\begin{equation}
+\hat{\vb{v}} = \frac{\vb{v}}{\norm{\vb{v}}}
+\end{equation}
+is a unit vector in the same direction as $\vb{v}$.
+
+Cosine formula
+If $\vb{v}$ and $\vb{w}$ are non-zero vectors then
+\begin{equation}
+\frac{\vb{v}\cdot\vb{w}}{\norm{\vb{v}}\norm{\vb{w}}} = \cos\theta
+\end{equation}
+where $\theta$ is the angle between the two vectors.
+
+Since $|\cos\theta|$ never exceeds 1, the cosine formula gives two great inequalities:
+\begin{thrm}{Schwarz inequality}{}
+\begin{equation}
+|\vb{v}\cdot\vb{w}| \le \norm{\vb{v}}\norm{\vb{w}}
+\end{equation}
+\end{thrm}
+\begin{thrm}{Triangle inequality}{}
+\begin{equation}
+\norm{\vb{v}+\vb{w}} \le \norm{\vb{v}} + \norm{\vb{w}}
+\end{equation}
+\end{thrm}
+
+
+\section{Solving Linear Equations}
+
+
+\chapter{Vector Spaces}
+\section{Real and Complex Numbers}
+This text assumes that the reader should be familiar with the sets of real and complex numbers, denoted by $\RR$ and $\CC$ respectively.
+
+
+
+Euclidean spaces, linear combinations and linear span, subspaces, linear independence, bases and dimension, rank of a matrix, inner products, eigenvalues and eigenvectors, diagonalisation, linear transformations between Euclidean spaces
+
+\section{Definition}
+The motivation for the definition of a vector space comes from properties of addition and scalar multiplication in $\FF^n$: Addition is commutative, associative, and has an identity. Every element has an additive inverse. Scalar multiplication is associative. Scalar multiplication by 1 acts as expected. Addition and scalar multiplication are connected by distributive properties. 
+
+We will define a vector space to be a set $V$ with an addition and a scalar multiplication on V that satisfy the properties in the paragraph above.
+
+\begin{defn}{Addition, scalar multiplication}
+An \textbf{addition} on $V$ is a function that assigns an element $u+v \in V$ to each pair of elements $u,v \in V$.
+
+A \textbf{scalar multiplication} on $V$ is a function that assigns an element $\lambda v \in V$ to each $\lambda \in \FF$ and each $v \in V$.
+\end{defn}
+
+Now we are ready to give the formal definition of a vector space.
+
+\begin{defn}{Vector space}{}
+A \vocab{vector space} is a set $V$ along with an addition on $V$ and a scalar multiplication on $V$ such that the following properties \textbf{vector space axioms} hold:
+\begin{enumerate}[label=\textbf{V\arabic*}]
+\item Commutativity: $\forall u, v \in V, u+v=v+u$
+\item Associativity: $\forall u,v,w \in V, u+(v+w)=(u+v)+w$
+\item Existence of additive identity: there exists $0 \in V$ such that $\forall v\in V, v + 0 = v = 0 + v$ 
+\item Existence of additive inverse: $\forall v \in V$ there exists $w \in V$ such that $v + w = 0_V = w + v$ 
+\item Existence of multiplicative identity: $\forall v\in V, 1v = v$
+\item Distributivity of scalar multiplication over vector addition: $\forall u,v \in V, \lambda\in\FF, \lambda(u + v) = \lambda u + \lambda v$
+\item Distributivity of scalar multiplication over field addition: $\forall v\in V, \lambda,\mu\in\FF, (\lambda+\mu)v = \lambda v + \mu v$
+\item Scalar multiplication interacts well with field multiplication: $\forall v\in V, \lambda,\mu\in\FF, (\lambda\mu)v = \lambda(\mu v)$
+\end{enumerate}
+\end{defn}
+
+The following geometric language sometimes aids our intuition.
+
+\begin{defn}{Vector, point}{}
+Elements of a vector space are called \textbf{vectors} or \textbf{points}.
+\end{defn}
+
+The scalar multiplication in a vector space depends on $\FF$. Thus when we need to be precise, we will say that $V$ is a vector space over $\FF$ instead of saying simply that $V$ is a vector space. 
+
+\begin{exmp}{$\RR^n$ and $\CC^n$}{}
+$\RR^n$ is a vector space over $\RR$, and $\CC^n$ is a vector space over $\CC$.
+\end{exmp}
+
+\begin{defn}{Real vector space, complex vector space}{}
+A vector space over $\RR$ is called a \textbf{real vector space}.
+
+A vector space over $\CC$ is called a \textbf{complex vector space}.
+\end{defn}
+
+\begin{proposition}[Uniqueness of additive identity]
+A vector space has a unique additive identity.
+\end{proposition}
+\begin{proof}
+Suppose $0$ and $0^\prime$ are both additive identities for some vector space $V$.
+
+Then
+\[ 0^\prime = 0^\prime + 0 = 0 + 0^\prime = 0 \]
+where the first equality holds because $0$ is an additive identity, the second equality comes from commutativity, and the third equality holds because $0^\prime$ is an additive identity. 
+
+Thus $0^\prime = 0$, proving that $V$ has only one additive identity.
+\end{proof}
+
+\begin{proposition}[Uniqueness of additive inverse]
+Every element in a vector space has a unique additive inverse.
+\end{proposition}
+\begin{proof}
+Suppose $V$ is a vector space. Let $v \in V$. Suppose $w$ and $w^\prime$ are additive inverses of v. Then
+\[ w = w+0 = w+(v+w^\prime) = (w+v)+w^\prime = 0+w^\prime = w^\prime \]
+Thus $w=w^\prime$, as desired.
+\end{proof}
+
+Because additive inverses are unique, the following notation now makes sense.
+\begin{notation}
+Let $v,w\in V$. Then $-v$ denotes the additive inverse of $v$; $w-v$ is defined to be $w+(-v)$.
+\end{notation}
+
+\begin{notation}
+For the rest of the book, $V$ denotes a vector space over $\FF$.
+\end{notation}
+
+\section{Subspaces}
+\begin{defn}{Subspace}{}
+A subset $U \subset V$ is called a subspace of $V$ if $U$ is also a vector space (with the same addition and scalar multiplication as on $V$).
+\end{defn}
+
+A subset $U$ of $V$ is a subspace of $V$ if and only if $U$ satisfies the following three conditions:
+\begin{enumerate}
+\item Existence of additive identity: $0 \in U$
+\item Closed under addition: $u+w \in U \implies u+w \in U$
+\item Closed under scalar multiplication: $a \in F$ and $u \in U$ implies $au \in U$.
+\end{enumerate}
+\begin{proof}
+If $U$ is a subspace of $V$, then $U$ satisfies the three conditions above by the definition of vector space.
+
+Conversely, suppose $U$ satisfies the three conditions above. The first condition above ensures that the additive identity of $V$ is in $U$.
+
+The second condition above ensures that addition makes sense on $U$. The third condition ensures that scalar multiplication makes sense on $U$.
+\end{proof}
+
+\chapter{Matrices}
+
+linear transformations, kernels and images; inner products, inner product spaces, orthonormal sets, and the Gram-Schmidt process; eigenvectors and eigenvalues; matrix diagonalisation and its applications; symmetric and Hermitian matrices; quandratic forms and bilinear forms; Jordan normal form and other canonical forms.
+
+\chapter{Bases}
+\section{Spans and Spanning Sets}
+\section{Linear Independence}
+
+\chapter{Dimension}
+
+\chapter{Linear Transformations}
+
+\chapter{Linear Maps and Matrices}
+
+\chapter{Inner Product Spaces}

@@ -1,0 +1,60 @@
+\documentclass[12pt,a4 paper]{extreport}
+\usepackage{ryan}
+\usepackage[bottom]{footmisc}
+\usepackage{pdfpages}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+\includepdf{cover_page_uni}
+% https://docs.google.com/document/d/1BnYV-5DkLfizphAaOHeH5S_hUeFZTAGS0Cg6YEeL7oA/edit?usp=sharing
+
+\begin{titlepage}
+\title{Mathematics:\\
+A University-Level Introduction}
+\author{Ryan Joo Rui An}
+\date{Last updated: \today}
+\end{titlepage}
+
+\maketitle
+
+\chapter*{Preface}
+\begin{quote}
+\textit{``The mathematician does not study mathematics because it is useful; he studies it because he delights in it and he delights in it because it is beautiful."}
+
+\begin{flushright}--- Henri Poincar{\'e} (1854--1912)\\
+French mathematician and theoretical physicist\end{flushright}
+\end{quote}
+
+\section*{About the author}
+At this moment of writing, I am a high school student working on my A Level studies in Singapore. I have about 11 years of participating in Mathematics competitions, including three years of experience in mental arithmetic and the rest few years in Mathematics Olympiad.
+
+\section*{About this book}
+My initial purpose of writing this book was to summarise what I had learnt about university level Mathematics. The writing is intentionally kept simple, without large intimidating blocks of text, to ensure readability. 
+
+\section*{Acknowledgements}
+I am indebted to countless people for this work. Here is a partial (surely incomplete) list.
+\begin{itemize}
+\item Lecture notes by the University of Oxford, which can be found \href{https://courses.maths.ox.ac.uk/}{here}.
+\item Lecture notes on MIT OpenCourseWare, which can be found \href{https://ocw.mit.edu/}{here}.
+\item The authors of all the books I have referred to when writing this book.
+\end{itemize}
+
+\tableofcontents
+
+% Materials to be cleared:
+% https://www.seab.gov.sg/docs/default-source/national-examinations/syllabus/alevel/2022syllabus/9649_y22_sy.pdf
+% https://www.cambridgeinternational.org/Images/597381-2023-2025-syllabus.pdf
+\input{intro}
+\input{linear_algebra}
+\input{calculus}
+\input{abstract_algebra}
+\input{real_analysis}
+\input{topology}
+\input{complex_analysis}
+\input{discrete}
+\end{document}

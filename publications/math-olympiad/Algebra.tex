@@ -1,0 +1,1173 @@
+\part{Algebra}
+\chapter{Basic Algebra}
+\section{Elementary Manipulation}
+This book assumes the reader should be familiar with basic algebraic manipulation.
+
+\textbf{Factorisations:}
+\begin{itemize}
+\item Difference of squares:
+\[ a^2-b^2=(a+b)(a-b) \]
+\item Sum of squares:
+\[ a^2+b^2=(a+b)^2-2ab \]
+\item Sum of cubes:
+\[ a^3+b^3=(a+b)(a^2-ab+b^2) \]
+\item Difference of cubes:
+\[ a^3-b^3=(a-b)(a^2+ab+b^2) \]
+\item Generalised formulae:
+\[ a^n-b^n=(a-b)(a^{n-1}+a^{n-2}b+\cdots+ab^{n-2}+b^{n-1}) \quad \forall n\in\NN \]
+\[ a^n+b^n=(a+b)(a^{n-1}-a^{n-2}b+\cdots-ab^{n-2}+b^{n-1}) \quad \forall \text{ odd } n\in\NN \]
+\item Generalised expansion of square:
+\[ (a_1+a_2+\cdots+a_n)^2=(a_1^2+a_2^2+\cdots+a_n^2)+(2a_1a_2+\cdots+2a_1a_n)+(2a_2a_3+\cdots+2a_2a_n)+\cdots+2a_{n-1}a_n \]
+\item Useful ones:
+\[ a^3+b^3+c^3-3abc=(a+b+c)(a^2+b^2+c^2-ab-bc-ca) \]
+\end{itemize}
+
+\begin{exmp}{}{}
+Evaluate the expression
+\[ (2+1)(2^2+1)(2^4+1)\cdots(2^{2^{10}}+1)+1. \]
+\end{exmp}
+
+\begin{proof}[Solution]
+By using the formula $(a-b)(a+b)=a^2-b^2$ repeatedly, we have 
+\begin{align*}
+&(2+1)(2^2+1)(2^4+1)\cdots(2^{2^{10}}+1)+1 \\
+&= (2-1)(2+1)(2^2+1)(2^4+1)\cdots(2^{2^{10}}+1)+1 \\
+&= ((2^{2^{10}})^2-1)+1 = \boxed{2^{2048}}
+\end{align*}
+\end{proof}
+
+\begin{exmp}{}{}
+Given that the real numbers $x$, $y$ and $z$ satisfy the system of equations
+\[ \begin{cases}
+x + y + z = 6 \\
+x^2 + y^2 + z^2 = 26 \\
+x^3 + y^3 + z^3 = 90
+\end{cases} \]
+Find the values of $xyz$ and $x^4+y^4+z^4$.
+\end{exmp}
+
+\begin{proof}[Solution]
+$(x+y+z)^2=(x^2+y^2+z^2)+2(xy+yz+zx)$ implies that $xy+yz+zx=5$.
+
+Since $x^3+y^3+z^3-3xyz=(x+y+z)[(x^2+y^2+z^2)-(xy+yz+zx)]$, $xy+yz+zx=\boxed{-12}$.
+
+Further, by completing squares,
+\begin{align*}
+x^4+y^4+z^4 &= (x^2+y^2+z^2)^2-2(x^2y^2+y^2z^2+z^2x^2) \\
+&= (x^2+y^2+z^2)^2-2[(xy+yz+zx)^2-2(xy^2z+yz^2x+x^2yz)] \\
+&= (x^2+y^2+z^2)^2-2[(xy+yz+zx)^2-2xyz(x+y+z)] = \boxed{338}
+\end{align*}
+\end{proof}
+\pagebreak
+
+\section{Polynomials}
+A \textbf{polynomial}, in terms of the variable $x$, takes the form of 
+\[ P(x)=a_nx^n+\cdots+a_1x+a_0 \]
+where $a_i$ are the \emph{coefficients}, $a_0$ is the \emph{constant term}, the highest power $n$ is the \emph{degree} of the polynomial denoted by $\deg P(x)$.
+
+\begin{thrm}{Quadratic formula}{} 
+For $a,b,c \in \RR, a \neq 0$, the quadratic equation $ax^2 + bx + c = 0$ has solutions 
+\begin{equation} x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2a} \end{equation}
+\end{thrm}
+\begin{proof}
+The proof is quite simple; it can be done by completing the square.
+\end{proof}
+
+Let $\Delta$ denote the \textbf{discriminant}, then $\Delta = b^2-4ac$.
+\begin{itemize}
+\item For $\Delta < 0$, the $2$ roots are complex and conjugates to each other.
+\item For $\Delta = 0$, the $2$ roots are real and repeated.
+\item For $\Delta > 0$, the $2$ roots are real and distinct.
+\end{itemize}
+
+\begin{thrm}{Vieta's relations}{} 
+For polynomial $P(x) = a_n x^n + a_{n-1} x^{n-1} + \dots + a_1 x + a_0$ with complex coefficients with roots $r_1, r_2, \dots, r_n$, 
+\begin{equation}
+\begin{split}
+r_1 + r_2 + \dots + r_n &= -\frac{a_{n-1}}{a_n} \\
+r_1 r_2 + r_2 r_3 + \dots + r_{n-1} r_n &= \frac{a_{n-2}}{a_n} \\
+&\vdots \\
+r_1 r_2 \cdots r_n &= (-1)^n \frac{a_0}{a_n}
+\end{split}
+\end{equation}
+\end{thrm}
+
+For a polynomial with integer coefficients $a_i$, $x=\frac{p}{q}$ is a rational root, where $p \mid a_0$ and $q \mid a_n$.
+
+\begin{thrm}{Division Algorithm}{}
+If $f(x)$ and $d(x)$ are polynomials where $d(x) \neq 0$ and $\deg d(x)<\deg f(x)$, then
+\begin{equation} f(x) = d(x) q(x) + r(x) \end{equation}
+\end{thrm}
+
+\begin{thrm}{Remainder Theorem}{} 
+If the polynomial $f(x)$ is divided by $x-c$, then the remainder is $f(c)$. 
+\end{thrm}
+
+\begin{thrm}{Factor Theorem}{} 
+Let $f(x)$ be a polynomial. $f(c)=0$ iff $x-c$ is a factor of $f(x)$.
+\end{thrm}
+
+\begin{thrm}{Linear Factorisation Theorem}{}
+If $f(x) = a_n x^n + a_{n-1} x^{n-1} + \dots + a_1 x + a_0$, where $n \ge 1, a_n \neq 0$, then
+\[ f(x) = a_n (x-c_1)(x-c_2) \dots (x-c_n) \]
+where $c_1, c_2, \dots c_n$ are complex numbers. 
+\end{thrm}
+
+A polynomial equation of degree $n$ has $n$ roots, counting multiple roots (multiplicities) separately.
+
+Imaginary roots occur in conjugate pairs; if $a + bi$ is a root ($b \neq 0$), then the imaginary number $a-bi$ is also a root.
+
+\begin{thrm}{Fundamental Theorem of Algebra}{}
+A polynomial of degree $n>0$, with real or complex coefficients, has at least one real or complex root.
+\end{thrm}
+\pagebreak
+
+\section{Absolute Value Equations}
+Common problem-solving techniques:
+\begin{itemize}
+    \item Squaring both sides
+    \item Casework: solve each case for $x$
+    \item Sketching graph
+\end{itemize}
+
+\begin{exmp}{}{}
+Find all real values of $x$ such that \[ |x+2| + |2x+6| + |3x-3| = 12. \] \end{exmp} 
+
+\begin{proof}[Solution]
+The turning points of the three terms are $x = -2,\:x = -3,\:x = 1$ respectively. Hence, we just need to check the cases:
+\begin{itemize}
+    \item $x \le 3$
+    \item $-3< x \le -2$
+    \item $-2 < x \le 1$
+    \item $x > 1$
+\end{itemize}
+
+$\therefore\quad x = -\dfrac{5}{2}$, $x = \dfrac{7}{6}$
+\end{proof}
+
+\begin{exmp}{}{}
+How many real solutions $x$ are there to the equation $x|x|+1=3|x|$?
+\end{exmp}
+
+\begin{proof}[Solution]
+Two cases: either $x \ge 0$ and $x^2 + 1 = 3x$, or $x < 0$ and $-x^2 + 1 = -3x$. The first case has solutions $\dfrac{3\pm\sqrt{5}}{2}$ which are both positive. The second case has solutions $\dfrac{3\pm\sqrt{13}}{2}$ and only one of these is negative. So there are three solutions in total.
+\end{proof}
+\pagebreak
+
+\section*{Problems}
+\begin{prbm}
+Let $a, b, c$ be distinct non-zero real numbers such that
+\[ a+\frac{1}{b}=b+\frac{1}{c}=c+\frac{1}{a}. \]
+Prove that $|abc|=1$.
+\end{prbm}
+
+\begin{proof}
+From the given conditions it follows that
+\[ a-b=\frac{b-c}{bc} \quad b-c=\frac{c-a}{ca} \quad c-a=\frac{a-b}{ab}. \]
+Multiplying the above equations gives $(abc)^2=1$, from which the desired result follows.
+\end{proof}
+\pagebreak
+
+\begin{prbm}
+Let $\alpha,\beta,\gamma,\delta$ be the roots of $x^4-8x^3+24x^2-42x+16=0$. Given
+\[ \brac{\frac{2}{\sqrt[4]{\alpha}+\sqrt[4]{\beta}+\sqrt[4]{\gamma}}+\frac{2}{\sqrt[4]{\beta}+\sqrt[4]{\gamma}+\sqrt[4]{\delta}}+\frac{2}{\sqrt[4]{\alpha}+\sqrt[4]{\beta}+\sqrt[4]{\delta}}+\frac{2}{\sqrt[4]{\delta}+\sqrt[4]{\gamma}+\sqrt[4]{\alpha}}}^2 = \frac{a\sqrt{b}}{c} \]
+where $a,b,c$ are pairwise coprime. Find the value of $a+b+c$.
+
+\textbf{Hint:} Vieta's Relation
+\end{prbm}
+\begin{solution}
+The given quartic equation is simply $(x-2)^4=10x$. so we get the stuff as $\left(\sum_{\mathrm{cyc}} \frac{2\cdot \sqrt[4]{10}}{2-\alpha}\right)^2$ this is just $4\sqrt{10} \cdot \left(\frac{f^\prime(2)}{f(2)}\right)^2$ , where $f(x)$ is the given polynomial and $\frac{f^\prime(2)}{f(2)}=\frac{1}{2}$. 
+
+Hence our answer is $\boxed{\sqrt{10}}$.
+\end{solution}
+\pagebreak
+
+\begin{prbm}[TRIPOS 1878]
+If $x+y+z=0$, show that 
+\[ \brac{\frac{y-z}{x}+\frac{z-x}{y}+\frac{x-y}{z}} \brac{\frac{x}{y-z}+\frac{y}{z-x}+\frac{z}{x-y}} = 9 \]
+\end{prbm}
+
+\begin{proof}
+We have 
+\begin{align*}
+\brac{\frac{y-z}{x}+\frac{z-x}{y}+\frac{x-y}{z}}\frac{x}{y-z}
+&= 1 + \frac{x}{y}\cdot\frac{z-x}{y-z} + \frac{x}{z}\cdot\frac{x-y}{y-z} \\
+&= 1 + \frac{xz(z-x)+xy(x-y)}{yz(y-z)} \\
+&= 1 + \frac{x(z^2-zx+xy-y^2)}{yz(y-z)} \\
+&= 1 + \frac{x}{yz}(x-y-z) \\
+&= 1 + \frac{2x^2}{yz} \quad \because y+z=-x
+\end{align*}
+Therefore
+\[ \brac{\frac{y-z}{x}+\frac{z-x}{y}+\frac{x-y}{z}} \brac{\frac{x}{y-z}+\frac{y}{z-x}+\frac{z}{x-y}} = 3+2\frac{x^3+y^3+z^3}{xyz}=3+6=9 \]
+for, since $x+y+z=0$, $x^3+y^3+z^3-3xyz=0$.
+\end{proof}
+\pagebreak
+
+\begin{prbm}[TRIPOS 1878]
+Find the real roots of the equations:
+\[ \begin{cases}
+    x^2 + z^{\prime2} + y^{\prime2} = a^2 \\
+    z^{\prime2} + y^2 + x^{\prime2} = b^2 \\
+    y^{\prime2} + x^{\prime2} + z^2 = c^2
+\end{cases} \quad
+\begin{cases}
+    y^\prime z^\prime + x^\prime(y+z) = bc \\
+    z^\prime x^\prime + y^\prime(z+x) = ca \\
+    x^\prime y^\prime + z^\prime(x+y) = ab
+\end{cases}
+\]
+\end{prbm}
+\begin{solution}
+We have
+\[ b^2c^2 = (z^{\prime2} + y^2 + x^{\prime2})(y^{\prime2} + x^{\prime2} + z^2) =  \]
+\end{solution}
+\pagebreak
+
+\begin{prbm}[SSSMO 2000]
+For any real numbers $a$, $b$ and $c$, find the smallest possible value that the following expression can take:
+\[ 3a^2 + 27b^2 + 5c^2 - 18ab - 30c + 237 \]
+\end{prbm}
+
+\begin{proof}
+By completing squares, the above expression can be rewritten as
+\[ 3(a-3b)^2+5(c-3)^2+192 \ge 192 \]
+The value 192 is obtainable when $a=3b$, $c=3$. 
+
+Hence the smallest possible value is \boxed{192}.
+\end{proof}
+
+\begin{remark}
+The technique of completing squares is an important tool in determining the extreme values of polynomials.
+\end{remark}
+\pagebreak
+
+\begin{prbm}[GERMANY]
+Given that $m^{15}+m^{16}+m^{17}=0$, solve for $m^{18}$.
+\end{prbm}
+
+\begin{proof}[Solution]
+Factorising gives us 
+\[ m^{15}(m^2+m+1)=0 \]
+
+\textbf{Case 1:} $m^{15}=0$
+
+Then $m=0$, thus $m^{18}=0$.
+
+\textbf{Case 2:} $m^2+m+1=0$
+
+Multiplying $m-1$ on both sides, 
+\[ (m-1)(m^2+m+1)=0 \implies m^3-1=0 \implies m^3=1 \]
+Hence $m^{18}=(m^3)^6=\boxed{1}$.
+\end{proof}
+\pagebreak
+
+\begin{prbm}
+Given that for positive real number $a$,
+\[ \brac{\frac{5}{x}}^{\log_a 25} = \brac{\frac{3}{x}}^{\log_a 9} \]
+\end{prbm}
+
+\begin{proof}[Solution]
+Taking log base $a$ at both sides,
+\begin{align*}
+\log_a\brac{\frac{5}{x}}^{\log_a 25} &= \log_a\brac{\frac{3}{x}}^{\log_a 9} \\
+\log_a 25 \times \log_a\brac{\frac{5}{x}} &= \log_a 9 \times \log_a\brac{\frac{3}{x}} \\
+2\log_a 5 \times (\log_a 5-\log_a x) &= 2\log_a 3 \times (\log_a 3 - \log_a x)
+\end{align*}
+
+Let $p=\log_a 5$, $q=\log_a 3$. The equation can be rewritten as 
+\[ 2(p-q)(p+q) = 2(p-q) \times \log_a x \]
+Dividing $2(p-q)$ for both sides, $p+q=\log_ax\implies \boxed{x=15}$.
+\end{proof}
+\pagebreak
+
+\begin{prbm}
+Consider the following expression. Find all possible real roots.
+\[ \frac{1}{x^2-10x-29} + \frac{1}{x^2-10x-45} - \frac{2}{x^2-10x-69} = 0 \]
+\end{prbm}
+
+\begin{proof}[Solution]
+Since the given equation looks quite complicated to solve, we try the substitution method. Let $a=(x-5)^2$, then the equation can be rewritten as
+\[ \frac{1}{a-54} + \frac{1}{a-70} - \frac{2}{a-94} = 0 \]
+Solving quadratically gives us $\boxed{x=13}$ or $\boxed{x=-3}$.
+\end{proof}
+\pagebreak
+
+\begin{prbm}[DOKA]
+Given that $f(x)=\dfrac{x}{x-3}$,  $f^8(x)=\dfrac{x}{ax+b}$, where $a$ and $b$ are integers. Find $a$ and $b$.
+\end{prbm}
+
+\begin{proof}[Solution]
+Observe that 
+\begin{align*}
+f(x) &= \frac{x}{x-p} \\
+f^2(x) &= \frac{x}{(1-p)x+p^2} \\
+f^3(x) &= \frac{x}{(1-p+p^2)x-p^3} \\
+f^4(x) &= \frac{x}{(1-p+p^2-p^3)x+p^4}
+\end{align*}
+Suppose $f^n(x)=\dfrac{x}{a_nx-b_n}$, 
+\[ a_n=(-3)^0+(-3)^1+\cdots+(-3)^{n-1} \]
+\[ b_n=(-3)^n \]
+Hence $\boxed{a=-1640}$ and $\boxed{b=6561}$.
+\end{proof}
+\pagebreak
+
+\begin{prbm}[Oxford MAT 2022]
+Find the constant term of the expression
+\[\brac{x+1+\frac{1}{x}}^4\]
+\end{prbm}
+
+\begin{proof}[Solution]
+We calculate the square of $(x + 1 + x^{-1})$ first;
+\[ x^2 + 2x + 1 + 2x^{-1} + x^{-2} \]
+Now if we were to square this expression, the constant term independent of $x$ would be
+\[ 2(x^2)(x^{-2}) + 2(2x)(2x^{-1}) + 32 \]
+Most of the terms have a factor of 2 because they occur in either order. This sum is $2+8+9 = \boxed{19}$.
+\end{proof}
+\pagebreak
+
+\begin{prbm}[Oxford MAT]
+How many real solutions $x$ are there to the following equation?
+\[ \log_2(2x^3+7x^2+2x+3) = 3\log_2(x+1)+ 1 \]
+\end{prbm}
+
+\begin{proof}[Solution]
+We can use laws of logarithms to write the right-hand side of the given equation as
+\[ \log_2 (2x^3+6x^2+6x+2). \]
+
+Since $\log_2x$ is an increasing function for $x > 0$, we can compare the arguments of the logarithms, provided that both are positive. This gives the polynomial equation
+\[ 2x^3 + 7x^2 + 2x + 3 = 2x^3 + 6x^2 + 6x + 2 \]
+which rearranges to $x^2-4x+1=0$, which has $\boxed{2}$ real solutions. We should check that $2x^3+7x^2+2x+3$ is positive for these roots, but it definitely is because the roots of the quadratic are both positive and all the coefficients of the cubic are positive.
+\end{proof}
+\pagebreak
+
+\begin{prbm}[CHINA 1979]
+Given that $x^2-x+1=0$, find the value of $x^{2015}-x^{2014}$. 
+\end{prbm}
+
+\begin{proof}[Solution]
+Multiplying both sides by $x+1$,
+\[ (x^2-x+1)(x+1) = 0 \implies x^3 + 1 = 0 \implies x^3 = -1 \]
+Substituting this into the given expression,
+\[ x^{2015} - x^{2014} = x^{2014} (x-1) = x^{2014} \cdot x^2 = x^{2016} = (x^3)^{672} = (-1)^6 = \boxed{1} \]
+\end{proof}
+\pagebreak
+
+\begin{prbm}[DOKA]
+For a positive integer $n$, we have the polynomial
+\[ \brac{2+\frac{x}{2}}\brac{2+\frac{2x}{2}}\brac{2+\frac{3x}{2}}\cdots\brac{2+\frac{nx}{2}} = a_0+a_1x+a_2x^2+\cdots+a_nx^n \]
+where $a_0,\dots,a_n$ are the coefficients of the polynomial. Find the smallest possible value of $n$ if $2a_0+4a_1+8a_2+\cdots+2^{n+1}a_n-(n+1)!$ is divisible by 2020.
+\end{prbm}
+
+\begin{proof}[Solution]
+By comparing the coefficients of $x^n$,
+\[ \brac{\frac{1}{2}}\brac{\frac{2}{2}}\brac{\frac{3}{2}}\cdots\brac{\frac{n}{2}} = \frac{n!}{2^n} = a_n. \]
+Now if we let $x=2$, notice that
+\begin{align*}
+(2+1)(2+2)(2+3)\cdots(2+n) &= a_0+a_1(2)+a_2(2)^2+a_3(2)^3+\cdots+a_n(2)^n \\
+(3)(4)(5)\cdots(n+2) &= a_0+2a_1+4a_2+8a_3+\cdots+2^na_n \\
+\frac{(n+2)!}{2} &= a_0+2a_1+4a_2+8a_3+\cdots+2^na_n \\
+(n+2)! &= 2a_0+4a_1+8a_2+\cdots+2^{n+1}a_n
+\end{align*}
+Therefore
+\[ 2a_0+4a_1+8a_2+\cdots+2^{n+1}a_n-(n+1)!=(n+2)!-(n+1)!=(n+1)!(n+1) \]
+which is divisible by 2020.
+
+Smallest possible $n$ is when $(n+1)!$ is divisible by 2020. 
+Hence $n+1=101$ gives $\boxed{n=100}$.
+\end{proof}
+\pagebreak
+
+\begin{prbm}
+Consider the sequence of real numbers $\{a_n\}$ is defined by $a_1=\dfrac{1}{1000}$ and $a_{n+1}=\dfrac{a_n}{na_n-1}$ for $n\ge 1$. Find the value of $\dfrac{1}{a_{2020}}$.
+\end{prbm}
+
+\begin{proof}[Solution]
+\[ \frac{1}{a_{n+1}} = \frac{na_n-1}{n} = n-\frac{1}{a_n} \]
+Listing out terms,
+\begin{align*}
+\frac{1}{a_{2020}} &= 2019 - \frac{1}{a_{2019}} \\
+-\frac{1}{a_{2019}} &= -2018 + \frac{1}{a_{2018}} \\
+\frac{1}{a_{2018}} &= 2017 - \frac{1}{a_{2017}} \\
+\vdots& \\
+\frac{1}{a_4} &= 3 - \frac{1}{a_3} \\
+-\frac{1}{a_3} &= -2 + \frac{1}{a_2} \\
+\frac{1}{a_2} &= 1-\frac{1}{a_1}=1-1000
+\end{align*}
+Thus $\dfrac{1}{a_{2020}}=2019-2018+2017-2016+\cdots+3-2+1-1000=\boxed{10}$.
+\end{proof}
+\pagebreak
+
+\begin{prbm}
+Let $a,b,c$ be non-zero real numbers such that $a+b+c=0$ and
+\[ 28(a^4+b^4+c^4)=a^7+b^7+c^7. \]
+Find $a^3+b^3+c^3$.
+\end{prbm}
+\begin{proof}
+We use two lemmas.
+
+\begin{lemma}
+For $a+b+c=0$, 
+\begin{equation*}\tag{1}
+2(a^4+b^4+c^4)=(a^2+b^2+c^2)^2
+\end{equation*}
+\end{lemma}
+\begin{proof}
+We prove this by direct expansion.
+\begin{align*}
+2(a^4+b^4+c^4) &= 2[a^4+b^4+(a+b)^4] \\
+&= 4(a^4+2a^3b+3a^2b^2+2ab^3+b^4) \\
+&= 4(a^2+ab+b^2)^2 \\
+&= (a^2+b^2+c^2)^2
+\end{align*}
+\end{proof}
+
+\begin{lemma}
+For $a+b+c=0$,
+\begin{equation*}
+4(a^7+b^7+c^7)=7abc(a^2+b^2+c^2)^2
+\end{equation*}
+\end{lemma}
+\begin{proof}
+This is a restatement of $(a+b)^7-a^7-b^7=7ab(a+b)(a^2+ab+b^2)^2$.
+\end{proof}
+
+Dividing (2) by (1) gives us
+\[ \frac{2(a^7+b^7+c^7)}{a^4+b^4+c^4}=7abc \implies abc=8 \]
+Hence $a^3+b^3+c^3=3abc=\boxed{24}$.
+\end{proof}
+
+\chapter{Inequalities}
+% https://web.williams.edu/Mathematics/sjmiller/public_html/161/articles/Riasat_BasicsOlympiadInequalities.pdf
+For Mathematics Olympiad competitions, you are only required to apply these inequalities; hence the proofs of the following inequalities will not be included in this book.
+
+\section{AM--GM Inequality}
+The most well-known and frequently used inequality is the Arithmetic mean--Geometric mean inequality, also known as the AM--GM inequality. The inequality simply states that the arithmetic mean is greater than or equal to the geometric mean.
+
+\subsection{General AM--GM Inequality}
+\begin{thrm}{AM--GM}{}
+For non-negative real $a_1, a_2, \dots , a_n$, 
+\begin{equation} \frac{a_1 + a_2 + \cdots + a_n}{n} \ge \sqrt[n]{a_1 a_2 \cdots a_n} \end{equation} 
+Equality holds iff $a_1 = a_2 = \cdots = a_n$. 
+\end{thrm}
+
+\begin{exmp}{}{}
+For real numbers $a, b, c$ prove that
+\[ a^2+b^2+c^2 \ge ab+bc+ca. \]
+\end{exmp}
+\begin{proof}
+By AM--GM inequality, we have
+\begin{align*}
+a^2 + b^2 &\ge 2ab \\
+b^2 + c^2 &\ge 2bc \\
+c^2 + a^2 &\ge 2ca
+\end{align*}
+Adding the three inequalities and then dividing by 2 we get the desired result. Equality holds if and only if $a=b=c$.
+\end{proof}
+
+\begin{exmp}{}{}
+Let $a_1,a_2,\dots,a_n$ be positive real numbers such that $a_1a_2\cdots a_n=1$. Prove that
+\[ (1+a_1)(1+a_2)\cdots(1+a_n) \ge 2^n. \]
+\end{exmp}
+\begin{proof}
+By AM--GM,
+\begin{align*}
+1 + a_1 &\ge 2\sqrt{a_1} \\
+1 + a_2 &\ge 2\sqrt{a_2} \\
+&\vdots \\
+1 + a_n &\ge 2\sqrt{a_n} \\
+\end{align*}
+Multiplying the above inequalities and using the fact $a_1a_2\cdots a_n=1$ we get our desired result. Equality holds if and only if $a_i=1$ for $i=1,2,\dots,n$.
+\end{proof}
+
+\begin{exmp}{}{}
+Let $a, b, c$ be non-negative real numbers. Prove that
+\[ (a+b)(b+c)(c+a) \ge 8abc. \]
+\end{exmp}
+\begin{proof}
+By AM--GM,
+\begin{align*}
+a+b &\ge 2\sqrt{ab} \\
+b+c &\ge 2\sqrt{bc} \\
+c+a &\ge 2\sqrt{ca}
+\end{align*}
+Multiplying the above inequalities gives us our desired result. Equality holds if and only if $a=b=c$.
+\end{proof}
+
+\begin{exmp}{}{}
+Let $a, b, c > 0$. Prove that
+\[ \frac{a^3}{bc} + \frac{b^3}{ca} + \frac{c^3}{ab} \ge a+b+c. \]
+\end{exmp}
+\begin{proof}
+By AM--GM we deduce that
+\begin{align*}
+\frac{a^3}{bc} + b + c &\ge 3a \\
+\frac{b^3}{ca} + c + a &\ge 3b \\
+\frac{c^3}{ab} + a + b &\ge 3c
+\end{align*}
+Adding the three inequalities we get our desired result.
+\end{proof}
+
+\begin{exmp}{}{}
+Let $a, b, c$ be positive real numbers. Prove that
+\[ ab(a+b)+bc(b+c)+ca(c+a) \ge \sum_\text{cyc} ab\sqrt{\frac{a}{b}(b+c)(c+a)}. \]
+\end{exmp}
+\begin{proof}
+By AM--GM,
+\begin{align*}
+&2ab(a+b)+2ac(a+c)+2bc(b+c) \\
+&= ab(a+b)+ac(a+c)+bc(b+c)+ab(a+b)+ac(a+c)+bc(b+c) \\
+&= a^2(b+c)+b^2(a+c)+c^2(a+b)+(a^2b+b^2c+ca^2)+(ab^2+bc^2+ca^2) \\
+&\ge a^2(b+c)+b^2(a+c)+c^2(a+b)+(a^2b+b^2c+c^2a)+3abc \\
+&= a^2(b+c)+b^2(a+c)+c^2(a+b)+ab(a+c)+bc(a+b)+ac(b+c) \\
+&= \brac{a^2(b+c)+ab(a+c)}+\brac{b^2(a+c)+bc(a+b)}+\brac{c^2(a+b)+ac(b+c)} \\
+&\ge 2\sqrt{a^3b(b+c)(c+a)}+2\sqrt{b^3c(c+a)(a+b)}+2\sqrt{c^3a(a+b)(b+c)} \\
+&= 2ab\sqrt{\frac{a}{b}(b+c)(c+a)}+2bc\sqrt{\frac{b}{c}(c+a)(a+b)}+2ca\sqrt{\frac{c}{a}(a+b)(b+c)}
+\end{align*}
+Equality holds if and only if $a=b=c$.
+\end{proof}
+
+\begin{exmp}{Nesbitt's Inequality}{}
+For positive real numbers $a, b, c$ prove that
+\[ \frac{a}{b+c} + \frac{b}{c+a} + \frac{c}{a+b} \ge \frac{3}{2} \]
+\end{exmp}
+\begin{proof}
+Our inequality is equivalent to
+\[ 1 + \frac{a}{b+c} + 1 + \frac{b}{c+a} + 1 + \frac{c}{a+b} \ge \frac{9}{2} \]
+or 
+\[ (a+b+c)\brac{\frac{1}{b+c}+\frac{1}{c+a}+\frac{1}{a+b}} \ge \frac{9}{2} \]
+Using AM--GM, we have
+\[ \frac{(b+c)+(c+a)+(a+b)}{3} \ge \sqrt[3]{(b+c)(c+a)(a+b)} \]
+and 
+\[ \frac{\frac{1}{b+c}+\frac{1}{c+a}+\frac{1}{a+b}}{3} \ge \frac{1}{\sqrt[3]{(b+c)(c+a)(a+b)}} \]
+\end{proof}
+
+\begin{exmp}{}{}
+For positive real numbers $p,q,r$, find the minimum of 
+\[ \frac{p+q}{r}+\frac{q+r}{p}+\frac{r+p}{q}. \]
+\end{exmp}
+
+\begin{proof}[Solution]
+We split the expression up first into 
+\[ \frac{p}{r}+\frac{q}{r}+\frac{r}{p}+\frac{q}{p}+\frac{p}{q}+\frac{r}{q} \]
+Now we pair up terms as such:
+\[ \brac{\frac{p}{r}+\frac{r}{p}} + \brac{\frac{q}{r}+\frac{r}{q}} + \brac{\frac{q}{p}+\frac{p}{q}} \]
+Applying AM--GM to each pair, the result follows easily.
+\end{proof}
+
+\subsection{Weighted AM--GM Inequality}
+The weighted version of the AM--GM inequality follows from the original AM--GM inequality. 
+\begin{thrm}{Weighted AM--GM}{}
+For positive real $a_1,a_2,\dots,a_n$ and positive integers $\omega_1,\omega_2,\dots,\omega_n$, by AM--GM,
+\begin{equation}
+\frac{\omega_1a_1+\omega_2a_2+\cdots+\omega_na_n}{\omega_1+\omega_2+\cdots+\omega_n} \ge \brac{a_1^{\omega_1}+a_2^{\omega_2}+\cdots+a_n^{\omega_n}}^\frac{1}{\omega_1+\omega_2+\cdots+\omega_n}
+\end{equation}
+\end{thrm}
+Or equivalently in symbols
+\[ \frac{\sum\omega_ia_i}{\sum\omega_i} \ge \brac{\prod a_i^{\omega_i}}^\frac{1}{\sum\omega_i} \]
+
+\begin{exmp}{}{}
+Let $a, b, c$ be positive real numbers such that $a+b+c=3$. Show that
+\[ a^bb^cc^a \le 1 \]
+\end{exmp}
+\begin{proof}
+Notice that
+\[ 1 = \frac{a+b+c}{3} \ge \frac{ab+bc+ca}{a+b+c} \ge (a^bb^cc^a)^\frac{1}{a+b+c} \]
+which implies $a^bb^cc^a \le 1$.
+\end{proof}
+
+\subsection{Other mean quantities}
+For non-negative real $a_1,a_2,\dots,a_n$, the \textbf{harmonic mean} is given by
+\[ \frac{1}{\frac{1}{a_1}+\frac{1}{a_2}+\cdots+\frac{1}{a_n}} \]
+
+For non-negative real $a_1,a_2,\dots,a_n$, the \textbf{square mean} is given by
+\[ \frac{\sqrt{a_1^2+a_2^2+\cdots+a_n^2}}{n} \]
+
+Relating AM, GM, HM, and SM, we have the following inequality:
+\[ SM \ge AM \ge GM \ge HM \]
+
+\section{Cauchy--Schwarz and H\"{o}lder’s Inequalities}
+\begin{thrm}{Cauchy--Schwarz}{} 
+For real $a_1, a_2, \dots, a_n$ and $b_1, b_2, \dots, b_n$, 
+\begin{equation} ({a_1}^2 + {a_2}^2 + \cdots + {a_n}^2)({b_1}^2 + {b_2}^2 + \cdots + {b_n}^2) \ge (a_1 b_1 + a_2 b_2 + \cdots + a_n b_n)^2 \end{equation} 
+Equality holds iff $\dfrac{a_1}{b_1} = \dfrac{a_2}{b_2} = \cdots = \dfrac{a_n}{b_n}$. 
+\end{thrm}
+
+\begin{thrm}{Titu}{}
+For positive real $a_1, a_2, \dots, a_n$ and $b_1, b_2, \dots, b_n$, 
+\begin{equation} \frac{{a_1}^2}{b_1} + \frac{{a_2}^2}{b_2} + \cdots + \frac{{a_n}^2}{b_n} \ge \frac{(a_1 + a_2 + \cdots + a_n)^2}{b_1 + b_2 + \cdots + b_n} \end{equation} 
+Equality holds iff $\dfrac{a_1}{b_1} = \dfrac{a_2}{b_2} = \cdots = \dfrac{a_n}{b_n}$. 
+\end{thrm}
+
+\begin{exmp}{IMO 1995}{}
+Let $a, b, c$ be positive real numbers such that $abc = 1$. Prove that
+\[ \frac{1}{a^3(b+c)} + \frac{1}{b^3(c+a)} + \frac{1}{c^3(a+b)} \ge \frac{3}{2} \]
+\end{exmp}
+\begin{proof}
+Let $x=\frac{1}{a}, y=\frac{1}{b}, z=\frac{1}{c}$. Then by the given condition we obtain $xyz = 1$. Note that
+\[ \sum\frac{1}{a^3(b+c)} = \sum\frac{1}{\frac{1}{x^3}\brac{\frac{1}{y}+\frac{1}{z}}} = \sum\frac{x^2}{y+z} \]
+Now by Cauchy--Schwarz,
+\[ \sum\frac{x^2}{y+z} \ge \frac{(x+y+z)^2}{2(x+y+z)} = \frac{x+y+z}{2} \]
+and by AM--GM,
+\[ \frac{1}{2}(x+y+z) \ge \frac{3}{2}\sqrt[3]{xyz} = \frac{3}{2} \]
+Hence proven.
+\end{proof}
+
+\begin{thrm}{H\"{o}lder}{}
+For positive real $a_1, a_2, \dots, a_n$ and $b_1, b_2, \dots, b_n$, and positive real $p$, $q$ that satisfy $\frac{1}{p} + \frac{1}{q} = 1$, 
+\begin{equation} 
+\left(\sum_{i=1}^{n} {a_i}^p\right)^{\frac{1}{p}} \left(\sum_{i=1}^{n} {b_i}^q\right)^{\frac{1}{q}} \ge \sum_{i=1}^{n} a_ib_i 
+\end{equation} 
+\end{thrm}
+\begin{remark}
+Cauchy--Schwarz is a special case of H\"{o}lder, when $p=q=2$.
+\end{remark}
+
+\section{Rearrangement and Chebyshev's Inequalities}
+\begin{thrm}{Chybeshev}{}
+For real $a_1\ge\dots\ge a_n$ and $b_1\ge\dots\ge b_n$,
+\begin{equation}
+\frac{a_1b_1+\cdots+a_nb_n}{n} \ge \frac{a_1+\cdots+a_n}{n} \frac{b_1+\cdots+b_n}{n}
+\end{equation}
+\end{thrm}
+
+\begin{thrm}{Rearrangement}{}
+For real $a_1\ge\dots\ge a_n$ and $b_1\ge\dots\ge b_n$, for any permutation $\sigma$ of $\{1,\dots,n\}$, 
+\begin{equation}
+\sum_{i=1}^n a_ib_i \ge \sum_{i=1}^n a_ib_{\sigma(i)} \ge \sum_{i=1}^n a_ib_{n+1-i}
+\end{equation}
+\end{thrm}
+
+\section{Other Useful Strategies}
+\begin{thrm}{Triangle inequality}{}
+For real  $a_1, a_2, \dots , a_n$, 
+\begin{equation} |a_1| + |a_2| + \cdots + |a_n| \ge |a_1 + a_2 + \cdots + a_n| \end{equation} 
+Equality holds iff $a_1, a_2, \cdots, a_n$ are all non-negative. \end{thrm}
+
+\begin{thrm}{Schur}{}
+For non-negative real $a,b,c$ and $n>0$, 
+\begin{equation} a^n (a-b)(a-c) + b^n (b-c)(b-a) + c^n (c-a)(c-b) \ge 0 \end{equation} 
+Equality holds iff either $a=b=c$ or when two of $a,b,c$ are equal and the third is $0$.
+\end{thrm}
+
+\begin{proof}
+WLOG, let ${a\ge b\ge c}$. 
+Note that 
+\begin{align*}
+    &a^n(a-b)(a-c)+b^n(b-a)(b-c) \\
+    &= a^n(a-b)(a-c)-b^n(a-b)(b-c) \\
+    &= (a-b)(a^n(a-c)-b^n(b-c))
+\end{align*}
+Clearly, $a^n\ge b^n \ge 0$, and $a-c \ge b-c \ge 0$. Thus, 
+\[ (a-b)(a^n(a-c)-b^n(b-c)) \ge 0 \implies a^n(a-b)(a-c)+b^n(b-a)(b-c) \ge 0 \]
+However, $c^n(c-a)(c-b) \ge 0$, and thus the proof is complete.
+\end{proof}
+
+When $n=1$, we have the well-known inequality:
+\[a^3+b^3+c^3+3abc \ge a^2 b+a^2 c+b^2 a+b^2 c+c^2 a+c^2 b\]
+When $n=2$, an equivalent form is:
+\[a^4+b^4+c^4+abc(a+b+c) \ge a^3 b+a^3 c+b^3 a+b^3 c+c^3 a+c^3 b\]
+
+\begin{thrm}{Minkowski}{}
+For positive real $a_1,\dots,a_n$ and $b_1,\dots,b_n$ and $p > 1$,
+\begin{equation}
+\brac{\sum_{i=1}^n{a_i}^p}^{\frac{1}{p}} + \brac{\sum_{i=1}^n{b_i}^p}^{\frac{1}{p}} \ge \brac{\sum_{i=1}^n(a_i+b_i)^p}^{\frac{1}{p}}
+\end{equation}
+\end{thrm}
+
+\begin{thrm}{Generalised Minkowski}{}
+Let $a_{ij}\ge0$ for $i=1,\dots,n$ and $j=1,\dots,m$ and let $p>1$, then
+\begin{equation}
+\sqbrac{\sum_{i=1}^n\brac{\sum_{j=1}^ma_{ij}}}^\frac{1}{p} \le \sum_{j=1}^m\brac{\sum_{i=1}^n{a_{ij}}^p}^\frac{1}{p}
+\end{equation}
+\end{thrm}
+
+\begin{defn}{Convex function}{}
+
+\end{defn}
+
+\begin{thrm}{Jensen}{}
+Let a real-valued function $f$ be convex on the interval $I$. Let $x_1, \dots, x_n \in I$ and $\omega_1, \dots, \omega_n \ge 0$. Then we have 
+\begin{equation}
+\frac{\omega_1f(x_1)+\omega_2f(x_2) + \cdots + \omega_nf(x_n)}{\omega_1+\omega_2+\cdots+\omega_n} \ge f\brac{\frac{\omega_1x_1+\omega_2x_2+\cdots+\omega_nx_n}{\omega_1+\omega_2+\cdots+\omega_n}}
+\end{equation}
+If $f$ is concave, the direction of the inequality is flipped.
+
+In particular, if we take the weights $\omega_1=\omega_2=\cdots=\omega_n=1$, we get the inequality
+\[ \frac{f(x_1)+f(x_2)+\cdots+f(x_n)}{n} \ge f\brac{\frac{x_1+x_2+\cdots+x_n}{n}}. \]
+\end{thrm}
+
+AM--GM inequality is one of the special cases of Jensen's inequality.
+
+\begin{thrm}{Bernoulli}{}
+For $x>-1,x\neq0$ and integer $n>1$,
+\begin{equation}
+(1+x)^n > 1+nx
+\end{equation}
+\end{thrm}
+\pagebreak
+
+\section*{Problems}
+\begin{prbm}
+Given that $a,b>0$ and $ab(a+b)=2000$, find the minimum value of 
+\[ \frac{1}{a}+\frac{1}{b}+\frac{1}{a+b}. \]
+\end{prbm}
+\begin{solution}
+Using AM--GM, 
+\begin{align*}
+a+b &\ge 2\sqrt{ab} \\
+\brac{\frac{a+b}{2}}^2 &\ge ab \\
+\brac{\frac{a+b}{2}}^2(a+b) &\ge ab(a+b) \\
+\frac{(a+b)^3}{4} &\ge 2000 \\
+a+b &\ge 20
+\end{align*}
+
+Using AM--GM,
+\begin{align*}
+\frac{1}{a}+\frac{1}{b}+\frac{1}{a+b}
+&= \frac{1}{2a}+\frac{1}{2a}+\frac{1}{2b}+\frac{1}{2b}+\frac{1}{a+b} \\
+&\ge 5\sqrt[5]{\frac{1}{16}\frac{a+b}{a^2b^2(a+b)^2}} \\
+&\ge 5\brac{\frac{1}{20}} = \boxed{\frac{1}{4}}
+\end{align*}
+
+Equality holds if and only if $\dfrac{1}{2a}=\dfrac{1}{2b}=\dfrac{1}{a+b}$, or $a=b=10$.
+\end{solution}
+\pagebreak
+
+\begin{prbm}[HCI 2020 Prelim Q7]
+Given positive reals $a$, $b$, $c$, prove that 
+\[ \frac{(a+1)^3}{b} + \frac{(b+1)^3}{c} + \frac{(c+1)^3}{a} \ge \frac{81}{4} \]
+\end{prbm}
+
+\begin{proof}
+Applying AM-GM gives us
+\[ \frac{(a+1)^3}{b} + \frac{(b+1)^3}{c} + \frac{(c+1)^3}{a} \ge \frac{3(a+1)(b+1)(c+1)}{\sqrt[3]{abc}} \]
+We note the denominator is a cube root and hence we want to get the numerator to be a product of cube roots containing $a$, $b$ and $c$ so that they cancel out. To do so, split each term in the bracket into three terms and apply AM-GM on the numerator:
+\begin{align*}
+\frac{3(a+1)(b+1)(c+1)}{\cbrt{abc}} 
+&= \frac{3(a+\frac{1}{2}+\frac{1}{2})(b+\frac{1}{2}+\frac{1}{2})(c+\frac{1}{2}+\frac{1}{2})}{\cbrt{abc}} \\
+&\ge \frac{81\cbrt{\frac{a}{4}}\cbrt{\frac{b}{4}}\cbrt{\frac{c}{4}}}{\cbrt{abc}} = \frac{81}{4}
+\end{align*}
+\end{proof}
+\pagebreak
+
+\begin{prbm}[HCI 2020 Prelim Q7]
+Given $x,y,z\ge 1$, $\dfrac{1}{x}+\dfrac{1}{y}+\dfrac{1}{z}=2$, prove that
+\[ \sqrt{x+y+z} \ge \sqrt{x-1} + \sqrt{y-1} + \sqrt{z-1} \]
+\end{prbm}
+
+\begin{proof}[Solution]
+The expression is certainly odd, as we would usually expect some squares in a Cauchy. We note that if we square both sides, we get something that better resembles a Cauchy inequality.
+
+We construct the inequality 
+\[ (x+y+z)\brac{\frac{x-1}{x}+\frac{y-1}{y}+\frac{z-1}{z}} \ge (\sqrt{x-1}+\sqrt{y-1}+\sqrt{z-1})^2 \]
+where
+\[ \frac{x-1}{x}+\frac{y-1}{y}+\frac{z-1}{z} = 3 - \brac{\frac{1}{x}+\frac{1}{y}+\frac{1}{z}} = 3-2=1 \]
+so applying Cauchy gives us the desired result.
+\end{proof}
+\pagebreak
+
+\begin{prbm}[HCI 2020 Prelim Q7]
+Given that $a+b+c+d=3$ and $a^2+2b^2+3c^2+6d^2=5$, prove that $1\le a\le 2$.
+\end{prbm}
+
+\begin{proof}[Solution]
+Since the desired result concerns the variable $a$, we naturally try to express the remaining variables in terms of $a$. 
+
+We hence yield
+\[ b+c+d=3-a \]
+and
+\[ 2b^2+3c^2+6d^2=5-a^2 \]
+
+Note that since both the sum of variables and the sum of the squares of said variables are given, it is an indication that Cauchy is the way to go for this question.
+
+Applying Cauchy,
+\[ (2b^2+3c^2+6d^2)(18+12+6) \ge (6b+6c+6d)^2 \]
+
+Substituting in the relevant expressions gives us $36(5-a^2)\ge (18-6a)^2$ which is a fairly easy inequality to solve.
+\end{proof}
+\pagebreak
+
+\begin{prbm}
+Prove that for all $n \in \NN$,
+\[ \sqrt{1^2+1}+\sqrt{2^2+1}+\cdots+\sqrt{n^2+1}\ge\frac{n}{2}\sqrt{n^2+2n+5}. \]
+\end{prbm}
+
+\begin{proof}
+Define the function $f(x)=\sqrt{x^2+1}$. Observe that for $x\to\infty$, we have $f(x)\to|x|$, so the graph is convex.
+
+Applying Jensen's inequality with reals $x_1=1,x_2=2,\dots,x_n=n$,
+\begin{align*}
+\frac{f(x_1)+f(x_2)+\cdots+f(x_n)}{n} &\ge f\brac{\frac{x_1+x_2+\cdots+x_n}{n}} \\
+\frac{f(1)+f(2)+\cdots+f(n)}{n} &\ge f\brac{\frac{1+2+\cdots+n}{n}} \\
+\frac{\sqrt{1^2+1}+\sqrt{2^2+1}+\cdots+\sqrt{n^2+1}}{n} &\ge f\brac{\frac{n(n+1)/2}{n}}\\&= f\brac{\frac{n+1}{2}}=\frac{1}{2}\sqrt{n^2+2n+5}
+\end{align*}
+\end{proof}
+\pagebreak
+
+\begin{prbm}[MACEDONIA 2016] 
+For $n \ge 3$, $a_1, a_2, \dots , a_n \in \mathbb{R}^{+}$ satisfy \[ \frac{1}{1+{a_1}^4} + \frac{1}{1+{a_2}^4} + \cdots + \frac{1}{1+{a_n}^4} = 1. \]
+Prove that 
+\[ a_1 a_2 \cdots a_n \ge (n-1)^{\frac{n}{4}}. \]
+\end{prbm}
+
+\begin{proof}
+Let $b_i = {a_i}^4$ where $b_i \ge 0$. 
+The given condition becomes \[ \frac{1}{1+b_1} + \frac{1}{1+b_2} + \cdots + \frac{1}{1+b_n} = 1. \]
+and we want to prove \[ b_1 b_2 \cdots b_n \ge (n-1)^n.\]
+
+Let $t_i = \dfrac{1}{1+b_i}$. Rewriting the given condition gives us \[ t_1 + t_2 + \cdots + t_n = 1.\] 
+and we want to prove \[ \frac{1-t_1}{t_1} \frac{1-t_2}{t_2} \cdots \frac{1-t_n}{t_n} \ge (n-1)^n. \]
+
+Using AM-GM, we have 
+\begin{align*}
+\frac{1-t_1}{t_1} \frac{1-t_2}{t_2} \cdots \frac{1-t_n}{t_n}
+&= \frac{t_2 + t_3 + \dots + t_n}{t_1} \frac{t_1 + t_3 + \dots + t_n}{t_2} \cdots \frac{t_1 + t_2 + \dots + t_{n-1}}{t_n} \\
+&\ge \frac{(n-1)(t_2  t_3 \cdots t_n)^\frac{1}{n-1}}{t_1} \frac{(n-1)(t_1  t_3 \cdots t_n)^\frac{1}{n-1}}{t_2} \cdots \frac{(n-1)(t_1  t_2 \cdots t_{n-1})^\frac{1}{n-1}}{t_n} \\
+&= (n-1)^n
+\end{align*}
+\end{proof}
+\pagebreak
+
+\begin{prbm}[USAMO 2012]
+Find all integers $n \ge 3$ such that among any $n$ positive real numbers $a_1, a_2, \dots, a_n$ with 
+\[ \text{max}(a_1, a_2, \dots, a_n) \le n \cdot \text{min}(a_1, a_2, \dots , a_n), \]
+there exist three that are the side lengths of an acute triangle.
+\end{prbm}
+
+\begin{proof}[Solution]
+We claim that $n\ge 13$ are all the satisfying positive integers.
+
+WLOG, let $a_1\le a_2\le\hdots\le a_n$. Three positive real numbers $a\le b \le c$ are the side lengths of an acute triangle iff $a^2+b^2>c^2$. 
+
+Thus, if our $n$ positive real numbers contain no such triple, we must have $a_i^2 + a_j^2 \le a_k^2$ for all $i<j<k$. 
+
+We have the following claim:
+
+\begin{lemma}
+Let $S=\{a_1, a_2, \hdots, a_n\}$ be a set of $n\ge 3$ positive real numbers, where $a_1\le a_2\le\hdots\le a_n$. If $S$ contains no three numbers that are side lengths of an acute triangle, we have $a_i\ge F_i\cdot a_1^2$ for all $1\le i\le n$, where $F_i$ is the $i$-th Fibonacci number.
+\end{lemma}
+\begin{proof}
+If $n=3$, we must have $a_1^2+a_2^2\le a_3^2$. And since $a_1^2\le a_2^2$ and $a_3^2\ge a_1^2+a_2^2\ge 2a_2^2$, the claim holds for $n=3$.
+
+Assume that the claim holds for all $t\le n$. Consider a set $S$ of $n+1$ real numbers such that $a_1\le a_2\le\hdots\le a_{n+1}$ and $S$ contains no three numbers that are side lengths of an acute triangle. Then, we must have
+\begin{align*}
+a_1^2+a_2^2&\le a_3^2\\
+a_2^2+a_3^2&\le a_4^2\\		
+&\vdots\\
+a_{n-1}^2+a_{n}^2&\le a_{n+1}^2.
+\end{align*}
+
+Since the statement holds for all $t\le n$, we have $a_i\ge F_i\cdot a_1^2$ for all $1\le i\le n$. 
+Thus, $a_{n+1}^2\ge a_{n-1}^2+a_{n}^2\ge F_{n-1}\cdot a_1^2+F_n\cdot a_1^2=F_{n+1}\cdot a_1^2$. QED
+\end{proof}
+Now, if $n\ge 13$, we have $a_n\ge F_n\cdot a_1^2$. However, since $\text{max}(a_1,a_2,\dots,a_n) \le n \cdot\text{min}(a_1,a_2, \dots,a_n)$, we have $n\cdot a_1\ge a_n$, or $a_n^2\ge n^2\cdot a_1^2$. But for all $n\ge 13$, we have $n^2<F_n$, hence $a_n\ge F_n \cdot a_1^2>n^2a_1^2\ge a_n$, which is absurd. Thus for all $n\ge 13$, we will always have three numbers that are side lengths of an acute triangle.
+
+For $n\le 12$, the set $S=\{\sqrt{F_i}t\mid 1\le i\le n,\,t\in\RR^+,\, F_i\text{ is the }i\text{-th Fibonacci number}\}$ satisfies that it contains no three numbers that are side lengths of an acute triangle.
+\end{proof}
+\pagebreak
+
+\begin{prbm}[IMO 2000]
+Let $ a, b, c$ be positive real numbers so that $abc = 1$. Prove that
+\[ \brac{a-1+\frac{1}{b}} \brac{b-1+\frac{1}{c}} \brac{c-1+\frac{1}{a}} \le 1. \]
+\end{prbm}
+
+\begin{proof}
+Let $a=\dfrac{x}{y}, b=\dfrac{y}{z}, c=\dfrac{z}{x}$, then
+\[ \prod_{cyc}(x-y+z)\le xyz \iff (x^3+y^3+z^3)+3xyz \ge \sum_{cyc}x^2y+\sum_{cyc}x^2z \]
+This holds by Schur's inequality.
+\end{proof}
+\pagebreak
+
+\begin{prbm}
+Show that 
+\[ \sum_{k=1}^{n}a_k^2 \ge a_1 a_2 + a_2a_3 + \cdots + a_{n-1}a_n + a_na_1 \]
+\end{prbm}
+
+\begin{proof}
+Multiply both sides by $2$,
+\[ 2\sum_{k=1}^{n}a_{k}^{2}\ge 2(a_{1}a_{2}+a_{2}a_{3}+\cdots+a_{n-1}a_{n}+a_{n}a_{1}) \]
+Subtracting each side by the RHS, 
+\[ (a_1-a_n)^2+(a_2-a_1)^2+(a_3-a_2)^2+\cdots+(a_n-a_{n-1})^2\ge 0 \]
+which is always true.
+\end{proof}
+\pagebreak
+
+\begin{prbm}[CANADA/1969]
+Show that if $\dfrac{a_1}{b_1} = \dfrac{a_2}{b_2} = \dfrac{a_3}{b_3}$ and $p_1,p_2,p_3$ are not all zero, then 
+\[ \left(\frac{a_1}{b_1} \right)^n = \frac{p_1{a_1}^n + p_2{a_2}^n + p_3{a_3}^n}{p_1{b_1}^n + p_2{b_2}^n + p_3{b_3}^n}\]
+for every positive integer $n$.
+\end{prbm}
+
+\begin{proof}
+Instead of proving the two expressions equal, we prove that their difference equals zero.
+
+Subtracting the LHS from the RHS, 
+\[ \frac{p_1{a_1}^n+p_2{a_2}^n+p_3{a_3}^n}{p_1{b_1}^n+p_2{b_2}^n+p_3{b_3}^n}-\frac{{a_1}^n}{{b_1}^n} = 0\]
+
+Finding a common denominator, the numerator becomes 
+\begin{align*}
+&{b_1}^n (p_1{a_1}^n + p_2{a_2}^n + p_3{a_3}^n) - {a_1}^n(p_1{b_1}^n + p_2{b_2}^n + p_3{b_3}^n) \\
+&= p_2({a_2}^n {b_1}^n - {a_1}^n {b_2}^n) + p_3({a_3}^n {b_1}^n - {a_1}^n {b_3}^n) = 0
+\end{align*}
+(The denominator is irrelevant since it never equals zero)
+
+From $\dfrac{a_1}{b_1}=\dfrac{a_2}{b_2}$, we have 
+\[ {a_1}^n {b_2}^n = {a_2}^n {b_1}^n \]
+
+Similarly, from $\dfrac{a_1}{b_1}=\dfrac{a_3}{b_3}$, we have 
+\[ {a_1}^n {b_3}^n = {a_3}^n {b_1}^n \]
+
+Hence, ${a_2}^n {b_1}^n - {a_1}^n {b_2}^n = {a_3}^n {b_1}^n - {a_1}^n {b_3}^n = 0$ and our proof is complete.
+\end{proof}
+
+\chapter{Sequences and Series}
+\section{Summation}
+\begin{equation} \sum_{i=1}^{n} i = \frac{n(n+1)}{2} \end{equation}
+\begin{equation} \sum_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6} \end{equation}
+\begin{equation} \sum_{i=1}^{n} i^3 = \left[\frac{n(n+1)}{2}\right]^2 \end{equation}
+\begin{proof}
+These can be proven using mathematical induction.
+\end{proof}
+
+\section{Telescoping sums}
+A sum in which subsequent terms cancel each other, leaving only initial and final terms. For example,
+\begin{align*}
+S &= \sum_{i=1}^{n-1} (a_i-a_{i+1})	
+\\&= (a_1-a_2)+(a_2-a_3)+...+(a_{n-2}-a_{n-1})+(a_{n-1}-a_n)	
+\\&= a_1-a_n	
+\end{align*}
+
+\begin{exmp}{}{}
+Evaluate the following sum: 
+\[ \frac{1}{\sqrt{1}+\sqrt{2}} + \frac{1}{\sqrt{2}+\sqrt{3}} + \cdots + \frac{1}{\sqrt{99}+\sqrt{100}}. \] 
+\end{exmp}
+
+\begin{proof}[Solution]
+\begin{align*} \frac{1}{\sqrt{n+1}+\sqrt{n}} &= \frac{\sqrt{n+1}-\sqrt{n}}{(\sqrt{n+1}+\sqrt{n})(\sqrt{n+1}-\sqrt{n})} \\&= \sqrt{n+1}-\sqrt{n} \end{align*}
+Doing this for each fraction gives us \[ (\sqrt{2}-\sqrt{1}) + (\sqrt{3}-\sqrt{2}) + \cdots + (\sqrt{100}-\sqrt{99}) = \sqrt{100}-\sqrt{1} = 9 \]
+\end{proof}
+
+\begin{exmp}{}{} 
+Evaluate the following sum:
+\[ \sum_{n=1}^{2015} \frac{1}{n^2+3n+2}. \] 
+\end{exmp}
+
+\begin{proof}[Solution]
+A common method is to use partial fractions which will cancel each other out.
+\[ \frac{1}{n^2+3n+2} = \frac{1}{n+1}-\frac{1}{n+2} \]
+\begin{align*}
+\sum_{n=1}^{2015} \left( \frac{1}{n+1}-\frac{1}{n+2} \right)
+&= \left(\frac{1}{2}-\frac{1}{3}\right) + \left(\frac{1}{3}-\frac{1}{4}\right) + \cdots + \left(\frac{1}{2016}-\frac{1}{2017}\right) \\
+&= \frac{1}{2}-\frac{1}{2017} = \frac{2015}{4034}
+\end{align*}
+\end{proof}
+
+\section{Power series}
+\begin{thrm}{Taylor Series}{} 
+\begin{equation} f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!} (x-a)^n \end{equation} 
+\end{thrm}
+
+\begin{thrm}{Maclaurin Series}{}
+This is a special case of Taylor Series, where $a = 0$. 
+\begin{equation} f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(0)}{n!} x^n \end{equation} \end{thrm}
+
+The power series below can be easily computed:
+\begin{equation} e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots \end{equation}
+\begin{equation} \sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots \end{equation}
+\begin{equation} \cos x = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots \end{equation}
+\begin{equation} \ln (1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \cdots \end{equation}
+\begin{equation} \frac{1}{1-x} = 1 + x + x^2 + x^3 + \cdots \end{equation}
+\begin{equation} \frac{1}{(1-x)^2} = 1 + 2x + 3x^2 + 4x^3 + \cdots \end{equation}
+
+\section{Generating Functions}
+A generating function is just a different way of writing a sequence of numbers. Here we will be dealing mainly with sequences of numbers $(a_n)$.
+\begin{defn}{}{}
+Let $(a_n)_{n\ge0}$ be a sequence of numbers. The generating function associated with this sequence is the series
+\[ A(x)=\sum_{n\ge0}a_nx^n. \]
+\end{defn}
+% https://math.mit.edu/~goemans/18310S15/generating-function-notes.pdf
+
+\chapter{Recurrence Relations}
+% https://www.site.uottawa.ca/~lucia/courses/2101-10/lecturenotes/07RecurrenceRelations.pdf
+
+A \vocab{recurrence relation} for the sequence $\{a_n\}$ is an equation that expresses $a_n$ in terms of one or more of the \emph{previous terms} $a_0,a_1,\dots,a_{n-1}$.
+
+We will study more closely linear homogeneous recurrence relations of degree $k$ with constant coefficients:
+\[ a_n = c_1a_{n-1} + c_2a_{n-2} + \cdots + c_ka_{n-k}, \]
+where $c_1,c_2,\dots,c_k$ are real numbers and $c_k \neq 0$.
+
+\begin{remark}
+linear = previous terms appear with exponent 1 (not squares, cubes, etc),
+
+homogeneous = no term other than the multiples of $a_i$
+
+degree $k$ = expressed in terms of previous $k$ terms
+
+constant coefficients = coefficients in front of the terms are constants, instead of general functions.
+\end{remark}
+
+Relevant examples:
+\begin{itemize}
+\item $a_{n+1} = a_n + k$
+
+\textbf{Solution:} $a_n = a_1 + (k-1)n$
+
+\item $a_{n+1} = a_n + n$
+
+\textbf{Solution:} $a_n=a_1+1+2+\cdots+(n-1)=a_1+\frac{n(n-1)}{2}$
+
+\item $a_{n+1} = a_n \cdot k$
+
+\textbf{Solution:} $a_n = a_1k^{n-1}$
+
+\item $a_{n+1} = a_n \cdot n$
+
+\textbf{Solution:} $a_n = a_1(n-1)!$
+
+\item Fibonacci sequence: $a_{n+1} = a_n + a_{n-1}$ (for $n \ge 2$), $a_1=a_2=1$
+
+\item Cauchy equation: $f(x+y)=f(x)+f(y)$
+
+\textbf{Solution:} $f(x)=f(1)x$ for rational $x$
+
+\end{itemize}
+
+\section{First-order Recurrence Relations}
+The homogeneous case can be written in the following way: \[ x_n = r x^{n-1}, x_0 = A \] 
+Its general solution is \[ x_n = A r^n \]
+which is a geometric sequence with ratio $r$.
+
+\section{Second-order Recurrence Relations}
+\[ c_0 x_n + c_1 x_{n-1} + c_2 x_{n-2} = 0 \]
+We first look for solutions in the form of $x_n = c r^n$. Plugging in the equation, we get
+\[ c_0 c r^n + c_1 c r^{n-1} + c_2 c r^{n-2} = 0. \] 
+This simplifies to
+\[ c_0 r^2 + c_1 r + c_2 = 0 \] 
+which is known as the \emph{characteristic equation} of the recurrence. 
+The roots $r_1$, $r_2$ of the above equation are known as the \emph{characteristic roots}.
+
+In the case of distinct real roots, the general solution is 
+\[ x_n  = c_1 {r_1}^n + c_2 {r_2}^n \]
+where $c_1$ and $c_2$ are constants to be found.
+% https://www.math.hkust.edu.hk/~mabfchen/Math2343/Recurrence.pdf
+
+\begin{exmp}{Fibonacci Equation}{} 
+Let \[ f(n+2) = f(n+1) + f(n) \] 
+where $f(0) = 0, f(1) = 1$. Find a general formula for the sequence.
+\end{exmp} 
+
+\begin{solution}
+Consider the solution of the form \[ f(n) = \alpha^n \] for some real number $\alpha$. Then we have \[ \alpha^{n+2} = \alpha^{n+1} + \alpha^n \] from which we conclude that $\alpha^2 - \alpha - 1$. Solving quadratically, we have \[ \alpha_1 = \frac{1+\sqrt{5}}{2}, \alpha_2 = \frac{1-\sqrt{5}}{2}. \] 
+
+Hence, a general solution of the sequence can be written as \[ f(n) = c_1 \left(\frac{1+\sqrt{5}}{2}\right)^n + c_2 \left(\frac{1-\sqrt{5}}{2}\right)^n \] where $c_1$ and $c_2$ are coefficients to be determined using the initial values.
+
+By the initial conditions, we have 
+\begin{align*}
+& c_1 + c_2 = 0 \\
+& c_1 \left(\frac{1+\sqrt{5}}{2}\right) + c_2 \left(\frac{1-\sqrt{5}}{2}\right) = 1
+\end{align*}
+
+Thus we have \[ c_1 = \frac{1}{\sqrt{5}},\:c_2 = - \frac{1}{\sqrt{5}}. \] 
+
+Hence this gives us \[ \boxed{f(n) = \frac{1}{\sqrt{5}} \left(\frac{1+\sqrt{5}}{2}\right)^n - \frac{1}{\sqrt{5}} \left(\frac{1-\sqrt{5}}{2}\right)^n}. \]
+\end{solution}
+
+\chapter{Functional Equations}
+An equation containing an unknown function is called a \vocab{functional equation}. A typical functional equation problem will ask you to find all functions satisfying a certain property. For such problems, you must prove \emph{both} directions.
+
+Common problem-solving techniques:
+\begin{itemize}
+\item Guess the function.
+\item Substitute values such as $1$, $0$, $-1$, $x$, or $-x$.
+\item Spotting recurrence relations.
+\item Spotting cyclic functions.
+\item Cauchy's method.
+\end{itemize}
+
+\begin{exmp}{}{} 
+Let $a \neq 1$. Solve the equation 
+\[ a f(x) + f\left(\frac{1}{x}\right) = ax \] 
+where the domain of $f$ is the set of all non-zero real numbers. 
+\end{exmp} 
+
+\begin{proof}[Solution]
+Replacing $x$ by $x^{-1}$, we get \[ a f\brac{\frac{1}{x}} + f(x) = \frac{a}{x} \] We therefore have \[ (a^2-1)f(x) = a^2 x-\frac{a}{x} \] and hence \[ \boxed{f(x) = \frac{a^2 x-\frac{a}{x}}{a^2-1}}. \]
+\end{proof}
+
+\begin{exmp}{Cauchy's functional equation (rationals)}{}
+Find all functions $f:\QQ\to\QQ$ such that
+\[ f(x+y)=f(x)+f(y) \]
+holds for each $x,y \in \QQ$.
+\end{exmp}
+\begin{solution}
+First put $y=0$:
+\[ f(x+0) = f(x) + f(0) \implies f(0) = 0 \]
+Then put $y=-x$:
+\[ f(x-x) = f(x) + f(-x) \implies f(-x) = -f(x) \quad \forall x \in \QQ \]
+Then, by repeated application of the original equation to expand the right side of $f(nx) = f(x + x + \cdots + x)$ we get
+\[ f(nx) = nf(x) \quad \forall x \in \QQ, \forall n \in \NN \]
+By substituting $x=\frac{1}{n}$:
+\[ f\brac{\frac{1}{n}} = \frac{1}{n}f(1) \quad \forall n \in \NN \]
+Combining the two equations above with $x=\frac{1}{m}$, we get:
+\[ f\brac{\frac{n}{m}} = nf\brac{\frac{1}{m}} = \frac{n}{m}f(1) \quad \forall m,n \in \NN \]
+Using $f(-x) = -f(x$) and multiplying the equation above by $-1$, we get
+\begin{align*}
+-f\brac{\frac{n}{m}} &= -\frac{n}{m}f(1) \\
+f\brac{-\frac{n}{m}} &= \brac{-\frac{n}{m}}f(1) \quad \forall m,n \in \NN \\
+f(q) &= qf(1) \quad \forall q \in \QQ
+\end{align*}
+Thus, we have found that $f(x) = cx \forall x \in \QQ$ and some constant $c \in \RR$. It is obvious that this family of functions is indeed a solution of $f(x+y)=f(x)+f(y)$ for rational $x$ and $y$. More generally, it is easy to show that $\boxed{f(\alpha q) = qf(\alpha) \forall q \in \QQ, \alpha \in \RR}$.
+\end{solution}
+\pagebreak
+
+\section*{Problems}
+% https://imomath.com/index.cgi?page=functionalEquationsProblemsWithSolutions
+\begin{prbm}[IMO 2019]
+Determine all functions $f: \ZZ \to \ZZ$ such that, for all integers $a$ and $b$, 
+\[ f(2a)+2f(b)=f(f(a+b)).\]
+\end{prbm}
+
+\begin{proof}[Solution]
+First, we substitute $a=0$ to get$$f(0) + 2f(b) = f(f(b)).$$It follows that$$f(f(a+b)) = 2f(a+b)+f(0),$$so we have$$2f(a+b)+f(0) = f(2a) + 2f(b).$$Substituting $a=1$ (the motivation is that, since $f(x)$ takes the integers to the integers, it might be useful to relate $f(x+1)$ with $f(x)$) yields$$2f(b+1) + f(0)=f(2)+2f(b).$$Rearranging this a little bit, we get$$f(b+1)-f(b) = \frac{f(2)-f(0)}{2}.$$Clearly, $\frac{f(2)-f(0)}{2}$ is constant, so it follows that $f(x)$ is linear.
+
+Now, we let $f(x) = gx + h.$ Substituting this back, we find that either $g=h=0$ or $g=2.$
+
+Hence, we have $\boxed{f(x) = 2x+h \text{ for some constant h}},$ or $\boxed{f \equiv 0}.$
+\end{proof}
+\pagebreak
+
+\begin{prbm}[IMO 2015]
+Determine all functions $f:\RR\to\RR$ that satisfy the equation
+\[ f(x+f(x+y))+f(xy)=x+f(x+y)+yf(x)\]
+for all real $x$ and $y$.
+\end{prbm}
+
+\begin{proof}[Solution]
+Let $P(x,y)$ denote the assertion. Then, $P(0,y)$ gives $f(f(y))+f(0)=f(y)+yf(0)$. Therefore, $y=0$ gives $f(f(0))=0$ and $y=f(0)$ gives $2f(0)=f(0)^2$. This implies $f(0)=0$ or $f(0)=2$.
+
+Case 1: $f(0)=2$
+Then, $f(2)=0$ and $f(f(y))=f(y)+2y-2$. This implies $f$ is injective and $f(y)=y$ if and only if $y=1$. Now, $P(x,1)$ gives $f(x+f(x+1))=x+f(x+1)$, so $f(x+1)=1-x$. Therefore, $f(x)=2-x$. This works because both sides are equal to $y+2-xy$.
+
+Case 2: $f(0)=0$
+Then, $f(f(y))=f(y)$. Now, $P(f(k),k-f(k))$ gives$$f(2f(k))+f(f(k)(k-f(k)))=2f(k)+(k-f(k))f(k)$$and $P(f(k),0)$ gives
+$$f(2f(k))=2f(k).$$This means that $f(f(k)(k-f(k)))=(k-f(k))f(k)$. Therefore, $P(k-f(k),f(k))$ gives
+$$f(k)+f(f(k)(k-f(k)))=f(k)+(k-f(k))f(k)=k-f(k)f(k-f(k)),$$so$$(k-f(k))(f(k)-1)=-f(k-f(k)).$$Therefore, if $f(a)-a=f(b)-b\neq0$, then $f(a)=f(b)$, so $a=b$. Since $P(1,-1)$ gives $f(1)+f(-1)=1-f(1)$ and $P(-1,1)$ gives $f(-1)+f(-1)=-1+f(-1)$, we get $f(-1)=-1$ and $f(1)=1$. Now, $P(1,y)$ gives $f(1+f(1+y))-(1+f(1+y))+f(y)-y=0$, so if $g(x)=f(x)-x$, then $g(y)=-g(1+f(1+y))$. If $g(y)\neq0$, then $g(y)=-g(1+f(1+y))=g(1+f(1+1+f(1+y)))$, so $y-1=f(f(y+1)+2)$. Therefore, $f(y-1)=y-1$. If $f(y+1)\neq y+1$, then $f(y)=y$, contradiction. Therefore, $f(y+1)=y+1$, so $f(y+3)=y-1$, which implies $f(y+2)=y+2$. However, $P(1,y+2)$ gives $f(y)-y+f(y+2)-(y+2)=0$, contradiction since $f(y+2)=y+2$ but $f(y)\neq y$. Therefore, we must have $f(y)=y$ for all $y$, which works since both sides are equal to $2x+y+xy$.
+
+Therefore, the only solutions are $\boxed{f(x)=x}$ and $\boxed{f(x)=2-x}$.
+\end{proof}
+\pagebreak
+
+\begin{prbm}[CHINA 2016]
+Find all functions $f:\ZZ\to\ZZ,$ such that for $\forall m,n\in\ZZ$,
+\[ f(f(m+n))=f(m)+f(n).\]
+\end{prbm}
+
+\begin{proof}[Solution]
+Let $a=f(0)$ and $c=f(1)-f(0)$
+$f(m)+f(1)=f(f(m+1))=f(m+1)+f(0)$ and so $f(m+1)=f(m)+c$ and so $f(x)=cx+a$
+
+Plugging this back into the original equation, we get
+$\boxed{\text{S1: }f(x)=0\quad\forall x\in\ZZ}$, which indeed fits
+
+$\boxed{\text{S2: }f(x)=x+a\quad\forall x\in\ZZ}$, which indeed fits, whatever is $a\in\ZZ$
+\end{proof}

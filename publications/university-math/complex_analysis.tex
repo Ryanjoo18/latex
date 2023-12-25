@@ -1,0 +1,76 @@
+\part{Complex Analysis}
+\chapter{Functions}
+\textbf{Readings:} Visual Complex Analysis by Needman
+
+\section{Complex Functions}
+\subsection{Exponential function}
+We have Euler's formula: $e^{i\theta} = \cos\theta + i\sin\theta$. We can extend this to the complex exponential function $e^z$.
+
+\begin{defn}{Complex exponential function}{}
+For $z=x+iy$ the \vocab{complex exponential function} is defined as
+\[ e^z = e^{x+iy} = e^xe^{iy} = e^x(\cos y + i\sin y). \]
+\end{defn}
+
+In this definition $e^x$ is the usual exponential function for a real variable $x$. It is easy to see that all the usual rules of exponents hold:
+\begin{itemize}
+\item $e^0 = 1$
+
+\item $e^{z_1+z_2} = e^{z_1} e^{z_2}$
+
+\item $(e^z)^n = e^{nz}$ for positive integers $n$.
+
+\item $(e^z)^{-1} = e^{-z}$
+
+\item $e^z \neq 0$
+
+It will turn out that the property $\dv{e^z}{z}=e^z$ also holds, but we can't prove this yet because we haven't defined what we mean by the complex derivative d/dz. 
+
+\item $|e^{i\theta}| = 1$
+\begin{proof}
+\[ |e^{i\theta}| = |\cos\theta+i\sin\theta| = \sqrt{\cos^2\theta+\sin^2\theta} = 1 \]
+\end{proof}
+
+\item $|e^{x+iy}| = e^x$
+(as usual z = x + iy and x, y are real).
+
+\item The path $e^{it}$ for $0<t<\infty$ wraps counterclockwise around the unit circle. It does so infinitely many times.
+\end{itemize}
+
+\subsection{Complex functions as mappings}
+\subsection{Function $\arg z$}
+3.3.1 Many-to-one functions . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+3.3.2 Branches of arg(z) . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26
+3.3.3 The principal branch of arg(z) . . . . . . . . . . . . . . . . . . . . . 28
+\subsection{Branches and branch cuts}
+\subsection{Function $\log z$}
+3.5.1 Figures showing w = log(z) as a mapping . . . . . . . . . . . . . . . 30
+3.5.2 Complex powers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 32
+
+\section{Analytic Functions}
+\subsection{The derivative: preliminaries}
+\subsection{Open disks, open deleted disks, open regions}
+\subsection{Limits and continuous functions}
+4.3.1 Properties of limits . . . . . . . . . . . . . . . . . . . . . . . . . . . . 36
+4.3.2 Continuous functions . . . . . . . . . . . . . . . . . . . . . . . . . . . 36
+4.3.3 Properties of continuous functions . . . . . . . . . . . . . . . . . . . 37
+\subsection{The point at infinity}
+4.4.1 Limits involving infinity . . . . . . . . . . . . . . . . . . . . . . . . . 38
+4.4.2 Stereographic projection from the Riemann sphere . . . . . . . . . . 39
+\subsection{Derivatives}
+4.5.1 Derivative rules . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 40
+\subsection{Cauchy-Riemann equations}
+4.6.1 Partial derivatives as limits . . . . . . . . . . . . . . . . . . . . . . . 41
+4.6.2 The Cauchy-Riemann equations . . . . . . . . . . . . . . . . . . . . 42
+4.6.3 Using the Cauchy-Riemann equations . . . . . . . . . . . . . . . . . 43
+4.6.4 f0(z) as a 2 × 2 matrix . . . . . . . . . . . . . . . . . . . . . . . . . . 44
+4.7 Geometric interpretation \& linear elasticity theory . . . . . . . . . . . . . . 45
+4.8 Cauchy-Riemann all the way down . . . . . . . . . . . . . . . . . . . . . . . 46
+4.9 Gallery of functions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 47
+4.9.1 Gallery of functions, derivatives and properties . . . . . . . . . . . . 47
+4.9.2 A few proofs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 51
+4.10 Branch cuts and function composition . . . . . . . . . . . . . . . . . . . . . 52
+4.11 Appendix: Limits . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 54
+4.11.1 Limits of sequences . . . . . . . . . . . . . . . . . . . . . . . . . . . . 54
+4.11.2 limz→z0
+f(z) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 56
+4.11.3 Connection between limits of sequences and limits of functions . . . 56
