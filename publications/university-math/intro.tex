@@ -5,9 +5,9 @@
 \section{Logical statements and notation}
 Some terminology:
 \begin{itemize}
-\item \textbf{Definition}: a precise and unambiguous description of the meaning of a mathematical term. It characterizes the meaning of a word by giving all the properties and only those properties that must be true.
+\item \textbf{Definition}: a precise and unambiguous description of the meaning of a mathematical term. It characterises the meaning of a word by giving all the properties and only those properties that must be true.
 
-\item \textbf{Theorem}: a mathematical statement that is proved using rigorous mathematical reasoning. In a mathematical paper, the term theorem is often reserved for the most important results.
+\item \textbf{Theorem}: a true mathematical statement that can be proven mathematically. In a mathematical paper, the term theorem is often reserved for the most important results.
 
 \item \textbf{Lemma}: a minor result whose sole purpose is to help in proving a theorem. It is a stepping stone on the path to proving a theorem. Very occasionally lemmas can take on a life of their own.
 
@@ -35,12 +35,13 @@ A proposition is a sentence which has exactly one truth value, i.e. it is either
 
 \textbf{Negation:} $\lnot P$ means ``not $P$".
 
+Here are some useful properties when handling logical statements.
 \begin{itemize}
 \item Double negation law:
 \[ P \equiv \lnot(\lnot P) \]
 
 \item Commutative property:
-\[ P \land Q \equiv Q \land P \quad P \lor Q \equiv Q \lor P \]
+\[ P \land Q \equiv Q \land P, \quad P \lor Q \equiv Q \lor P \]
 
 \item Associative property for conjunction: 
 \[ (P\land Q)\land R \equiv P\land (Q\land R) \]
@@ -93,29 +94,46 @@ Thus a useful denial of the given statement is: $n$ is an even integer other tha
 \end{solution}
 \pagebreak
 
+\subsection{If, only if, $\implies$}
 \textbf{Implication:} $P \implies Q$ means ``$P$ implies $Q$", i.e. if $P$ holds then $Q$ also holds. It is equivalent to saying ``If $P$ then $Q$". The only case when $P \implies Q$ is false is when the hypothesis $P$ is true and the conclusion $Q$ is false.
 
-\begin{itemize}
-\item $P \implies Q \equiv (\lnot P) \lor Q$.
-\item $\lnot (P \implies Q) \equiv P \land (\lnot Q)$.
-\end{itemize}
+$P \implies Q$ is known as a \textbf{conditional statement}. $P$ is known as the \textbf{hypothesis}, $Q$ is known as the \textbf{conclusion}.
 
-The \textbf{converse} of $P \implies Q$ is the statement $Q \implies P$.
-\[ P \implies Q \not\equiv Q \implies P \]
+Statements of this form are probably the most common, although they may sometimes appear quite differently. The following all mean the same thing:
+\begin{enumerate}[label=(\roman*)]
+\item if $P$ then $Q$;
+\item $P$ implies $Q$;
+\item $P$ only if $Q$;
+\item $P$ is a sufficient condition for $Q$;
+\item $Q$ is a necessary condition for $P$.
+\end{enumerate}
 
-The \textbf{contrapositive} of $P \implies Q$ is the statement $(\lnot Q) \implies (\lnot P)$.
-\[ P \implies Q \equiv (\lnot Q) \implies (\lnot P) \]
+The \textbf{converse} of $P \implies Q$ is given by $Q \implies P$; both are \emph{not} logically equivalent.
 
+The \textbf{inverse} of $P \implies Q$ is given by $\lnot P \implies \lnot Q$, i.e. the hypothesis and conclusion of the statement are both negated.
+
+The \textbf{contrapositive} of $P \implies Q$ is given by $\lnot Q \implies \lnot P$; both are logically equivalent.
+
+\textbf{How to prove:} To prove $P \implies Q$, start by assuming that $P$ holds and try to deduce through some logical steps that $Q$ holds too. Alternatively, start by assuming that $Q$ does not hold and show that $P$ does not hold (that is, we prove the contrapositive).
+\pagebreak
+
+\subsection{If and only if, iff, $\iff$}
 \textbf{Bidirectional implication:} $P \iff Q$ means $P \implies Q$ and $Q \implies P$. We can read this as ``$P$ if and only if $Q$". The letters ``iff" are also commonly used to stand for ‘if and only if’.
 \[ P \iff Q \equiv (P \implies Q) \land (Q \implies P) \]
 
-\begin{itemize}
-\item $P \iff Q$ is true exactly when $P$ and $Q$ have the same truth value.
-\end{itemize}
+$P \iff Q$ is true exactly when $P$ and $Q$ have the same truth value.
 
+$P \iff Q$ is known as a \textbf{biconditional statement}.
+
+These statements are usually best thought of separately as ‘if’ and ‘only if’ statements.
+
+\textbf{How to prove:} To prove $P \iff Q$, prove the statement in both directions, i.e. prove both $P \implies Q$ and $Q \implies P$. Remember to make very clear, both to yourself and in your written proof, which direction you are doing.
+\pagebreak
+
+\subsection{Quantifiers}
 \textbf{Quantifiers}: universal quantifier $\forall$ means ``for all" or ``for every", universal quantifier $\exists$ means ``there exists". For example, ``$\exists x \in S \suchthat P(x)$" can be read as ``there exists $x$ in $S$ such that $P(x)$ holds". A common variant is $\exists!$ which means ``there exists unique", implying that there is one, and only one, element with the given property.
 
-These are versions of De Morgan's laws for quantifiers:
+These are versions of \textbf{De Morgan's laws} for quantifiers:
 \[ \lnot \forall x\,P(x) \iff \exists x\,\lnot P(x) \]
 \[ \lnot \exists x\,P(x) \iff \forall x\,\lnot P(x) \]
 
@@ -135,41 +153,23 @@ Therefore a useful denial of the statement is:
 \[ \text{there exists a real number } x \text{ such that } x>2 \text{ and } x^2\le4. \] 
 \end{solution}
 
-\begin{remark}
-Regardless of how much you use these symbols in your own writing, it is important to understand and be fluent in interpreting these symbols in other people's writing.
-\end{remark}
-\pagebreak
+\begin{exmp}{}{}
+Negate surjectivity.
+\end{exmp}
+\begin{solution}
+If $f:X\to Y$ is not surjective, then it means that there exists $y \in Y$ not in the image of $X$, i.e. for all $x$ in $X$ we have $f(x)\neq y$.
+\begin{align*}
+\lnot \forall y \in Y, \exists x \in X, f(x)=y 
+&\iff \exists y \in Y, \lnot (\exists x \in X, f(x)=y) \\
+&\iff \exists y \in Y, \forall x \in X, \lnot (f(x)=y) \\
+&\iff \exists y \in Y, \forall x \in X, f(x) \neq y
+\end{align*}
+\end{solution}
 
-\subsection{Handling logical statements}
-\subsubsection{If, only if, $\implies$}
-Statements of this form are probably the most common, although they may sometimes appear quite differently. The following all mean the same thing:
-\begin{enumerate}[label=(\roman*)]
-\item if $P$ then $Q$;
-\item $P$ implies $Q$;
-\item $P \implies Q$;
-\item $P$ only if $Q$;
-\item $P$ is a sufficient condition for $Q$;
-\item $Q$ is a necessary condition for $P$;
-\item whenever $P$ holds, $Q$ also holds;
-\item if $Q$ does not hold then $P$ does not hold;
-\item not $Q$ implies not $P$;
-\item $\lnot Q \implies \lnot P$.
-\end{enumerate}
 
-The last three of these are known as the \textbf{contrapositive}.
 
-\textbf{How to prove:} To prove $P \implies Q$, start by assuming that $P$ holds and try to deduce through some logical steps that $Q$ holds too. Alternatively, start by assuming that $Q$ does not hold and show that $P$ does not hold (that is, we prove the contrapositive).
+$\exists x\in X \suchthat P(x)$ is known as an \textbf{existential statement}. $X$ is known as the \textbf{domain}.
 
-\begin{remark}
-Note that the contrapositive is not the same as the converse. The contrapositive of $P \implies Q$ is $\lnot Q \implies \lnot P$; it is simply a different way of stating exactly the same thing. But the converse of $P \implies Q$ is $Q \implies P$, which means something completely different.
-\end{remark}
-
-\subsubsection{If and only if, iff, $\iff$}
-These statements are usually best thought of separately as ‘if’ and ‘only if’ statements.
-
-\textbf{How to prove:} To prove $P \iff Q$, prove the statement in both directions, i.e. prove both $P \implies Q$ and $Q \implies P$. Remember to make very clear, both to yourself and in your written proof, which direction you are doing.
-
-\subsubsection{Quantifiers}
 The quantifiers $\forall$ and $\exists$ are probably the most challenging of the notation. Do practice reading statements that include these symbols and checking that you understand their meaning.
 
 \textbf{How to prove:} To prove a statement of the form $\forall x \in X \suchthat P(x)$’, start the proof with ‘Let $x \in X$.’ or ‘Suppose $x \in X$ is given.’ to address the quantifier with an arbitrary $x$; provided no other assumptions about $x$ are made during the course of proving $P(x)$, this will prove the statement for all $x \in X$. 
@@ -183,40 +183,16 @@ Read from left to right, and as new elements or statements are introduced they a
 \begin{remark}
 To avoid confusion, it is a good idea to keep to the convention that the quantifiers come first, before any statement to which they relate.
 \end{remark}
-
-\subsubsection{Negation}
-For a statement $P$, the negated statement $\lnot P$ is the statement that is false when $P$ is true, and true when $P$ is false. It is important to be adept at negating statements (in order to seek contradictions, for example). For a simple statement such as $x \in S$, the negation is simply $x \notin S$. For more involved statements, it can be more confusing.
-
-For statements in the form of $P \implies Q$, the negated statement is $P \not\implies Q$. Since $P \implies Q$ means that $Q$ is true whenever $P$ is true, $P \not\implies Q$ means that (at least in some circumstance) $P$ is true and $Q$ is not true. Proving $P \not\implies Q$ would typically involve demonstrating such a circumstance.
-
-For statements involving quantifiers, the negation of $\forall x \in X, P(x)$ is $\exists x \in X, \lnot P(x)$ (since, if it is not true that $P(x)$ holds for every $x$, then it must be the case that there is some $x$ for which $P(x)$ does not hold). Similarly, the negation of $\exists x \in X, P(x)$ is $\forall x \in X, \lnot P(x)$ (since, if it is not true that there is an $x$ for which $P(x)$ holds, then it means that $P(x)$ does not hold for any $x$).\footnote{This is essentially an instance of De Morgan's laws.}
 \pagebreak
 
 \section{Proofs}
-\subsection{Direct proof}
-To prove $P \implies Q$ directly, we make use of $P$ to arrive at $Q$ through a sequence of logical reasoning. It may be that we can start from $P$ and work directly to $Q$, or it may be that we make use of $P$ along the way.
+\subsection{Direct Proof}
+A direct proof of $P \implies Q$ is a series of valid arguments that start with the hypothesis $P$ and end with the conclusion $Q$. It may be that we can start from $P$ and work directly to $Q$, or it may be that we make use of $P$ along the way.
 
-\subsection{Proof by contradiction}
-To prove $P \implies Q$ by contradiction, we suppose that $Q$ is not true and show through some logical reasoning (making use of the hypotheses $P$) that this leads to a contradiction or inconsistency. We may arrive at something that contradicts the hypotheses $P$, or something that contradicts the initial supposition that $Q$ is not true, or we may arrive at something that we know to be universally false.
+\subsection{Proof by Contrapositive}
+To prove $P \implies Q$, we can instead prove $\lnot Q \implies \lnot P$.
 
-\begin{exmp}{Irrationality of $\sqrt{2}$}{}
-Prove that $\sqrt{2}$ is irrational.
-\end{exmp}
-\begin{proof}
-We prove by contradiction. Suppose otherwise, that $\sqrt{2}$ is rational. Using the definition of rational numbers, we can write it as $\sqrt{2} = \dfrac{a}{b}$ for some $a,b\in\ZZ,b\neq 0$. 
-
-We also assume that $\dfrac{a}{b}$ is simplified to lowest terms, since that can obviously be done with any fraction. Notice that in order for $\dfrac{a}{b}$ to be in simplest terms, both $a$ and $b$ cannot be even; one or both must be odd, otherwise we could simplify the fraction further.
-
-Squaring both sides gives us
-\[ a^2 = 2b^2. \]
-Since RHS is even, LHS must also be even. Hence it follows that $a$ is even. Let $a=2k$ where $k\in\ZZ$. Substituting $a = 2k$ into the above equation and simplifying it gives us
-\[ b^2=2k^2. \]
-This means that $b^2$ is even, from which follows again that $b$ is even. 
-
-This is a contradiction, as we started out assuming that $\dfrac{a}{b}$ was simplified to lowest terms, and now it turns out that $a$ and $b$ both would be even. Hence proven.
-\end{proof}
-
-\subsection{Proof by induction}
+\subsection{Proof by Mathematical Induction}
 The following principle is sometimes quoted as a theorem, although it follows directly from our definition of the natural numbers.
 \begin{thrm}{Principle of Induction}{}
 Let $P(n)$ be a family of statements indexed by the natural numbers. Suppose that 
@@ -358,12 +334,36 @@ Note
 \[ \brac{1+\frac{1}{k}}^{k+1} > \brac{1+\frac{1}{k+1}}^{k+1} \quad \text{since } k<k+1 \iff \frac{1}{k}>\frac{1}{k+1} \]
 The rest of the proof follows easily.
 \end{proof}
-\pagebreak
 
-\subsection{Counterexamples}
+\subsection{Disproof by Counterexample}
 Providing a counterexample is the best method for refuting, or dispoving, a conjecture. 
 
 In seeking counterexamples, it is a good idea to keep the cases you consider simple, rather than searching randomly. It is often helpful to consider ``extreme" cases; for example, something is zero, a set is empty, or a function is constant.
+
+The counterexample must make the hypothesis a true statement, and the conclusion a false statement.
+
+\subsection{Proof by Contradiction}
+To prove $P \implies Q$ by contradiction, we suppose that $Q$ is not true and show through some logical reasoning (making use of the hypothesis $P$) that this leads to a contradiction or inconsistency. We may arrive at something that contradicts the hypotheses $P$, or something that contradicts the initial supposition that $Q$ is not true, or we may arrive at something that we know to be universally false.
+
+\subsection{Proof of Existence}
+\subsection{Proof by Construction}
+
+\begin{exmp}{Irrationality of $\sqrt{2}$}{}
+Prove that $\sqrt{2}$ is irrational.
+\end{exmp}
+\begin{proof}
+We prove by contradiction. Suppose otherwise, that $\sqrt{2}$ is rational. Using the definition of rational numbers, we can write it as $\sqrt{2} = \dfrac{a}{b}$ for some $a,b\in\ZZ,b\neq 0$. 
+
+We also assume that $\dfrac{a}{b}$ is simplified to lowest terms, since that can obviously be done with any fraction. Notice that in order for $\dfrac{a}{b}$ to be in simplest terms, both $a$ and $b$ cannot be even; one or both must be odd, otherwise we could simplify the fraction further.
+
+Squaring both sides gives us
+\[ a^2 = 2b^2. \]
+Since RHS is even, LHS must also be even. Hence it follows that $a$ is even. Let $a=2k$ where $k\in\ZZ$. Substituting $a = 2k$ into the above equation and simplifying it gives us
+\[ b^2=2k^2. \]
+This means that $b^2$ is even, from which follows again that $b$ is even. 
+
+This is a contradiction, as we started out assuming that $\dfrac{a}{b}$ was simplified to lowest terms, and now it turns out that $a$ and $b$ both would be even. Hence proven.
+\end{proof}
 
 \chapter{Set Theory}
 \section{Basics}
@@ -535,6 +535,22 @@ By double inclusion, the first result holds. The second result follows similarly
 De Morgan’s laws extend naturally to any number of sets, so if $\{A_i \mid i \in I\}$ is a family of subsets of $S$, then
 \[ \brac{\bigcap_{i\in I}A_i}^c = \bigcup_{i\in I}A_i^c \quad \text{and} \quad \brac{\bigcup_{i\in I}A_i}^c = \bigcap_{i\in I}A_i^c \]
 
+\begin{exercise}{}{}
+Prove the following:
+\begin{enumerate}
+\item $\brac{\bigcup_{i\in I}A_i}\cup B=\bigcup_{i\in I}(A_i\cup B)$
+\item $\brac{\bigcap_{i\in I}A_i}\cup B=\bigcap_{i\in I}(A_i\cup B)$
+\item $\brac{\bigcup_{i\in I}A_i}\cup\brac{\bigcup_{j\in J}B_j}=\bigcup_{(i,j)\in I\times J}(A_i\cup B_j)$
+\item $\brac{\bigcap_{i\in I}A_i}\cup\brac{\bigcap_{j\in J}B_j}=\bigcap_{(i,j)\in I\times J}(A_i\cup B_j)$
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}{}{}
+Let $S\subset A\times B$. Express the set $A_S$ of all elements of $A$ which appear as the first entry in at least one of the elements in $S$.
+
+($A_S$ here may be called the projection of $S$ onto $A$.)
+\end{exercise}
+
 \begin{prbm}
 Let $A$ be the set of all complex polynomials in $n$ variables. Given a subset $T \subset A$, define the \textit{zeros} of $T$ as the set
 \[ Z(T) = \{P=(a_1,\dots,a_n) \mid f(P)=0 \text{ for all } f \in T\} \]
@@ -562,6 +578,7 @@ The basic result is that if $X=Z(S)$ and $Y=Z(T)$ then $X\cap Y=Z(S\cup T)$.
 
 This is the beginning of a subject called algebraic geometry, which discusses about the geometry of algebraic surfaces, namely those kinds of surfaces defined by zeroes of polynomials (conic sections for example).
 \end{proof}
+\pagebreak
 
 \subsection{Cardinality}
 Informally, the \vocab{cardinality} of $S$, denoted $|S|$, is a measure of its ``size".
@@ -974,6 +991,30 @@ Since $g$ is injective and $g(f(x)) = g(f(x^\prime))$, we know $f(x)=f(x^\prime)
 Similarly, since $f$ is injective and $f(x) = f(x^\prime)$, we know that $x=x^\prime$, as required.
 \end{proof}
 
+\begin{proposition}
+$f$ is injective if and only if for any set $Z$ and any functions $g_1,g_2:Z\to X$ we have $f\circ g_1=f\circ g_2 \implies g_1=g_2$.
+\end{proposition}
+\begin{proof}
+\textbf{Forward direction:}
+
+If f is injective, we ultimately wish to show that $g_1=g_2$, so in order to do this we consider all possible inputs $z \in Z$, hoping to show that $g_1(z)=g_2(z)$.
+
+But this is quite simple because we are given that $f\circ g_1=f\circ g_2$ and that $f$ is injective, so
+\[ f \circ g_1(z)=f \circ g_2(z) \implies g_1(z)=g_2(z) \]
+
+\textbf{Backward direction:}
+
+We specifically pick $Z=\{1\}$, basically some random one-element set.
+
+Then $\forall x,y \in X$, we define
+\begin{align*}
+& g_1:Z \to X, g_1(1)=x \\
+& g_2:Z \to Y, g_2(1)=y \\
+\end{align*}
+Then
+\[ f(x)=f(y) \implies f(g_1(1))=f(g_2(1)) \implies g_1(1)=g_2(1) \implies x=y \]
+\end{proof}
+
 \begin{defn}{Surjectivity}{}
 $f:X\to Y$ is \vocab{surjective} if \emph{every} element of $Y$ is mapped to at least one element of $X$.
 \[ \forall y\in Y,\:\exists x\in X \suchthat f(x)=y \]
@@ -988,6 +1029,40 @@ Let $f:X\to Y$ and $g:Y\to Z$ be arbitrary surjective functions. We want to prov
 To do so, we want to prove that for any $z \in Z$, there is some $x \in X$ such that $(g \circ f)(x) = z$. Equivalently, we want to prove that for any $z \in Z$, there is some $x \in X$ such that $g(f(x)) = z$.
 
 Consider any $z \in Z$. Since $g:Y\to Z$ is surjective, there is some $y \in Y$ such that $g(y) = z$. Similarly, since $f:X\to Y$ is surjective, there is some $x \in X$ such that $f(x) = y$. This means that there is some $x \in X$ such that $g(f(x)) = g(y) = z$, as required.
+\end{proof}
+
+\begin{proposition}
+$f$ is surjective if and only if for any set $Z$ and any functions $g_1,g_2:Y\to Z$ we have $g_1 \circ f=g_2 \circ f \implies g_1=g_2$.
+\end{proposition}
+\begin{proof}
+\textbf{Forward direction:}
+
+First we suppose that $f$ is surjective. Again, we wish to show that $g_1=g_2$, so we need to consider every possible input $y$ in Y. Then, since $f$ is injective, we can always pick $x \in X$ such that $f(x)=y$.
+
+Then
+\[ g_1 \circ f=g_2 \circ f \implies g_1 \circ f(x)=g_2 \circ f(x) \implies g_1(y)=g_2(y) \]
+
+On the other hand, if $f$ is not surjective, then there exists $y \in Y$ such that for all $x \in X$ we have $f(x)\neq y$. We then aim to construct set $Z$ and $g_1,g_2:Y\to Z$ such that
+\begin{enumerate}[label=(\roman*)]
+\item $g_1(y) \neq g_2(y)$
+\item $\forall y^\prime \neq y, g_1(y^\prime)=g_2(y^\prime)$
+\end{enumerate}
+
+Because if this is satisfied, then $\forall x \in X$, since $f(x)\neq y$ we have from (ii) that $g_1(f(x))=g_2(f(x))$; thus $g_1 \circ f=g_2 \circ f$, and yet from (i) we have $g_1 \neq g_2$.
+
+\textbf{Backward direction:}
+
+We construct $Z=Y\cup\{1,2\}$ for some random $1,2 \notin Y$.
+
+Then we define
+\begin{align*}
+&g_1:Y\to Z,g_1(y)=1,g_1(y^\prime)=y^\prime
+&g_2:Y\to Z,g_2(y)=2,g_2(y^\prime)=y^\prime
+\end{align*}
+
+Then when $y$ is not in the image of $f$, these two functions will satisfy $g_1 \circ f=g_2 \circ f$ but not $g_1=g_2$.
+
+So conversely, if for any set $Z$ and any functions $g_i:Y \to Z$ we have $g_1 \circ f=g_2 \circ f \implies g_1=g_2$, such a value $y$ that is in the codomain but not in the range of $f$ cannot appear, and hence $f$ must be surjective.
 \end{proof}
 
 \begin{defn}{Bijectivity}{}

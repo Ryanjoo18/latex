@@ -383,6 +383,52 @@ Then $\sup S-\epsilon$ is an upper bound for $S$, but $\sup S-\epsilon < \sup S$
 Hence there is $s_\epsilon \in S$ with $\sup S-\epsilon<s_\epsilon$.
 \end{proof}
 
+\begin{thrm}{}{}
+Any set bounded from above/below must have a supremum/infimum.
+\end{thrm}
+\begin{proof}
+We prove the above theorem for supremum, using Dedekind cuts.
+
+Let $S$ be a real number set. We consider the rational number set\footnote{very important that you remember this for the definition of Dedekind cuts}
+\[ A = \{x \in \QQ \mid \exists y \in S, x<y\} \]
+
+Now we go through the definitions to check that $(A|B)$ is a Dedekind cut
+\begin{enumerate}
+\item Since $S\neq\emptyset$, pick $y\in S$, then $[y]-1$ is a real number smaller than some element in $S$, hence $[y]-1 \in A$ and thus $A\neq\emptyset$.
+
+Also, since we are given that $S$ is bounded, there exists a positive integer $M$ as an upper bound for $S$, thus $B\neq\emptyset$. (Note that an upper bound is simply a number that is bigger than anything from the set, and is not the supremum.)
+
+\item We define $B$ to be the complement of $A$ in $\QQ$ so condition 2 is trivial.
+
+\item For any $x,y\in A$, if $x<y$ and $y\in A$, then there exists $z\in S$ such that $y<z$, hence $x<z$ and thus $x\in A$.
+
+\item Suppose otherwise that $x\in A$ is the largest element in $A$, then there exists $y\in S$ such that $x<y$.
+
+We then pick a rational number $z$ between $x$ and $y$. Since we still have $z<y$, we have $z\in A$ but $z>x$, contradictory to $z$ being the largest.
+\end{enumerate}
+
+Now there is actually an issue with the proof for property 4 here: How exactly are we finding $z$?
+
+First $x\in Q$. Then $y\in\RR$ so we rewrite it as $y=(C|D)$ via definition.
+
+$x<y$ translates to the fact that $x\in C$. Now, since $y$ is real, by definition we know that $C$ must not have a largest element. In particular, $x$ is not largest and we can pick $z\in C$ such that $z>x$. This is in fact the $z$ that we need.
+
+Now that all the properties of a real number are validated, we may finally conclude that $\alpha=(A|B)$ is indeed a real number.
+
+
+Now we need to show that $\alpha$ is in fact the supremum of $S$.
+
+Let $x\in S$. If $x$ is not the maximum value of $S$, i.e. $\exists y \in S$ such that $x<y$. Then $x\in A$ and thus $x<\alpha$.
+
+If $x$ is the maximum value of $S$, then for any rational number $y<x$ we have $y\in A$, and for any rational number $y\ge x$ we have $y\in B$. Thus $x=(A|B)=\alpha$.
+
+In conclusion, $x\le\alpha$ for all $x\in S$.
+
+For any upper bound x of S, since $\forall y\in S, x\ge y$ we have $x\in B$ and thus $x\ge \alpha$.
+
+Therefore, $\alpha$ is the smallest upper bound of $S$ and thus $\sup S=\alpha$ exists.
+\end{proof}
+
 \begin{prbm}
 Consider the set $\{\frac{1}{n} \mid n\in\ZZ^{+}\}$.
 \begin{enumerate}[label=(\alph*)]
@@ -410,8 +456,10 @@ Find, with proof, the supremum and/or infimum of $\{\frac{1}{n}\}$.
 \end{prbm}
 
 \begin{proof}
-sup{1/n} = max{1/n} = 1
-inf{1/n}=0 as for all positive a, we can pick n=[1/a]+1, then a>1/n
+For the suprenum,
+\[ \sup\crbrac{\frac{1}{n}} = \max\crbrac{\frac{1}{n}} = 1. \]
+For the infinum, for all positive $a$ we can pick $n=[\frac{1}{a}]+1$, then $a>\frac{1}{n}$. Hence 
+\[ \inf\crbrac{\frac{1}{n}}=0. \]
 \end{proof}
 
 \begin{prbm}
@@ -436,7 +484,7 @@ We then multiply by some number $m$ (basically adding one by one) so that
 Picking $k=m(b-a)$ thus gives
 \begin{align*}
 2k\pi+\frac{\pi}{2} &= 6k+(2\pi-6)k+\frac{\pi}{2} \\
-&= 6k+[(2\pi-6)k]+2+{(2\pi-6)k}-(2-\frac{\pi}{2})
+&= 6k+[(2\pi-6)k]+2+{(2\pi-6)k}-\brac{2-\frac{\pi}{2}}
 \end{align*}
 
 Thus $n=6k+[(2\pi-6)k]+2$ satisfies $\absolute{2k\pi+\dfrac{\pi}{2}-n}<\delta$
@@ -825,3 +873,396 @@ In the case where $p$ is not a limit point of the domain $E$, we say $f$ is cont
 \section{Infinite Limits and Limits at Infinity}
 
 \chapter{Sequences and Series of Functions}
+
+\chapter{Differentiation}
+In this section we will be discussing about differentiation of a real function.
+
+You might have already heard of the definition of the derivative:
+\[ f^\prime(c)=\lim_{x\to c}\frac{f(x)-f(c)}{x-c} \]
+
+$f$ is \textbf{differentiable} at $x$ if $f^\prime(x)$ exists, and we say that $f$ is differentiable on a set $E$ if $f$ is differentiable at every $x \in E$.
+
+One particular instance to take note here is if $E$ is an open interval $(a,b)$
+
+Later on when we talk about properties of differentiation such as the intermediate value theorems, we usually have the following requirement on the function:
+$f$ is a continuous function on $[a,b]$ which is differentiable in $(a,b)$.
+
+This is a slightly weaker condition than '$f$ is differentiable on $[a,b]$', for example $f(x)=\sqrt{1-x^2}$ satisfies this property on $[-1,1]$ and therefore the properties of differentiation still apply
+
+\begin{exercise}{}{}
+Prove the product and quotient rules of differentiation.
+\end{exercise}
+
+\begin{exercise}{}{}
+Prove the chain rule.
+\end{exercise}
+\begin{proof}
+Now the proof for chain rule is actually quite nontrivial
+The proof of the chain rule that is usually taught in high school actually has some holes in it
+
+First we list out the conditions:
+1. $f$ is continuous on some interval $[a,b]$ and differentiable at $x\in[a,b]$ (if $x$ is either $a$ or $b$, then the limit taken in the derivative is a right or left limit).
+2. $g$ is a function defined on the range of $f$ (otherwise $g\circ f$ wouldn't exist) and differentiable at $f(x)$.
+
+Again the notion of limits here must be taken over all 'relevant points'
+
+For example let $g(x)=x$ be defined only on the non-negative real numbers, and let $f(x)=x^2$.
+
+Then $g\circ f(x)=x^2$ is defined, and in fact differentiable over $\RR$, even though there is a worrying issue at $x=0$ (here $f(0)=0$ so we will be dealing with an extremal input for $g$)
+
+The saving grace here is that $g$ is still differentiable at $0$, even though here we need to interpret differentiability through a right limit: $\lim_{x\to0^+}\frac{g(x)}{x}=1$, but $\lim_{x\to0^-}\frac{g(x)}{x}$ does not exist.
+
+If $g$ does not even have such differentiability at the endpoint, then we cannot expect $g\circ f$ to be differentiable, e.g. $g(x)=\sqrt{x}$ and $f(x)=x^2$, then $g(f(x))=|x|$ is not differentiable at $x=0$.
+
+Now let's dive into the proof
+
+We know that
+\[ f^\prime(x)=\lim_{t\to x}\frac{f(t)-f(x)}{t-x}, \]
+so under the assumption that $t$ stays within the domain of $f$, $\frac{f(t)-f(x)}{t-x}$ should be a good approximation to $f^\prime(x)$.
+
+To actually quantify this, let $u(t)=\frac{f(t)-f(x)}{t-x}-f^\prime(x)$.
+
+Then the differentiability of $f$ tells us that $\lim_{t\to x}u(t)=0$.
+
+Similarly, let $v(s)=\frac{g(s)-g(y)}{s-y}-g^\prime(y)$, then $\lim_{s\to y}v(s)=0$, as long as $s$ stays in the domain of $g$
+(in my opinion it is quite helpful to think of these limits as sequential ones)
+
+What's nice here is that we can let $s=f(t)$, then by our assumption s always stays in the domain of g, so nothing fishy will happen
+
+Ah I forgot a small detail here
+Additionally we also need to define u(x)=0 and v(y)=0
+
+Now let $h(t)=g(f(t))$, then $h$ is defined on $[a,b]$, and we deduce that
+\[ h(t)-h(x)=(t-x)[f^\prime(x)+u(t)][g^\prime(y)+v(s)] \]
+
+We then check that
+\[ \lim_{t\to x}\frac{h(t)-h(x)}{t-x} = \lim_{t\to x}[f^\prime(x)+u(t)][g^\prime(y)+v(s)] = f^\prime(x)g^\prime(f(x)) \]
+and we are done.
+\end{proof}
+
+\begin{exmp}{}{}
+One of the best (worst?) family of pathological examples in calculus are functions of the form
+\[ f(x)=x^p\sin\frac{1}{x}. \]
+
+Here we're given the examples where p=1 and p=2
+For p=1, the function is continuous and differentiable everywhere other than x=0
+For p=2, the function is differentiable everywhere, but the derivative is discontinuous
+
+Other more advanced pathological results (just for fun):
+1. The graph for $y=\sin\frac{1}{x} 1/x$ on (0,1], together with the interval [-1,1] on the y-axis, is a connected closed set that is not path-connected
+
+2. For $0<p<1$, we obtain functions that are continuous and bounded, but the graphs are of infinite length (ps. I think that this is also true for p=1)
+\end{exmp}
+
+\section{Mean Value Theorems}
+We say that $x$ is a \vocab{stationary point} of $f$ if $f^\prime(x)=0$.
+
+\vocab{Local maximum/minimum} are points which attains maximum/minimum in some neighbourhood of that particular point.
+
+\begin{thrm}{Fermat's Theorem (Interior Extremum Theorem)}{}
+If the differential exists, then by comparing the left and right limits it is easy to see that the differential for a local maximum/maximum can only be $0$.
+
+To summarize in four words: Local extrema are stationary
+\end{thrm}
+
+There are three mean value theorems, from specific to general:
+\begin{enumerate}
+\item Rolle's Theorem
+\item (Lagrange's) Mean Value Theorem
+\item Generalised (Cauchy's) Mean Value Theorem
+\end{enumerate}
+
+\begin{thrm}{Rolle's Theorem}{}
+If $f$ is continuous on $[a,b]$, differentiable in $(a,b)$ and $f(a)=f(b)$, then there exists \[ c\in(a,b) \suchthat f^\prime(c)=0. \]
+\end{thrm}
+
+\begin{proof}
+Let $h(x)$ be a function defined on $[a,b]$ where $h(a)=h(b)$.
+
+The idea is to show that $h$ has a local maximum/minimum, then by Fermat's Theorem this will then be the stationary point that we're trying to find.
+
+First note that $h$ is continuous on $[a,b]$, so $h$ must have a maximum $M$ and a minimum $m$.
+
+If $M$ and $m$ were both equal to $h(a)=h(b)$, then $h$ is just a constant function and so $h^\prime(x)=0$ everywhere.
+
+Otherwise, $h$ has a maximum/minimum that is not $h(a)=h(b)$, so this extremal point lies in $(a,b)$.
+
+In particular, this extremal point is also a local extremum.
+Since $h$ is differentiable on $(a,b)$, by Fermat's theorem this extremum point is stationary, thus Rolle's Theorem is proven.
+\end{proof}
+
+\begin{defn}{Mean Value Theorem}{}
+If $f$ is continuous on $[a,b]$ and differentiable in $(a,b)$, then there exists \[ c\in(a,b) \suchthat f^\prime(c)=\frac{f(b)-f(a)}{b-a}. \]
+\end{defn}
+
+Exercise 2: Show that the Mean Value Theorem results directly from Rolle's Theorem (the other direction is trivial)
+:
+This isn't a very significant exercise because we're going to prove something more general
+
+\begin{thrm}{Generalised Mean Value Theorem}{}
+If f and g are continuous on [a,b] and differentiable in (a,b), then there exists \[ c\in(a,b) \suchthat [g(b)-g(a)]f^\prime(c)=[f(b)-f(a)]g^\prime(c). \]
+\end{thrm}
+
+
+Now we return to the proof of the generalized MVT
+
+We set the function $h(t)=[f(b)-f(a)]g(t)-[g(b)-g(a)]f(t)$, then $h$ is continuous on $[a,b]$ and differentiable on $(a,b)$
+
+Moreover, $h(a)=f(b)g(a)-f(a)g(b)=h(b)$, thus by Rolle's Theorem, there exists $c\in(a,b)$ such that $h^\prime(c)=0$, i.e. $[g(b)-g(a)]f^\prime(c)=[f(b)-f(a)]g^\prime(c)$
+
+Corollary: If $f$ and $g$ are continuous on $[a,b]$ and differentiable in $(a,b)$, and $g^\prime(x)\neq0$ for all $x\in(a,b)$, then there exists \[ c\in(a,b) \suchthat f^\prime(c)/g^\prime(c)=[f(b)-f(a)]/[g(b)-g(a)] \]
+
+This form of the generalized MVT will be used to prove the most beloved rule of high school students
+
+exercises for the Mean Value Theorem
+
+\begin{exercise}{}{}
+Let $f$ and $g$ be continuous on $[a,b]$ and differentiable on $(a,b)$. If $f^\prime(x)=g^\prime(x)$, then $f(x)=g(x)+C$.
+\end{exercise}
+
+\begin{exercise}{}{}
+Given that $f(x)=x^\alpha$ where $0<\alpha<1$. Prove that $f$ is uniformly continuous on $[0,+\infty)$.
+\end{exercise}
+
+\begin{exercise}{Olympiad level}{}
+Let $f$ be a function continuous on $[0,1]$ and differentiable on $(0,1)$ where $f(0)=f(1)=0$. Prove that there exists $c\in(0,1)$ such that
+\[ f(x)+f^\prime(x)=0. \]
+\end{exercise}
+
+Among others:
+3. Applications of MVT
+3a) Darboux's Theorem
+3b) L'Hopital's Rule
+3c) Taylor Series
+:
+3a) Darboux's Theorem
+I don't like the fact that the book uses the title 'continuity of derivatives'; as we've mentioned, f(x)=x² sin1/x has a discontinuous derivative
+:
+What the book is trying to express here is that Darboux's Theorem implies some sort of a 'intermediate value' property of derivatives that is similar to continuous functions
+
+:
+We'll hopefully finish the proofs of the three statements above for today
+:
+3a) Darboux's Theorem
+:
+This is Theorem 5.12 in the book
+:
+Now first and foremost, the requirement for this statement is that f must be differentiable on [a,b], not just in (a,b)
+Otherwise f'(a) and f'(b) may not make sense
+:
+One common theme in many of these problems is to construct auxiliary functions
+Suppose that f'(a)<λ<f'(b), then we construct the auxiliary function g(x)=f(x)-λx
+:
+Then we only need to find a point x∈(a,b) such that g'(x)=0
+:
+This means that we only need to find a local maximum/minimum, which by Fermat's Theorem has to be a stationary point as well
+:
+Now we look at the values of g near a and b
+:
+Exercise 1: Using the fact that g'(a)<0 and g'(b)>0, show that a and b are local maxima of g
+:
+Here we regard g as simply a function on [a,b], so we only need to show that a,b are maximum and corresponding semi-open neighbourhoods [a,a+ε) and (b-ε,b]
+:
+Let m=g'(a)<0 be the slope of the tangent at a
+:
+Then lim(h→0+)[g(a+h)-g(a)]/h=m<0
+:
+This means that there should exist δ>0 such that for 0<h<δ, [g(a+h)-g(a)]/h<m/2<0
+:
+Now we can rewrite the above as
+g(a+h)<g(a)+mh/2
+:
+Since m<0 and h>0, we obtain
+g(a+h)<g(a) for 0<h<δ
+:
+Thus this proves that x=a is a local maximum of g
+A similar proof applies for x=b
+:
+Now since g is differentiable on [a,b], in particular it has to be continuous on [a,b]
+:
+Since [a,b] is compact, g([a,b]) is compact in R and thus g has both maximum and minimum values in [a,b]
+:
+Here we'll just focus on the minimum value
+:
+As we've shown, x=a is a 'strict' local maxima, in the sense that for any point x∈(a,a+ε), we actually have the strict inequality g(x)<g(a)
+:
+This means that x=a cannot be a local minimum
+:
+Similarly, x=b cannot be a local minimum, and therefore g achieves its minimum strictly inside (a,b)
+:
+Only then we can say that this local minimum is stationary
+(This will not work otherwise; note that a and b are both local maxima but are not stationary points of g)
+:
+An interesting implication of Darboux's Theorem is that if f is differentiable on [a,b], then f' cannot have simple discontinuities (removable or jump discontinuities), simply because these discontinuities do not allow this 'intermediate value' property
+:
+However, we should recall certain pathological examples like f(x)=x² sin 1/x (f(0)=0)
+Here f'(0)=lim(h→0)[x² sin 1/x-0]/x=0, but f'(x)=2x sin 1/x - cos 1/x, so f' is discontinuous at x=0
+:
+3b) L'Hopital's Rule (There's no 's' at the third letter)
+:
+First, a counterexamples
+:
+Let's say that we apply this rule to lim(x→∞) sin x/x
+:
+Then we have
+lim(x→∞) sin x/x=lim(x→∞) cos x/1
+:
+The limit on the RHS doesn't exist because cos x oscillates between -1 and 1
+:
+However, the limit on the LHS does in fact exist and is equal to 0
+:
+So this tells us that there are certain cases where we can apply L'Hopital, and other cases where we can't
+That being said, the case that we can apply the rule is actually the more useful case, so this situation does not jeopardize the effectiveness of L'Hopital
+:
+The entire statement is consequently rather long, so we'll split it into a few sections
+:
+1. f and g are differentiable in (a,b) and g'(x)≠0 in (a,b) (or at least in a small neighbourhood of a)
+:
+2. f(x)/g(x) is an indeterminate of the form 0/0 or ∞/∞ (Now for the second one here we only really need g(x)→∞, but if f(x) does not approach infinity then the limit would simply be zero, so L'Hopital's Rule would not be required here)
+:
+3. lim(x→a)f'(x)/g'(x) = A
+This is the most important one
+:
+From this we obtain lim(x→a)f(x)/g(x) = A
+:
+So for example, let's say that we want to calculate the following limit:
+lim(x→0) (sin x - x)/x³
+:
+Repeated application of L'Hopital gives
+lim(x→0) (sin x - x)/x³
+=lim(x→0) (cos x - 1)/3x²
+=lim(x→0) -sin x/6x =-1/6
+:
+Now what we're really doing here is that, first we know that lim(x→0) sin x/x =1, so lim(x→0) -sin x/6x =-1/6
+:
+Then by L'Hopital, lim(x→0) (cos x - 1)/3x²=-1/6
+:
+Finally, again by L'Hopital, lim(x→0) (sin x - x)/x³=-1/6
+:
+So, one very important thing to take note is that if you're calculating some complicated limit and you end up with the conclusion that it doesn't exist, you must make sure that you have not used L'Hopital during the process, because the rule never applies in such situations
+:
+As a side note, from the above calculation we see that as x→0, sin x ≈ x-x³/6
+This will later lead to the discussion of the Taylor series of sin x
+
+Now the entire proof is quite tedious because there's actually eight main cases to think of
+1. 0/0 or ∞/∞
+2. a is normal or a=-∞
+3. A is normal or A=±∞
+
+We'll only prove the most basic one here:
+0/0, a and A are normal
+This is the case which will be required for Taylor series
+
+First we define f(a)=g(a)=0, so that $f$ and $g$ are continuous at $x=a$
+
+Now let $x\in(a,b)$, then $f$ and $g$ are continuous on $[a,x]$ and differentiable in $(a,x)$
+:
+Thus by Cauchy's Mean Value Theorem, there exists \xi∈(a,x) such that
+f'(\xi)/g'(\xi)=[f(x)-f(a)]/[g(x)-g(a)]=f(x)/g(x)
+
+For each $x$, we pick $\xi$ which satisfies the above, so that $\xi$ may be seen as a function of $x$ satisfying $a<\xi(x)<x$
+
+Then by squeezing we have $\lim_{x\to a^+}\xi(x)=a$.
+
+Since $\frac{f^\prime}{g^\prime}$ is continuous near $a$, the theorem regarding the limit of composite functions give
+\begin{align*}
+lim(x→a+) f(x)/g(x)
+= lim(x→a+)f'(\xi)/g'(\xi)
+= lim(x→a+)(f'/g')(\xi(x)) = A
+\end{align*}
+
+Now the same reasoning can be used for $b$ where we will use lim(x→b-) to replace all the $\lim_{x\to a^+}$, and $\xi$ will be a function which maps to $(x,b)$.
+
+The ones with infinity are generally more complicated, but as we've mentioned we won't go through all the trouble
+:
+In particular, because you have the statement which works for both the left and right hand limits, L'Hopital works for ordinary limits as well
+:
+3c) Taylor series
+:
+The main expression is as follows:
+f(x)=f(a)+f'(a)/1! (x-a)+f''(a)/2! (x-a)²+f'''(a)/3! (x-a)³+...
+:
+So for example we have the following (we've used the ones for e^x and ln x for generating functions):
+e^x=1+x+x²/2!+x³/3!+...
+sin x=x-x³/3!+x⁵/5!-x⁷/7!+...
+cos x=1-x²/2!+x⁴/4!-x⁶/6!+...
+ln(1+x)=x-x²/2+x³/3-x⁴/4+...
+:
+There's a lot of things to say about these equations, for example the one for ln(1+x) only works for |x|<1
+:
+Also, if you want the RHS of the expression to be an infinite power series, f(x) has to be smooth (infinitely differentiable)
+:
+Even then, the power series may never converge to f(x) at any interval, no matter how small
+The most common example given here is f(x)=e^(-1/x²) (f(0)=0); the Taylor series for f(x) is just 0
+:
+Sorry I was talking to my mom
+:
+We'll extend the class until I finish this chapter
+:
+Now sometimes we don't actually that nice of a property for f, we're often given that fact that f is only finitely differentiable
+:
+Then we will have something along the lines of
+f(x)≈f(a)++f'(a)/1! (x-a)+f''(a)/2! (x-a)²+...+f^(n)(a)/n! (x-a)^n (f^(n) means n-th differential)
+:
+There are two main forms of the statement regarding the error between the original function and the Taylor series estimate
+:
+The simpler form is what's known as the Peano form: Given that f is n times differentiable at a, then
+f(x)=f(a)+f'(a)/1! (x-a)+f''(a)/2! (x-a)²+...+f^(n)(a)/n! (x-a)^n+o((x-a)^n)
+:
+To show this, we only need to show that we have the following limit:
+lim(x→a) [f(x)-{f(a)+f'(a)/1! (x-a)+f''(a)/2! (x-a)²+...+f^(n)(a)/n! (x-a)^n}]/(x-a)^n=0
+:
+The basic idea is to use the L'Hopital Rule n times
+:
+The numerator becomes f^(n)(x)-f^(n)(a) which approaches 0, whereas the denominater is just n!, so the limit exists and is equal to 0
+:
+However, we need to verify all the necessary conditions for L'Hopital
+:
+Here the main problem is that we don't know if we have the 0/0 indeterminate at each step, so we'll need to check this for the k-th step where k=1,...,n
+:
+Fortunately, the k-th derivative of the numerator is
+f^(k)(x)-f^(k)(a)-(x-a)F_k(x) where F_k is just a bunch of random stuff, so the numerator approaches 0 as x→a
+The k-th derivative of the denominator is n(n-1)...(n-k+1)(x-a)^(n-k) so it also approaches 0, and we're done
+:
+The other form is actually a family of similar statements which gives more precise values for the error
+The Peano form has a fundamental obstacle when used in approximation, we don't have any control on the size of the final term other than its asymptotic behaviour
+:
+We'll be talking about the one given in the book, known as the Lagrange form:
+:
+Given that f is n times differentiable on (a,b) such that f^(n-1) is continuous on [a,b], then
+f(x)=f(a)+f'(a)/1! (x-a)+f''(a)/2! (x-a)²+...+f^(n-1)(a)/(n-1)! (x-a)^(n-1)+f^(n)(\xi)/n! (x-a)^n
+:
+Just like in L'Hopital, we intuitively think of (a,b) as just a very small interval at the right hand side of x=a
+:
+Here we are giving up on the second final term of Peano by combining it with the infinitesimal (small o) term to give an accurate description of the error
+:
+For the proof of this one we'll be using Cauchy's MVT
+:
+Fix any x in (a,b), then we construct the functions
+F(t)=f(x)-[f(t)+f'(t)/1! (x-t)+f''(t)/2! (x-t)²+...+f^(n-1)(t)/(n-1)! (x-t)^(n-1)]
+G(t)=(x-t)^n
+:
+We calculate F'(t) as follows:
+-[f'(t)
++f''(t)/1!-f'(t)
++f'''(t)/2!-f''(t)/1!
++...
++f^(n)(t)/(n-1)! (x-t)^(n-1)-f^(n-1)(t)/(n-2)! (x-t)^(n-2)]
+=-f^(n)(t)/(n-1)! (x-t)^(n-1)
+:
+G'(t)=-n(x-t)^(n-1), so we have
+F'(t)/G'(t)=f^(n)(t)/n!
+
+:
+G'(t)=-n(x-t)^(n-1), so we have
+F'(t)/G'(t)=f^(n)(t)/n!
+:
+The main reason for why we come up with the strange-looking F and G is that we specifically swap out a for t so that F(x)=G(x)=0, in hopes of getting rid of x:
+We apply Cauchy's MVT to F and G on [a,x], so that we obtain \xi∈(a,x) satisfying
+F'(\xi)/G'(\xi)=[F(x)-F(a)]/[G(x)-G(a)]=F(a)/G(a)
+Thus the Lagrange form of the remainder is given by F(a)=f^(n)(\xi)/n! G(a)
+:
+Okay that's all for today
+You can look at the section about vector-valued functions, and note the similarities and differences between real functions and vector functions
+:
+Theorem 5.19 is important, so do go through that proof as an exercise

@@ -1,0 +1,251 @@
+\babel@toc {english}{}\relax 
+\contentsline {part}{I\hspace {1em}Introduction}{3}{part.1}%
+\contentsline {chapter}{\numberline {1}Mathematical Reasoning and Logic}{4}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Logical statements and notation}{4}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Notation}{5}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}If, only if, $\DOTSB \tmspace +\thickmuskip {.2777em}\Longrightarrow \tmspace +\thickmuskip {.2777em}$}{7}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}If and only if, iff, $\DOTSB \tmspace +\thickmuskip {.2777em}\Longleftrightarrow \tmspace +\thickmuskip {.2777em}$}{8}{subsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.1.4}Quantifiers}{9}{subsection.1.1.4}%
+\contentsline {section}{\numberline {1.2}Proofs}{11}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Direct Proof}{11}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Proof by Contrapositive}{11}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Proof by Mathematical Induction}{11}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Disproof by Counterexample}{15}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}Proof by Contradiction}{15}{subsection.1.2.5}%
+\contentsline {subsection}{\numberline {1.2.6}Proof of Existence}{15}{subsection.1.2.6}%
+\contentsline {subsection}{\numberline {1.2.7}Proof by Construction}{15}{subsection.1.2.7}%
+\contentsline {chapter}{\numberline {2}Set Theory}{17}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Basics}{17}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Notation}{17}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Algebra of Sets}{19}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Cardinality}{23}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Relations}{24}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Definition}{24}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Properties of relations}{25}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Equivalence relations, equivalence classes, and partitions}{26}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Functions}{33}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Definition}{33}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Injectivity, Surjectivity, Bijectivity}{35}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Cardinality and countable sets}{38}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Composition of functions and invertibility}{40}{subsection.2.3.4}%
+\contentsline {part}{II\hspace {1em}Linear Algebra}{43}{part.2}%
+\contentsline {chapter}{\numberline {3}Basics}{44}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Vectors}{44}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Linear Combinations}{44}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Length and Dot Product}{45}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Solving Linear Equations}{46}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Vector Spaces}{47}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Real and Complex Numbers}{47}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Definition}{47}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Subspaces}{49}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Matrices}{50}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Bases}{51}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Spans and Spanning Sets}{51}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Linear Independence}{51}{section.6.2}%
+\contentsline {chapter}{\numberline {7}Dimension}{52}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Linear Transformations}{53}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Linear Maps and Matrices}{54}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Inner Product Spaces}{55}{chapter.10}%
+\contentsline {part}{III\hspace {1em}Calculus}{56}{part.3}%
+\contentsline {chapter}{\numberline {11}Single Variable Calculus}{57}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Limits}{57}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}Informal Definition}{57}{subsection.11.1.1}%
+\contentsline {subsection}{\numberline {11.1.2}Limit Laws}{58}{subsection.11.1.2}%
+\contentsline {subsection}{\numberline {11.1.3}Evaluating Limits}{60}{subsection.11.1.3}%
+\contentsline {subsection}{\numberline {11.1.4}Precise Definition of a Limit}{63}{subsection.11.1.4}%
+\contentsline {subsection}{\numberline {11.1.5}Important Limits}{65}{subsection.11.1.5}%
+\contentsline {subsection}{\numberline {11.1.6}Continuity}{66}{subsection.11.1.6}%
+\contentsline {section}{\numberline {11.2}Derivative}{67}{section.11.2}%
+\contentsline {subsection}{\numberline {11.2.1}Definitions}{67}{subsection.11.2.1}%
+\contentsline {subsection}{\numberline {11.2.2}Theorems}{67}{subsection.11.2.2}%
+\contentsline {subsection}{\numberline {11.2.3}Differentiation rules}{69}{subsection.11.2.3}%
+\contentsline {subsection}{\numberline {11.2.4}Applications of differentiation}{71}{subsection.11.2.4}%
+\contentsline {subsubsection}{Implicit differentiation}{71}{subsubsection*.6}%
+\contentsline {subsubsection}{Newton's Method}{71}{subsubsection*.7}%
+\contentsline {section}{\numberline {11.3}Integral}{73}{section.11.3}%
+\contentsline {subsection}{\numberline {11.3.1}Definition}{73}{subsection.11.3.1}%
+\contentsline {subsection}{\numberline {11.3.2}Integration rules}{74}{subsection.11.3.2}%
+\contentsline {subsection}{\numberline {11.3.3}Integration techniques}{75}{subsection.11.3.3}%
+\contentsline {subsubsection}{Integrals of powers and of trigonometric functions}{75}{subsubsection*.8}%
+\contentsline {subsubsection}{Substitution}{76}{subsubsection*.9}%
+\contentsline {subsubsection}{Integration by parts}{77}{subsubsection*.10}%
+\contentsline {subsubsection}{Partial fraction decomposition}{77}{subsubsection*.11}%
+\contentsline {subsubsection}{Trigonometric substitutions}{77}{subsubsection*.12}%
+\contentsline {subsubsection}{Integrals of powers of trigonometric functions}{78}{subsubsection*.13}%
+\contentsline {subsubsection}{Integrals of hyperbolic functions}{78}{subsubsection*.14}%
+\contentsline {subsubsection}{Completing the square}{78}{subsubsection*.15}%
+\contentsline {subsubsection}{Elimination of radicals by substitution}{78}{subsubsection*.16}%
+\contentsline {subsubsection}{Weierstrass substitution}{78}{subsubsection*.17}%
+\contentsline {subsubsection}{Odd and even functions}{79}{subsubsection*.18}%
+\contentsline {subsubsection}{Reflections}{79}{subsubsection*.19}%
+\contentsline {subsubsection}{Inversions}{79}{subsubsection*.20}%
+\contentsline {subsubsection}{Inverse functions}{79}{subsubsection*.21}%
+\contentsline {subsubsection}{Feynman's integration trick}{79}{subsubsection*.22}%
+\contentsline {subsection}{\numberline {11.3.4}Approximation of Integral}{79}{subsection.11.3.4}%
+\contentsline {subsubsection}{Trapezium rule}{79}{subsubsection*.23}%
+\contentsline {subsubsection}{Simpson's Rule}{80}{subsubsection*.24}%
+\contentsline {subsection}{\numberline {11.3.5}Applications of integrals}{80}{subsection.11.3.5}%
+\contentsline {subsubsection}{Arc length}{80}{subsubsection*.25}%
+\contentsline {subsubsection}{Surface area}{81}{subsubsection*.26}%
+\contentsline {subsubsection}{Centre of mass}{81}{subsubsection*.27}%
+\contentsline {section}{\numberline {11.4}Sequences and Series}{83}{section.11.4}%
+\contentsline {subsection}{\numberline {11.4.1}Sequences}{83}{subsection.11.4.1}%
+\contentsline {subsection}{\numberline {11.4.2}Series}{84}{subsection.11.4.2}%
+\contentsline {subsubsection}{Divergence Test}{84}{subsubsection*.28}%
+\contentsline {subsubsection}{Integral Test}{85}{subsubsection*.29}%
+\contentsline {subsubsection}{Comparison Test / Limit Comparison Test}{85}{subsubsection*.30}%
+\contentsline {subsubsection}{Alternating Series Test}{85}{subsubsection*.31}%
+\contentsline {subsubsection}{Ratio Test}{85}{subsubsection*.32}%
+\contentsline {subsubsection}{Root Test}{85}{subsubsection*.33}%
+\contentsline {subsubsection}{Taylor Series}{86}{subsubsection*.34}%
+\contentsline {subsubsection}{Binomial Series}{86}{subsubsection*.35}%
+\contentsline {section}{\numberline {11.5}Ordinary Differential Equations}{87}{section.11.5}%
+\contentsline {subsection}{\numberline {11.5.1}First-order differential equations}{87}{subsection.11.5.1}%
+\contentsline {subsubsection}{Direct integration}{87}{subsubsection*.36}%
+\contentsline {subsubsection}{Separation of variables}{88}{subsubsection*.37}%
+\contentsline {subsubsection}{Reduction to separable form by substitution}{89}{subsubsection*.38}%
+\contentsline {subsection}{\numberline {11.5.2}First-order differential equations}{90}{subsection.11.5.2}%
+\contentsline {subsubsection}{First-order linear ODEs}{90}{subsubsection*.39}%
+\contentsline {subsection}{\numberline {11.5.3}Second-order differential equations}{91}{subsection.11.5.3}%
+\contentsline {subsubsection}{Two theorems}{91}{subsubsection*.40}%
+\contentsline {subsubsection}{Second-order homogeneous linear ODEs}{91}{subsubsection*.41}%
+\contentsline {section}{\numberline {11.6}Laplace transform}{92}{section.11.6}%
+\contentsline {chapter}{\numberline {12}Multivariable Calculus}{93}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Introduction}{93}{section.12.1}%
+\contentsline {subsection}{\numberline {12.1.1}Vectors}{93}{subsection.12.1.1}%
+\contentsline {subsection}{\numberline {12.1.2}Functions of several variables}{94}{subsection.12.1.2}%
+\contentsline {subsection}{\numberline {12.1.3}Limits}{95}{subsection.12.1.3}%
+\contentsline {section}{\numberline {12.2}Partial Derivatives}{96}{section.12.2}%
+\contentsline {subsection}{\numberline {12.2.1}Limits}{96}{subsection.12.2.1}%
+\contentsline {subsection}{\numberline {12.2.2}What it is}{96}{subsection.12.2.2}%
+\contentsline {subsection}{\numberline {12.2.3}How to Do Partial Derivatives}{97}{subsection.12.2.3}%
+\contentsline {subsection}{\numberline {12.2.4}Directional Derivatives}{97}{subsection.12.2.4}%
+\contentsline {section}{\numberline {12.3}Partial differential equations}{101}{section.12.3}%
+\contentsline {subsection}{\numberline {12.3.1}Definitions and Terminology}{101}{subsection.12.3.1}%
+\contentsline {subsection}{\numberline {12.3.2}Solutions and Auxiliary Conditions}{103}{subsection.12.3.2}%
+\contentsline {section}{\numberline {12.4}Double integrals}{103}{section.12.4}%
+\contentsline {section}{\numberline {12.5}Line integrals}{104}{section.12.5}%
+\contentsline {subsection}{\numberline {12.5.1}Vector fields}{104}{subsection.12.5.1}%
+\contentsline {subsection}{\numberline {12.5.2}Types of line integrals}{105}{subsection.12.5.2}%
+\contentsline {subsection}{\numberline {12.5.3}Fundamental Theorem for Line Integrals}{105}{subsection.12.5.3}%
+\contentsline {subsection}{\numberline {12.5.4}Conservative Vector Fields}{106}{subsection.12.5.4}%
+\contentsline {subsection}{\numberline {12.5.5}Green's Theorem}{106}{subsection.12.5.5}%
+\contentsline {chapter}{\numberline {13}Fourier Analysis}{107}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Fourier Trigonometric Series}{107}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Fourier Exponential Series}{108}{section.13.2}%
+\contentsline {section}{\numberline {13.3}Fourier Transform}{108}{section.13.3}%
+\contentsline {section}{\numberline {13.4}Special functions}{108}{section.13.4}%
+\contentsline {subsection}{\numberline {13.4.1}Gaussian}{108}{subsection.13.4.1}%
+\contentsline {subsection}{\numberline {13.4.2}Exponential, Lorentzian}{108}{subsection.13.4.2}%
+\contentsline {subsection}{\numberline {13.4.3}Square wave, sinc}{108}{subsection.13.4.3}%
+\contentsline {section}{\numberline {13.5}The delta function}{108}{section.13.5}%
+\contentsline {section}{\numberline {13.6}Gibbs phenomenon}{108}{section.13.6}%
+\contentsline {section}{\numberline {13.7}Convergence}{108}{section.13.7}%
+\contentsline {section}{\numberline {13.8}Relation between transforms and series}{108}{section.13.8}%
+\contentsline {part}{IV\hspace {1em}Differential Geometry}{109}{part.4}%
+\contentsline {part}{V\hspace {1em}Abstract Algebra}{111}{part.5}%
+\contentsline {chapter}{\numberline {14}Group Theory}{112}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Binary Operations}{112}{section.14.1}%
+\contentsline {section}{\numberline {14.2}Group Axioms}{115}{section.14.2}%
+\contentsline {section}{\numberline {14.3}Isomorphism}{117}{section.14.3}%
+\contentsline {section}{\numberline {14.4}Lagrange's theorem}{118}{section.14.4}%
+\contentsline {section}{\numberline {14.5}Group actions}{118}{section.14.5}%
+\contentsline {section}{\numberline {14.6}Quotient groups}{118}{section.14.6}%
+\contentsline {section}{\numberline {14.7}Matrix groups}{118}{section.14.7}%
+\contentsline {section}{\numberline {14.8}Permutations}{119}{section.14.8}%
+\contentsline {chapter}{\numberline {15}Ring Theory}{120}{chapter.15}%
+\contentsline {section}{\numberline {15.1}Definition}{120}{section.15.1}%
+\contentsline {chapter}{\numberline {16}Field Theory}{122}{chapter.16}%
+\contentsline {section}{\numberline {16.1}Field Axioms}{122}{section.16.1}%
+\contentsline {chapter}{\numberline {17}Galois Theory}{124}{chapter.17}%
+\contentsline {chapter}{\numberline {18}Category Theory}{125}{chapter.18}%
+\contentsline {part}{VI\hspace {1em}Real Analysis}{126}{part.6}%
+\contentsline {chapter}{\numberline {19}Properties of the real numbers}{127}{chapter.19}%
+\contentsline {section}{\numberline {19.1}Construction of the real numbers}{127}{section.19.1}%
+\contentsline {subsection}{\numberline {19.1.1}Order relations}{129}{subsection.19.1.1}%
+\contentsline {subsection}{\numberline {19.1.2}Addition}{130}{subsection.19.1.2}%
+\contentsline {subsection}{\numberline {19.1.3}Negation}{132}{subsection.19.1.3}%
+\contentsline {subsection}{\numberline {19.1.4}Signs}{132}{subsection.19.1.4}%
+\contentsline {subsection}{\numberline {19.1.5}Multiplication}{132}{subsection.19.1.5}%
+\contentsline {subsubsection}{Positive multiplication}{132}{subsubsection*.44}%
+\contentsline {subsubsection}{General Multiplication}{132}{subsubsection*.45}%
+\contentsline {section}{\numberline {19.2}Supremum and Infimum}{133}{section.19.2}%
+\contentsline {subsection}{\numberline {19.2.1}Ordered sets}{133}{subsection.19.2.1}%
+\contentsline {subsection}{\numberline {19.2.2}Boundedness}{133}{subsection.19.2.2}%
+\contentsline {section}{\numberline {19.3}Completeness}{139}{section.19.3}%
+\contentsline {subsection}{\numberline {19.3.1}Completeness axiom}{139}{subsection.19.3.1}%
+\contentsline {section}{\numberline {19.4}Order properties of the real numbers}{140}{section.19.4}%
+\contentsline {section}{\numberline {19.5}Topological properties of the real numbers}{140}{section.19.5}%
+\contentsline {chapter}{\numberline {20}Sequences and Series}{141}{chapter.20}%
+\contentsline {section}{\numberline {20.1}Limit of a sequence}{141}{section.20.1}%
+\contentsline {subsection}{\numberline {20.1.1}Definition}{141}{subsection.20.1.1}%
+\contentsline {subsection}{\numberline {20.1.2}Characteristics of limits}{142}{subsection.20.1.2}%
+\contentsline {section}{\numberline {20.2}Subsequences}{144}{section.20.2}%
+\contentsline {section}{\numberline {20.3}Cauchy Sequences}{145}{section.20.3}%
+\contentsline {section}{\numberline {20.4}Upper and Lower Limits}{146}{section.20.4}%
+\contentsline {section}{\numberline {20.5}Limits of multiple sequences}{146}{section.20.5}%
+\contentsline {chapter}{\numberline {21}Continuity}{147}{chapter.21}%
+\contentsline {section}{\numberline {21.1}Limit of Functions}{147}{section.21.1}%
+\contentsline {section}{\numberline {21.2}Continuous Functions}{148}{section.21.2}%
+\contentsline {section}{\numberline {21.3}Continuity and Compactness}{148}{section.21.3}%
+\contentsline {section}{\numberline {21.4}Continuity and Connectedness}{148}{section.21.4}%
+\contentsline {section}{\numberline {21.5}Discontinuities}{148}{section.21.5}%
+\contentsline {section}{\numberline {21.6}Monotonic Functions}{148}{section.21.6}%
+\contentsline {section}{\numberline {21.7}Infinite Limits and Limits at Infinity}{148}{section.21.7}%
+\contentsline {chapter}{\numberline {22}Sequences and Series of Functions}{149}{chapter.22}%
+\contentsline {chapter}{\numberline {23}Differentiation}{150}{chapter.23}%
+\contentsline {section}{\numberline {23.1}Mean Value Theorems}{152}{section.23.1}%
+\contentsline {part}{VII\hspace {1em}Topology}{157}{part.7}%
+\contentsline {chapter}{\numberline {24}$n$-dimensional Euclidean space}{158}{chapter.24}%
+\contentsline {section}{\numberline {24.1}What is $\mathbb R^n$?}{158}{section.24.1}%
+\contentsline {section}{\numberline {24.2}Concepts in Euclidean Space}{160}{section.24.2}%
+\contentsline {subsection}{\numberline {24.2.1}Bounded Sets}{160}{subsection.24.2.1}%
+\contentsline {subsection}{\numberline {24.2.2}Diameter}{160}{subsection.24.2.2}%
+\contentsline {subsection}{\numberline {24.2.3}Distance Between Sets}{161}{subsection.24.2.3}%
+\contentsline {section}{\numberline {24.3}Topology in Euclidean Space}{162}{section.24.3}%
+\contentsline {section}{\numberline {24.4}Important Theorems}{168}{section.24.4}%
+\contentsline {chapter}{\numberline {25}Metric Spaces}{173}{chapter.25}%
+\contentsline {section}{\numberline {25.1}Definition}{173}{section.25.1}%
+\contentsline {section}{\numberline {25.2}Convergence}{175}{section.25.2}%
+\contentsline {section}{\numberline {25.3}Continuity}{176}{section.25.3}%
+\contentsline {section}{\numberline {25.4}Structures}{177}{section.25.4}%
+\contentsline {section}{\numberline {25.5}Open sets}{179}{section.25.5}%
+\contentsline {section}{\numberline {25.6}Compactness}{179}{section.25.6}%
+\contentsline {section}{\numberline {25.7}Structures on Euclidean Space}{180}{section.25.7}%
+\contentsline {chapter}{\numberline {26}Knot Theory}{181}{chapter.26}%
+\contentsline {section}{\numberline {26.1}Knot and Knot Types}{181}{section.26.1}%
+\contentsline {part}{VIII\hspace {1em}Complex Analysis}{182}{part.8}%
+\contentsline {chapter}{\numberline {27}Functions}{183}{chapter.27}%
+\contentsline {section}{\numberline {27.1}Complex Functions}{183}{section.27.1}%
+\contentsline {subsection}{\numberline {27.1.1}Exponential function}{183}{subsection.27.1.1}%
+\contentsline {subsection}{\numberline {27.1.2}Complex functions as mappings}{184}{subsection.27.1.2}%
+\contentsline {subsection}{\numberline {27.1.3}Function $\arg z$}{184}{subsection.27.1.3}%
+\contentsline {subsection}{\numberline {27.1.4}Branches and branch cuts}{184}{subsection.27.1.4}%
+\contentsline {subsection}{\numberline {27.1.5}Function $\log z$}{184}{subsection.27.1.5}%
+\contentsline {section}{\numberline {27.2}Analytic Functions}{184}{section.27.2}%
+\contentsline {subsection}{\numberline {27.2.1}The derivative: preliminaries}{184}{subsection.27.2.1}%
+\contentsline {subsection}{\numberline {27.2.2}Open disks, open deleted disks, open regions}{184}{subsection.27.2.2}%
+\contentsline {subsection}{\numberline {27.2.3}Limits and continuous functions}{184}{subsection.27.2.3}%
+\contentsline {subsection}{\numberline {27.2.4}The point at infinity}{184}{subsection.27.2.4}%
+\contentsline {subsection}{\numberline {27.2.5}Derivatives}{184}{subsection.27.2.5}%
+\contentsline {subsection}{\numberline {27.2.6}Cauchy-Riemann equations}{185}{subsection.27.2.6}%
+\contentsline {part}{IX\hspace {1em}Discrete Mathematics}{186}{part.9}%
+\contentsline {chapter}{\numberline {28}Graph Theory}{187}{chapter.28}%
+\contentsline {section}{\numberline {28.1}Definitions}{187}{section.28.1}%
+\contentsline {subsection}{\numberline {28.1.1}Preliminary Definitions}{187}{subsection.28.1.1}%
+\contentsline {subsection}{\numberline {28.1.2}Subgraph}{188}{subsection.28.1.2}%
+\contentsline {subsection}{\numberline {28.1.3}Walks}{188}{subsection.28.1.3}%
+\contentsline {subsection}{\numberline {28.1.4}Connectedness}{188}{subsection.28.1.4}%
+\contentsline {subsection}{\numberline {28.1.5}Classes of graphs}{189}{subsection.28.1.5}%
+\contentsline {subsection}{\numberline {28.1.6}Bipartite Graphs}{189}{subsection.28.1.6}%
+\contentsline {subsection}{\numberline {28.1.7}Isomorphism}{190}{subsection.28.1.7}%
+\contentsline {section}{\numberline {28.2}Trees and Balancing}{190}{section.28.2}%
+\contentsline {section}{\numberline {28.3}Euler Tours and Trails}{192}{section.28.3}%
+\contentsline {chapter}{\numberline {29}Game Theory}{195}{chapter.29}%
+\contentsline {section}{\numberline {29.1}Strict Dominance}{195}{section.29.1}%
+\contentsline {subsection}{\numberline {29.1.1}Prisoner's Dilemma}{195}{subsection.29.1.1}%
+\contentsline {subsection}{\numberline {29.1.2}Split or Steal}{196}{subsection.29.1.2}%
+\contentsline {section}{\numberline {29.2}Nash Equilibrium}{196}{section.29.2}%
+\contentsline {subsection}{\numberline {29.2.1}Matrix games}{196}{subsection.29.2.1}%
+\contentsline {section}{\numberline {29.3}Fair Division}{196}{section.29.3}%
+\contentsline {subsection}{\numberline {29.3.1}Rental harmony problem}{196}{subsection.29.3.1}%

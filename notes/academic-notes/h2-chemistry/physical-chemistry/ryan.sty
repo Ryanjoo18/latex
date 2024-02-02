@@ -40,14 +40,16 @@
 \usepackage{fancyhdr,lastpage} % used to do headers and footers left, right, center
 \usepackage{etoolbox} % to write your own packages
 %\usepackage[Lenny]{fncychap} %options: Sonny,Lenny,Glenn,Conny,Rejne,Rjarne,Bjornstrup
-\usepackage{siunitx}
+%\usepackage{siunitx}
+\newcommand{\unit}[1]{\,\mathrm{#1}}
+\newcommand{\degC}{^\circ{\mathrm C}}
+
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{booktabs}
 
 % chemistry
 \usepackage{chemfig}
 \usepackage[version=4]{mhchem}
-\usepackage{chemformula}
 \usepackage{plimsoll}
 
 \newcommand{\cbrt}[1]{\sqrt[3]{#1}}

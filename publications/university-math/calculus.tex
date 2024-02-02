@@ -448,29 +448,11 @@ F^\prime (x) = f^\prime(g(x)) g^\prime(x)
 \end{proof}
 \end{itemize}
 
-\subsection{Implicit differentiation}
+\subsection{Applications of differentiation}
+\subsubsection{Implicit differentiation}
 \textbf{Implicit differentiation} simply means differentiating both sides of the equation with respect to a variable.
 
-\subsection{Taylor Series}
-A function $f$ can be represented as a Taylor series about position $a$ if
-\begin{itemize}
-\item it is continuous near $a$ and
-\item all of its derivatives are continuous near $a$
-\end{itemize}
-
-Using the notation $\Delta x = x-a$:
-\[ f(x)=f(a)+\Delta xf^\prime(a)+\frac{\Delta x}{2!}f^{\prime\prime}(a) + \frac{\Delta x}{3!}f^{(3)}(a) + \cdots + \frac{\Delta x}{n!}f^{(n)}(a) + \cdots \]
-
-If infinitely many terms are used, this approximation is exact near $a$.
-
-If all terms of order $n$ and above are discarded then the error is approximately proportional to $\Delta x^n$ (assuming that $\Delta x$ is small). Then the approximation is said to be $n$-th order accurate. For example, a third order accurate approximation for $f(x)$ has error proportional to $\Delta x^3$. We say that  the error is of order $\Delta x^3$ or $O(\Delta x^3)$.
-\[ f(x)=f(a)+\Delta xf^\prime(a)+\frac{\Delta x}{2!}f^{\prime\prime}(a) + O(\Delta x^3) \]
-
-
-Maclaurin series,  determine radius and interval
-of convergence of a power series
-
-\subsection{Newton's Method}
+\subsubsection{Newton's Method}
 In this section we are going to look at a method for approximating solutions to equations.
 
 \begin{figure}[H]
@@ -763,12 +745,176 @@ For even $n$ subdivisions,
 \end{equation}
 where $\Delta x = \dfrac{b-a}{n}$, $x_i =a+ i\Delta x$.
 
-\subsection{Parametric Equations and Polar Coordinates}
+\subsection{Applications of integrals}
+\subsubsection{Arc length}
+The \vocab{arc length} of a function $y=f(x)$ in the interval $[a,b]$ is given by
+\begin{equation}
+L = \int\dd{s} = \int_a^b\sqrt{1+\brac{\dv{y}{x}}^2}\dd{x}
+\end{equation}
+
+Similarly, the arc length of a function $x=g(y)$ in the interval $[c,d]$ is given by
+\[ L = \int\dd{s} = \int_c^d\sqrt{1+\brac{\dv{x}{y}}^2}\dd{y} \]
+
+\begin{proof}
+These formulae can be proven easily using Pythagoras' theorem.
+
+Considering one small section of the arc,
+\[ \dd{s}=\sqrt{(\dd{x})^2+(\dd{y})^2} \]
+
+Hence arc length is given by
+\[ L = \int\dd{s} = \int\sqrt{(\dd{x})^2+(\dd{y})^2} = \int\sqrt{1+\brac{\dv{y}{x}}^2}\dd{x} \]
+\end{proof}
+
+\subsubsection{Surface area}
+A solid of revolution is a solid obtained by rotating a region bounded by two curves about a vertical or horizontal axis.
+
+The surface area of the solid of revolution formed by rotating $y=f(x)$ in the interval $[a,b]$ by $2\pi$ about the $x$-axis is given by
+\begin{equation}
+S = \int2\pi y\dd{s} = \int_a^b 2\pi y \sqrt{1+\brac{\dv{y}{x}}^2} \dd{x}
+\end{equation}
+
+\subsubsection{Centre of mass}
+we aim to find the center of mass of a thin plate with uniform (area) density $\rho$. The \vocab{center of mass} of a region is the point in which the region will be perfectly balanced horizontally if suspended from that point.
+
+Suppose that the plate is the region bounded by the two curves $f(x)$ and $g(x)$ on the interval $[a,b]$.
+
+The mass of the plate is given by
+\[ M = \rho \times \text{Area of plate} = \rho \int_a^b[f(x)-g(x)]\dd{x} \]
+
+Next we need the moments of the region. There are two moments, denoted by $M_x$ and $M_y$, which measure the tendency of the region to rotate about the $x$- and $y$-axis respectively. The moments are given by
+\begin{align*}
+M_x & = \rho \int_a^b \frac{1}{2}\brac{[f(x)]^2-[g(x)]^2}\dd{x} \\
+M_y & = \rho \int_a^b x\brac{f(x)-g(x)}\dd{x}
+\end{align*}
+
+The coordinates of the centre of mass $(x_{CM},y_{CM})$ are then given by
+\[ x_{CM} = \frac{M_y}{M} \quad \text{and} \quad y_{CM} = \frac{M_x}{M} \]
 
 \pagebreak
 
+\section{Sequences and Series}
+% https://tutorial.math.lamar.edu/Classes/CalcII/SeriesIntro.aspx
+In this section we introduce sequences and series. We discuss whether a sequence converges or diverges, is increasing or decreasing, or if the sequence is bounded. We will then define just what an infinite series is and discuss many of the basic concepts involved with series. We will discuss if a series will converge or diverge, including many of the tests that can be used to determine if a series converges or diverges. We will also discuss using either a power series or a Taylor series to represent a function and how to find the radius and interval of convergence for this series.
+
+\subsection{Sequences}
+A sequence of $n$ terms, given by $a_1,a_2,\dots$, is denoted by $\{a_n\}$.
+
+Using the ideas that we developed for limits of functions we can write down the following (informal) working definition for limits of sequences.
+\begin{itemize}
+\item We say that $\lim_{n\to\infty}a_n=L$ if we can make an as close to $L$ as we want for all sufficiently large $n$. In other words, the value of the $a_n$'s approach $L$ as $n$ approaches infinity.
+\item We say that $\lim_{n\to\infty}a_n=\infty$ if we can make an as large as we want for all sufficiently large $n$. Again, in other words, the value of the $a_n$'s get larger and larger without bound as $n$ approaches infinity.
+\item We say that $\lim_{n\to\infty}a_n=-\infty$ if we can make an as large and negative as we want for all sufficiently large $n$. Again, in other words, the value of the $a_n$'s are negative and get larger and larger without bound as $n$ approaches infinity.
+\end{itemize}
+
+Formally, we have the following precise definition.
+\begin{defn}{Limit of sequence}{}
+We say that $\lim_{n\to\infty}a_n=L$ if for every number $\epsilon>0$ there exists an integer $N$ such that
+\[ |a_n-L|<\epsilon \quad \forall n>N. \]
+
+Similarly, we say that $\lim_{n\to\infty}a_n=\infty$ if for every $M>0$ there exists integer $N$ such that $a_n>M$ whenever $n>N$; $\lim_{n\to\infty}a_n=-\infty$ if for every $M<0$ there exists integer $N$ such that $a_n<M$ whenever $n>N$.
+\end{defn}
+
+Note that both definitions tell us that in order for a limit to exist and have a finite value all the sequence terms must be getting closer and closer to that finite value as $n$ increases.
+
+If $\lim_{n\to\infty}a_n$ exists and is finite we say that the sequence is \vocab{convergent}. If $\lim_{n\to\infty}a_n$ does not exist or is infinite we say the sequence \vocab{diverges}.
+
+So just how do we find the limits of sequences? Most limits of most sequences can be found using one of the following theorems.
+
+\begin{thrm}{}{}
+Given the sequence $\{a_n\}$ if we have a function $f(x)$ such that $f(n)=a_n$ and $\lim_{x\to\infty}f(x)=L$ then $\lim_{n\to\infty}a_n=L$.
+\end{thrm}
+
+So, now that we know that taking the limit of a sequence is nearly identical to taking the limit of a function we also know that all the properties from the limits of functions will also hold. If $\{a_n\}$ and $\{b_n\}$ are both convergent sequences then
+\begin{itemize}
+\item $\lim_{n\to\infty}(a_n\pm b_n)=\lim_{n\to\infty}a_n\pm\lim_{n\to\infty}b_n$
+\item $\lim_{n\to\infty}ca_n=c\lim_{n\to\infty}a_n$
+\item $\lim_{n\to\infty}(a_nb_n)=\brac{\lim_{n\to\infty}a_n}\brac{\lim_{n\to\infty}b_n}$
+\item $\lim_{n\to\infty}\dfrac{a_n}{b_n}=\dfrac{\lim_{n\to\infty}a_n}{\lim_{n\to\infty}b_n}$, provided $\lim_{n\to\infty}b_n\neq0$
+\item $\lim_{n\to\infty}{a_n}^p=\brac{\lim_{n\to\infty}a_n}^p$, provided $a_n\ge0$.
+\end{itemize}
+
+Next, just as we had a Squeeze Theorem for function limits we also have one for sequences and it is pretty much identical to the function limit version.
+
+\begin{thrm}{Squeeze Theorem for sequences}{}
+If $a_n\le c_n\le b_n$ for all $n>N$ for some $N$ and $\lim_{n\to\infty}a_n=\lim_{n\to\infty}b_n=L$ then $\lim_{n\to\infty}c_n=L$.
+\end{thrm}
+
+As we’ll see not all sequences can be written as functions that we can actually take the limit of. This will be especially true for sequences that alternate in signs. While we can always write these sequence terms as a function we simply don’t know how to take the limit of a function like that. The following theorem will help with some of these sequences.
+
+Theorem 2
+If $\lim_{n\to\infty}|a_n|=0$ then $\lim_{n\to\infty}a_n=0$.
+
+Note that in order for this theorem to hold the limit MUST be zero and it won’t work for a sequence whose limit is not zero. This theorem is easy enough to prove so let’s do that.
+
+\subsection{Series}
+
+\subsubsection{Divergence Test}
+Divergence Test for series in this section.
+
+Special Series – In this section we will look at three series that either show up regularly or have some nice properties that we wish to discuss. We will examine Geometric Series, Telescoping Series, and Harmonic Series.
+
+\subsubsection{Integral Test}
+
+Integral Test – In this section we will discuss using the Integral Test to determine if an infinite series converges or diverges. The Integral Test can be used on an infinite series provided the terms of the series are positive and decreasing. A proof of the Integral Test is also given.
+
+\subsubsection{Comparison Test / Limit Comparison Test}
+
+Comparison Test/Limit Comparison Test – In this section we will discuss using the Comparison Test and Limit Comparison Tests to determine if an infinite series converges or diverges. In order to use either test the terms of the infinite series must be positive. Proofs for both tests are also given.
+
+\subsubsection{Alternating Series Test}
+Alternating Series Test – In this section we will discuss using the Alternating Series Test to determine if an infinite series converges or diverges. The Alternating Series Test can be used only if the terms of the series alternate in sign. A proof of the Alternating Series Test is also given.
+
+Absolute Convergence – In this section we will have a brief discussion of absolute convergence and conditionally convergent and how they relate to convergence of infinite series.
+
+\subsubsection{Ratio Test}
+Ratio Test – In this section we will discuss using the Ratio Test to determine if an infinite series converges absolutely or diverges. The Ratio Test can be used on any series, but unfortunately will not always yield a conclusive answer as to whether a series will converge absolutely or diverge. A proof of the Ratio Test is also given.
+
+\subsubsection{Root Test}
+Root Test – In this section we will discuss using the Root Test to determine if an infinite series converges absolutely or diverges. The Root Test can be used on any series, but unfortunately will not always yield a conclusive answer as to whether a series will converge absolutely or diverge. A proof of the Root Test is also given.
+
+
+Power Series – In this section we will give the definition of the power series as well as the definition of the radius of convergence and interval of convergence for a power series. We will also illustrate how the Ratio Test and Root Test can be used to determine the radius and interval of convergence for a power series.
+
+Power Series and Functions – In this section we discuss how the formula for a convergent Geometric Series can be used to represent some functions as power series. To use the Geometric Series formula, the function must be able to be put into a specific form, which is often impossible. However, use of this formula does quickly illustrate how functions can be represented as a power series. We also discuss differentiation and integration of power series.
+
+\subsubsection{Taylor Series}
+A function $f$ can be represented as a Taylor series about position $a$ if
+\begin{itemize}
+\item it is continuous near $a$ and
+\item all of its derivatives are continuous near $a$
+\end{itemize}
+
+Using the notation $\Delta x = x-a$:
+\[ f(x)=f(a)+\Delta xf^\prime(a)+\frac{\Delta x}{2!}f^{\prime\prime}(a) + \frac{\Delta x}{3!}f^{(3)}(a) + \cdots + \frac{\Delta x}{n!}f^{(n)}(a) + \cdots \]
+
+If infinitely many terms are used, this approximation is exact near $a$.
+
+If all terms of order $n$ and above are discarded then the error is approximately proportional to $\Delta x^n$ (assuming that $\Delta x$ is small). Then the approximation is said to be $n$-th order accurate. For example, a third order accurate approximation for $f(x)$ has error proportional to $\Delta x^3$. We say that  the error is of order $\Delta x^3$ or $O(\Delta x^3)$.
+\[ f(x)=f(a)+\Delta xf^\prime(a)+\frac{\Delta x}{2!}f^{\prime\prime}(a) + O(\Delta x^3) \]
+
+
+Maclaurin series,  determine radius and interval
+of convergence of a power series
+
+
+Taylor Series – In this section we will discuss how to find the Taylor/Maclaurin Series for a function. This will work for a much wider variety of function than the method discussed in the previous section at the expense of some often unpleasant work.
+
+\subsubsection{Binomial Series}
+Binomial Series – In this section we will give the Binomial Theorem and illustrate how it can be used to quickly expand terms in the form 
+(
+a
++
+b
+)
+n
+ when 
+n
+ is an integer. In addition, when 
+n
+ is not an integer an extension to the Binomial Theorem can be used to give a power series representation of the term.
+
 \section{Ordinary Differential Equations}
-% https://www.math.hkust.edu.hk/~machas/differential-equations.pdf
+% Refer to oxford notes
 % Computation of ordinary differential equations - Euler's method and proof of convergence. Multistep methods, including order, the root condition and the concept of convergence. Runge-Kutta schemes. Stiff equations and A-stability.
 
 \begin{defn}{Ordinary differential equation}{} 
@@ -934,7 +1080,7 @@ for those $s \in \CC$ for which the integral makes sense.
 \end{defn}
 
 \begin{remark}
-$F$ is a complex-valued function of complex numbers. $s$ is called the (complex) frequency variable, with units \unit{sec^{-1}}; $t$ is called the time variable (in \unit{sec}); $st$ is unitless. For now, we assume $f$ contains no impulses at $t = 0$.
+$F$ is a complex-valued function of complex numbers. $s$ is called the (complex) frequency variable, with units \unit{sec^{-1}}; $t$ is called the time variable (in \unit{sec}); $st$ is unitless. For now, we assume $f$ contains no impulses at $t=0$.
 \end{remark}
 
 \begin{notation}

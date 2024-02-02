@@ -22,11 +22,11 @@
 \usetikzlibrary{calc,intersections,through,backgrounds,positioning}
 \usepackage{hyperref} %\href{link}{name}
 \hypersetup{
-    colorlinks,
-    citecolor=black,
-    filecolor=black,
-    linkcolor=black,
-    urlcolor=blue,
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=blue,
 }
 \usepackage{cleveref}
 \usepackage{longtable}
@@ -40,14 +40,16 @@
 \usepackage{fancyhdr,lastpage} % used to do headers and footers left, right, center
 \usepackage{etoolbox} % to write your own packages
 %\usepackage[Lenny]{fncychap} %options: Sonny,Lenny,Glenn,Conny,Rejne,Rjarne,Bjornstrup
-\usepackage{siunitx}
+%\usepackage{siunitx}
+\newcommand{\unit}[1]{\,\mathrm{#1}}
+\newcommand{\degC}{^\circ{\mathrm C}}
+
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{booktabs}
 
 % chemistry
 \usepackage{chemfig}
 \usepackage[version=4]{mhchem}
-\usepackage{chemformula}
 \usepackage{plimsoll}
 
 \newcommand{\cbrt}[1]{\sqrt[3]{#1}}
@@ -102,12 +104,12 @@
 \newtheorem{proposition}{Proposition}[section]
 \newtheorem*{remark}{Remark}
 \newenvironment{solution}
-  {\begin{proof}[Solution]}
-  {\end{proof}}
+{\begin{proof}[Solution]}
+	{\end{proof}}
 \newtheorem*{notation}{Notation}
 \newenvironment{derivation}
-  {\begin{proof}[Derivation]}
-  {\end{proof}}
+{\begin{proof}[Derivation]}
+	{\end{proof}}
 \newtheorem{prbm}{Problem}[section]
 
 \tcbuselibrary{theorems}
@@ -128,33 +130,33 @@
 {colback=blue-violet!5,colframe=blue-violet,fonttitle=\bfseries}{}
 
 \newtcolorbox{prbm_stat}[1]{
-colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries, title={#1}}
+	colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries, title={#1}}
 
 \newenvironment{prty}{%
-    \begin{tcolorbox}[
-        colback=red!5!white, % Light green interior
-        colframe=red!50!black, % Dark green border
-        boxrule=1.5pt, % Border thickness
-        arc=2pt, % No rounded corners
-        boxsep=0pt % No padding
-    ]%
-    \begin{property}%
-}{%
-    \end{property}%
-    \end{tcolorbox}%
+	\begin{tcolorbox}[
+		colback=red!5!white, % Light green interior
+		colframe=red!50!black, % Dark green border
+		boxrule=1.5pt, % Border thickness
+		arc=2pt, % No rounded corners
+		boxsep=0pt % No padding
+		]%
+		\begin{property}%
+		}{%
+		\end{property}%
+	\end{tcolorbox}%
 }
 
 
 \newenvironment{ebox}{%
-    \begin{tcolorbox}[
-        boxrule=1pt, % Border thickness
-        arc=0pt, % Rounded corners
-        boxsep=1pt % Padding
-    ]%
-    %
-}{%
-    %
-    \end{tcolorbox}%
+	\begin{tcolorbox}[
+		boxrule=1pt, % Border thickness
+		arc=0pt, % Rounded corners
+		boxsep=1pt % Padding
+		]%
+		%
+	}{%
+		%
+	\end{tcolorbox}%
 }
 
 \usepackage[T1]{fontenc}
