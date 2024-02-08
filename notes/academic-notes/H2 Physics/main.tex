@@ -1,0 +1,118 @@
+\documentclass[12pt,a4 paper]{article}
+\usepackage{ryan}
+\pgfplotsset{compat=newest}
+\usepackage[toc]{appendix}
+\usepackage{makecell}
+\renewcommand*{\arraystretch}{1.5}
+
+\newcommand{\deriv}[1]{\textit{\color{red}#1}}
+
+\begin{document}
+\begin{titlepage}
+    \title{\textbf{H2 Physics}}
+	\author{Ryan Joo Rui An}
+	\date{Last updated: \today}
+\end{titlepage}
+
+\maketitle
+
+\begin{abstract}
+This book is written with the intention to provide readers with a brief summary of each topic in the Singapore GCE A-Level Physics at the H2 Level. Some sample problems are provided at the end of each topic for the reader to try out.
+\end{abstract}
+\pagebreak
+
+\tableofcontents
+\pagebreak
+
+\part{Measurement}
+\input{1_Measurement}
+
+\part{Newtonian Mechanics}
+\input{2_Kinematics}
+\input{3_Dynamics}
+\input{4_Forces}
+\input{5_WorkEnergyPower}
+\input{6_CircularMotion}
+\input{7_GravitationalField}
+
+\part{Thermal Physics}
+\input{8_TemperatureAndIdealGases}
+\input{9_FirstLawOfThermodynamics}
+
+\part{Oscillation and Waves}
+\input{10_Oscillations}
+\input{11_WaveMotion}
+\input{12_Superposition}
+
+\part{Electricity and Magnetism}
+\input{13_ElectricFields}
+\input{14_CurrentOfElectricity}
+\input{15_DC.Circuits}
+\input{16_Electromagnetism}
+\input{17_ElectromagneticInduction}
+\input{18_AlternatingCurrent}
+
+\part{Modern Physics}
+\input{19_QuantumPhysics}
+\input{20_NuclearPhysics}
+
+\input{Derivations}
+
+\section{Summary of Key Quantities, Symbols and Units}
+\renewcommand*{\arraystretch}{1.4}
+\begin{longtable}[H]{p{0.60\textwidth} p{0.15\textwidth} p{0.15\textwidth}}
+\toprule
+\textbf{Quantity} & \textbf{Symbol} & \textbf{Unit} \\
+\midrule
+\endhead
+Displacement (or equivalent) & $s$, $x$ & $\unit{m}$ \\*
+Velocity & $v$ & $\unit{m.s^{-1}}$ \\*
+Acceleration & $a$ & $\unit{m.s^{-2}}$ \\*
+\midrule
+Force & $F$ & $\unit{N}$ \\*
+Weight & $W$ & $\unit{N}$ \\*
+Normal force & $N$ & $\unit{N}$ \\*
+Tension & $T$ & $\unit{N}$ \\*
+Friction & $f$ & $\unit{N}$ \\*
+Upthrust & $U$ & $\unit{N}$ \\*
+Moment & $M$ & $\unit{N.m}$ \\*
+Work done & $W$ & $\unit{J}$ \\*
+Energy & $E$ & $\unit{J}$ \\*
+Power & $P$ & $\unit{W}$ \\*
+Efficiency & $\eta$ & \\*
+\midrule
+Angular displacement & $\theta$ & $\unit{rad}$ \\*
+Angular velocity & $\omega$ & $\unit{rad.s^{-1}}$ \\*
+Centripetal acceleration & $a$ & $\unit{m.s^{-2}}$ \\*
+Centripetal force & $F_c$ & $\unit{N}$ \\*
+Period & $T$ & $\unit{s}$ \\*
+Frequency & $f$ & $\unit{Hz}$ \\*
+\midrule
+Gravitational force & $F_g$ & $\unit{N}$ \\*
+Gravitational field strength & $g$ & $\unit{N.kg^{-1}}$ \\*
+Gravitational potential energy & $U$ & $\unit{J}$ \\*
+Gravitational potential & $\phi$ & $\unit{J.kg^{-1}}$ \\*
+\midrule
+Pressure & $p$ & $\unit{Pa}$ \\*
+Volume & $V$ & $\unit{m^3}$ \\*
+Moles (amount) & $n$ & $\unit{mol}$ \\*
+Temperature & $T$ & $\unit{K}$ \\*
+Number of gas particles & $N$ & -- \\*
+Mass of gas & $M$ & $\unit{kg}$ \\*
+Molar mass & $M_r$ & $\unit{g\,mol^{-1}}$ \\*
+Molar volume & $V_m$ & $\unit{m^3}$ \\*
+\midrule
+Amplitude & $x_0$ & $\unit{m}$ \\*
+Angular frequency & $\omega$ & $\unit{rad\,s^{-1}}$ \\*
+Phase & $\phi$ & $\unit{rad}$ \\*
+Phase difference & $\Delta\phi$ & $\unit{rad}$ \\*
+\midrule
+Current & $I$ & $\unit{A}$ \\*
+Potential difference & $V$ & $\unit{V}$ \\*
+Electromotive force & $\epsilon$ & $\unit{V}$ \\*
+Resistance & $R$ & $\Omega$ \\*
+Resistivity & $\rho$ & $\unit{\Omega\,m}$ \\*
+\midrule
+\end{longtable}
+
+\end{document}

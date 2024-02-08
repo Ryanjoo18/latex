@@ -1,0 +1,285 @@
+\documentclass[12pt,a4 paper]{article}
+\usepackage{ryan}
+\usepackage{appendix}
+\pgfplotsset{compat=newest}
+
+\title{H3 Mathematics}
+\author{Ryan Joo}
+\date{Last updated: \today}
+
+\begin{document}
+
+\maketitle
+\begin{abstract}
+The syllabus can be found \href{https://www.seab.gov.sg/docs/default-source/national-examinations/syllabus/alevel/2024syllabus/9820_y24_sy.pdf}{here}. This document will mainly focus on exposing the reader to as wide a variety of questions as possible. In addition to detailed solutions, the thought processes and proving techniques involved in solving each problem will also be included.
+\end{abstract}
+\pagebreak
+
+\section*{Acknowledgements}
+I would like to thank
+\begin{itemize}
+\item 
+\end{itemize}
+
+\section*{General Tips}
+\begin{itemize}
+\item Practice makes perfect.
+
+While somewhat less applicable to H3 Mathematics due to the unpredictability of questions, practice can still help by exposing you to different problems, and the thought processes that you can glean from them can still be invaluable. 
+
+Relatively routine and common questions can still take up a decent chunk of the paper, so do try to secure those marks whenever possible, especially in combinatorics 
+
+\item Do not panic.
+
+As a rule of thumb, if you do not have any idea on how to start on a question within 3--5 minutes, move on. It is not uncommon for people to not know how to do questions, so don't waste your time on them, especially if there could be easier questions hidden behind, or if you have partial solutions to earlier problems that you feel you can complete.
+
+\item Build a strong H2 foundation.
+
+This tip is pretty self-explanatory. If your H2 sucks, it is unlikely that you can do well in H3. Plus, H2 counts towards your UAP and stuff, while H3 is like, an ego boost or something. 
+
+\item Farm method marks.
+
+Unlike in Math Olympiad where the marking scheme is: ``Oh you did not do the key part correctly, 0/7'', H3 is extremely generous. For instance, in the 2019 A-level Paper, out of 7 marks in a part question, 4 were awarded for an attempted induction if the candidate wrote down
+\begin{itemize}
+\item inductive statement,
+\item base case, with brief justification, and
+\item induction hypothesis.
+\end{itemize}
+The above three steps don’t take much effort but yield good returns. 
+\end{itemize}
+
+\section*{Syllabus}
+\begin{enumerate}
+\item H2 Mathematics content areas
+	\begin{enumerate}
+	\item Functions, e.g. graphs, symmetries, derivatives, integrals, differential equations, limiting behaviours, bounds.
+	\item Sequences and series, e.g. general terms, sum, limiting behaviours, bounds.
+	\end{enumerate}
+
+\item Additional content areas
+	\begin{enumerate}
+	\item Inequalities: AM--GM inequality, Cauchy-Schwarz inequality, triangle inequality.
+	\item Numbers: primes, coprimes, divisibility, greatest common divisor, division algorithm, congruences and modular arithmetic.
+	\item Counting: distribution problems, Stirling numbers of the second kind, recurrence equations, bijection principle, principle of inclusion and exclusion.
+	\end{enumerate}
+\end{enumerate}
+\pagebreak
+
+\section{Number Theory}
+\begin{enumerate}
+\item Prove the following bi-conditional statement: For all integers $a$ and $b$, $3\mid ab$ if and only if $3\mid a$ or $3\mid b$.
+
+\begin{proof}
+\textbf{`If' part:} If $3\mid a$ or $3\mid b$, then $3\mid ab$.
+
+We are supposed to prove two cases: (i) If $3\mid a$ then $3\mid ab$; and (ii) If $3\mid b$ then $3\mid ab$.
+
+Without loss of generality, we just need to prove one case. (Notice by interchanging $a$ and $b$, it will not change the statement.)
+
+So suppose $3\mid a$. Then $a=3k$ for some integer $k$. Then $ab=3kb$ would imply $3\mid ab$.
+
+This proved the `If' part.
+
+\textbf{`Only if' part:} If $3\mid ab$, then $3\mid a$ or $3\mid b$.
+
+We prove this by contrapositive.
+
+Suppose $3\nmid a$ and $3\nmid b$, then $3\nmid ab$.
+
+From the hypothesis, we have the following four cases:
+
+Case (i) $a=3k+1$ and $b=3h+1$.
+
+Then $ab=(3k+1)(3h+1)=9kh+3(k+h)+1=3(3kh+k+h)+1$.
+
+The RHS has a remainder $1$ when divided by $3$. So $3\nmid ab$.
+
+Case (ii) $a=3k+2$ and $b=3h+1$.
+
+Then $ab=(3k+2)(3h+1)=9kh+3k+6h+2=3(3kh+k+2h)+2$.
+
+The RHS has a remainder $2$ when divided by $3$. So $3\nmid ab$.
+
+Case (iii) $a=3k+1$ and $b=3h+2$.
+
+Then $ab=(3k+1)(3h+2)=9kh+6k+3h+2=3(3kh+2k+h)+2$.
+
+The RHS has a remainder $2$ when divided by $3$. So $3\nmid ab$.
+
+Case (iv) $a=3k+2$ and $b=3h+2$.
+
+Then $ab=(3k+2)(3h+2)=9kh+6(k+h)+4=3(3kh+2k+2h+1)+1$.
+
+The RHS has a remainder $1$ when divided by $3$. So $3\nmid ab$.
+
+In all cases, we have $3\nmid ab$.
+\end{proof}
+
+\item Let $a,b$ be integers, not both $0$. Prove that $\gcd(a+b,a-b)\le\gcd(2a,2b)$.
+
+\textbf{Thought process:} apply the definition of gcd
+
+\textbf{Proving techniques:} direct proof
+
+\begin{proof}
+Let $e=\gcd(a+b,a-b)$. Then $e\mid(a+b)$ and $e\mid(a-b)$. So
+\[ e\mid(a+b)+(a-b) \implies e\mid 2a \]
+and
+\[ e\mid(a+b)-(a-b) \implies e\mid 2b \]
+This implies $e$ is a common divisor of $2a$ and $2b$. So $e\le\gcd(2a,2b)$.
+\end{proof}
+
+\item Let $a$ and $b$ be integers, not both $0$. Show that $\gcd(a,b)$ is the smallest possible positive linear combination of $a$ and $b$. (i.e. There is no positive integer $c<\gcd(a,b)$ such that $c=ax+by$ for some integers $x$ and $y$.)
+
+\begin{proof}
+Prove by contradiction.
+
+Suppose there is a positive integer $c<\gcd(a,b)$ such that $c=ax+by$ for some integers $x$ and $y$.
+
+Let $d=\gcd(a,b)$. Then $d\mid a$ and $d\mid b$, and hence $d\mid ax+by$. This means $d\mid c$.
+
+Since $c$ is positive, this implies $\gcd(a,b)=d\le c$. This contradicts $c<\gcd(a,b)$.
+
+Hence we conclude that there is no positive integer $c<\gcd(a,b)$ such that $c=ax+by$ for some integers $x$ and $y$.
+\end{proof}
+
+\item Prove that we can find $100$ consecutive positive integers which are all composite numbers.
+
+\textbf{Thought process:} existential statement, either apply constructive or non-constructive proof to find such 100 integers
+
+\textbf{Proving techniques:} constructive proof
+
+\begin{proof}
+We can prove this existential statement via constructive proof.
+
+Our goal is to find integers $n,n+1,n+2,\dots,n+99$, all of which are composite.
+
+Take $n=101!+2$. Then $n$ has a factor of $2$ and hence is composite. Similarly, $n+k=101!+(k+2)$ has a factor $k+2$ and hence is composite for $k=1,2,\dots,99$.
+
+Hence the existential statement is proven.
+\end{proof}
+
+\item (Euclid's proof) There are infinitely many primes.
+
+\begin{proof}
+Prove by contradiction. Suppose otherwise, that the list of primes is finite.
+
+Thought process: we will show that every finite list of primes is missing a prime number, so the list of all primes cannot be finite.
+
+Suppose $p_1,\dots,p_r$ is a finite list of prime numbers. We want to show this is not the full list of the primes. Consider the number
+\[ N=p_1\cdots p_r+1. \]
+Since $N>1$, it has a prime factor $p$. The prime $p$ cannot be any of $p_1,\dots,p_r$ since $N$ has remainder $1$ when divided by each $p_i$. Therefore $p$ is a prime not on our list, so the set of primes cannot be finite.
+\end{proof}
+
+\item If $n$ is an integer, prove that $3$ divides $n^3-n$.
+
+\begin{proof}
+Prove by cases. This is done by partitioning $\ZZ$ according to remainders when divided by $d$ (i.e. equivalence classes).
+
+We prove the three cases: $n=3k$, $n=3k+1$, and $n=3k+2$.
+
+\textbf{Case 1:} $n=3k$ for some integer $k$
+
+Then
+\[ n^3-n=(3k)^3-(3k)=3(9k^3-k). \]
+Since $9k^3-k$ is an integer, $3\mid n^3-n$.
+
+\textbf{Case 2:} $n=3k+1$ for some integer $k$
+
+Then
+\[ n^3-n=(3k+1)^3-(3k+1)=3(9k^3+9k^2+2k). \]
+Since $9k^3+9k^2+2k$ is an integer, $3\mid n^3-n$.
+
+\textbf{Case 3:} $n=3k+2$ for some integer $k$
+
+The proof is similar and shall be left as an exercise.
+\end{proof}
+
+\item (2017 A-Level H3 Mathematics) Prove that there is no integer solution $(x,y)$ with $x$ being prime, such that
+\[ 1591x+3913y=9331. \]
+
+\begin{proof}
+First we find $\gcd(1591,3913)$ using the Euclidean Algorithm.
+\begin{align*}
+3913 &= 2\times1591+731 \\
+1591 &= 2\times731+129 \\
+731 &= 5\times129+86 \\
+129 &= 1\times86+43 \\
+86 &= 2\times43+0
+\end{align*}
+Thus $\gcd(1591,3913)=43$. By Bezout's Lemma, there are integer solutions for $1591x+3913y=43$. Since $43\mid9331$, multiplying both sides by some constant, there are also integer solutions for $1591x+3913y=9331$.
+
+To prove by contradiction, we assume that $x$ is prime, and there exists some integer $y$ such that $1591x+3913y=9331$. Dividing both sides by $43$,
+\begin{equation*}\tag{$\star$}
+37x+91y=217.
+\end{equation*}
+Observe that $7\mid91y$ and $7\mid217$, so $7\mid37x$.
+
+Since $\gcd(7,37)=1$ so $7\mid x$. By our assumption, $x$ is a prime so $x=7$.
+
+Substituting $x=7$ into ($\star$), we get $y=-\dfrac{6}{13}$, which contradicts $y$ being an integer.
+
+Hence we conclude that $x$ cannot be a prime.
+\end{proof}
+
+\item (2023 TJC Further Mathematics) Prove by mathematical induction, for $n\ge2$,
+\[ \sqrt[n]{n}<2 - \frac{1}{n}. \]
+
+\begin{proof}
+Let $P(n)$ be the proposition that $\sqrt[n]{n}<2 - \dfrac{1}{n}$ for $n \ge 2$.
+
+When $n=2$, $\sqrt{2} <2-\dfrac{1}{2}=1.5$ which is true. Hence $P(2)$ is true.
+
+Assume $P(k)$ is true for $k \ge 2, k \in \ZZ^+$, i.e.
+\[ \sqrt[k]{k}<2 - \dfrac{1}{k} \implies k<\brac{2-\frac{1}{k}}^k \]
+
+We want to prove that $P(k+1)$ is true, i.e.
+\[ k+1<\brac{2-\frac{1}{k+1}}^{k+1} \]
+
+Since $k>2$, we have 
+\begin{align*}
+\brac{2-\frac{1}{k+1}}^{k+1}
+&> \brac{2-\frac{1}{k}}^{k+1} \quad \because k>2 \\
+&= \brac{2-\frac{1}{k}}^k\brac{2-\frac{1}{k}} \\
+&> k\brac{2-\frac{1}{k}} \quad \text{[by inductive hypothesis]} \\
+&= 2k-1=k+k-1 > k-1 \because k>2
+\end{align*}
+Hence $P(k+1)$ is true.
+
+Since $P(2)$ is true and $P(k)\implies P(k+1)$, by mathematical induction $P(n)$ is true.
+\end{proof}
+
+\item Prove that for all integers $n \ge 3$, 
+\[ \brac{1+\frac{1}{n}}^n<n \]
+
+\begin{proof}
+Suppose for an integer $k$, we have 
+\[ \brac{1+\frac{1}{k}}^k<k \]
+Then
+\[ \brac{1+\frac{1}{k}}^k\brac{1+\frac{1}{k}}=\brac{1+\frac{1}{k}}^{k+1}<k\brac{1+\frac{1}{k}}=k+1  \]
+Note 
+\[ \brac{1+\frac{1}{k}}^{k+1} > \brac{1+\frac{1}{k+1}}^{k+1} \quad \text{since } k<k+1 \iff \frac{1}{k}>\frac{1}{k+1} \]
+The rest of the proof follows easily.
+\end{proof}
+
+\end{enumerate}
+\pagebreak
+
+\section{Sequences and Series}
+
+\pagebreak
+
+\section{Inequalities}
+
+\pagebreak
+
+\section{Distribution Problems}
+(including Bijection Principle)
+
+\pagebreak
+
+\section{Recurrence Relations}
+
+\pagebreak
+
+\end{document}

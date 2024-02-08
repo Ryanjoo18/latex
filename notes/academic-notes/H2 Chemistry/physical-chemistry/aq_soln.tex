@@ -1,0 +1,366 @@
+\section{Chemistry of Aqueous Solutions}
+\subsection{Theories of Acids and Bases}
+\begin{table}[H]
+\centering
+\begin{tabular}{p{2cm}p{6.5cm}p{6.5cm}}
+\hline\hline
+Theory & \textbf{Acid} & \textbf{Base} \\
+\hline
+\vocab{Arrhenius} & hydrogen-containing substance, ionises and releases \ce{H+} ions in aq solution & hydroxide-containing substance, ionises and releases \ce{OH-} ions in aq solution \\
+\vocab{Br{\o}nsted--Lowry} & proton donor & proton acceptor \\
+\vocab{Lewis} & electron pair acceptor (electrophile) & electron pair donor (nucleophile) \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+\begin{remark}
+Let $A$ denote the set of Arrhenius acids and bases, $B$ denote the set of Br{\o}nsted--Lowry acids and bases, $L$ denote the set of Lewis acids and bases. Then
+\[ A \subset B \subset L. \]
+\end{remark}
+
+\subsubsection{Conjugate acid-base pair}
+\vocab{Conjugate acid-base pair}: a pair of compounds or ions which \emph{differ by one proton}
+\begin{itemize}
+\item When acid \ce{HA} donates proton to base, conjugate base \ce{A-} is formed.
+\[ \ce{HA <=> A- + H+} \]
+\item When base \ce{B} receives proton from acid, conjugate acid \ce{BH+} is formed.
+\[ \ce{B + H+ <=> BH+} \]
+\end{itemize}
+Conjugate acid-base pairs: \ce{HA} and \ce{A-}, \ce{B} and \ce{BH+}
+
+\subsubsection{Lewis acids}
+Types of species which can act as Lewis acids
+\begin{itemize}
+\item Electron-deficient molecules
+
+Less than an octet of electrons around one atom. Dative bond formed in adduct\footnote{compound that contains a dative bond between the Lewis acid and the Lewis base}.
+
+\item Molecules with central atom that can expand octet
+
+Low-lying vacant orbitals to accept lone pairs of electrons.
+
+\item Molecules with multiple bonds that has atom with partial positive charge
+
+Lewis base donates lone pair of electrons to form bond with central atom, one pair of electrons displaced from multiple bond to become lone pair on terminal atom.
+
+\item Metal cations
+
+Accept lone pair of electrons via dative bond to form complex ions.
+\end{itemize}
+\pagebreak
+
+\subsection{Acid--Base Equilibria}
+\subsubsection{Strength of acids and bases}
+\vocab{Strength} is a measure of extent of dissociation to give ions in solution. (independent of concentration)
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{4cm}p{5.5cm}p{5.5cm}}
+\hline\hline
+ & \vocab{Strong} & \vocab{Weak} \\
+\hline
+Definition & Complete dissociation in aq solution & Partial dissociation in aq solution \\
+Extent of dissociation & $100\%$ & $<<100\%$ \\
+Arrow & \ce{->} & \ce{<=>} \\
+Equilibrium constant & -- & $K_a$, $K_b$ \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Acid and base dissociation constants}
+\vocab{Power of hydrogen}:
+\begin{equation}
+pH = -\lg [\ce{H+}]
+\end{equation}
+
+\vocab{Power of hydroxide}:
+\begin{equation}
+pOH = -\lg [\ce{OH-}]
+\end{equation}
+
+\vocab{Acid dissociation constant}: measure of strength of \emph{weak} acid\footnote{equilibrium constant}
+\begin{equation}
+K_a = \frac{[\ce{H+}][\ce{A-}]}{[\ce{HA}]}
+\end{equation}
+
+\begin{equation}
+pK_a = -\lg K_a
+\end{equation}
+
+\vocab{Base dissociation constant}: measure of strength of \emph{weak} base
+\begin{equation}
+K_b = \frac{[\ce{BH+}][\ce{OH-}]}{[\ce{B}]}
+\end{equation}
+
+\begin{equation}
+pK_b = -\lg K_b
+\end{equation}
+
+Acidic, basic \& neutral solutions
+\begin{table}[H]
+\centering
+\begin{tabular}{cc}
+\hline\hline
+Solution & Meaning \\
+\hline
+\textbf{acidic} & $[\ce{H+}]>[\ce{OH-}]$ \\
+\textbf{basic} & $[\ce{H+}]<[\ce{OH-}]$ \\
+\textbf{neutral} & $[\ce{H+}]=[\ce{OH-}]$ \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Ionic product of water}
+Self-ionisation of water can be simplified to \ce{H2O(l) <=> H+(aq) + OH-(aq)}.
+
+\vocab{Ionic product of water}:
+\begin{equation}
+K_w = [\ce{H+}][\ce{OH-}] = 1.0\times10^{-14}\,\unit{mol^2\,dm^{-6}} \text{ at 298 K}
+\end{equation}
+
+By manipulation we have
+\begin{equation}
+pH + pOH = pK_w = 14 \text{ at 298 K}
+\end{equation}
+
+The following relationship holds for a conjugate acid-base pair:
+\begin{equation}
+K_w = K_a K_b
+\end{equation}
+
+This suggests a reciprocal strength relationship: the stronger the acid, the weaker its conjugate base (and vice versa).
+
+\subsubsection{Salt solutions}
+Salts undergo hydration to form solutions. Then cations / anions undergo hydrolysis to form acidic / alkaline solutions.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{7.5cm}p{7.5cm}}
+\hline\hline
+\vocab{Acidic salt solution} & \vocab{Alkaline salt solution} \\
+\hline
+cation: conjugate acid of WB hydrolyses partially in water to give \ce{H3O+} & anion: conjugate base of WA hydrolyses partially in water to give \ce{OH-} \\
+\ce{BH+(aq) + H2O(l) <=> B(aq) + H3O+(aq)} & \ce{A-(aq) + H2O(l) <=> HA(aq) + OH-(aq)} \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Buffer solutions}
+\begin{defn}{Buffer solution}{}
+A solution capable of maintaining a fairly constant pH (by resisting pH change) when small amounts of acid or base are added to it.
+\end{defn}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{7.5cm}p{7.5cm}}
+\hline\hline
+\vocab{Acidic buffer solution} & \vocab{Basic buffer solution} \\
+\hline
+weak acid + salt of conjugate base (\ce{HA} and \ce{A-}) & weak base + salt of conjugate acid (\ce{B} and \ce{BH+}) \\
+\hline
+On addition of acid:
+
+\ce{A-(aq) + H+(aq) -> HA(aq)} 
+& On addition of acid:
+
+\ce{B(aq) + H+(aq) -> BH+(aq)} \\
+On addition of base: 
+
+\ce{HA(aq) + OH-(aq) -> A-(aq) + H2O(l)}
+& On addition of base:
+
+\ce{BH+(aq) + OH-(aq) -> B(aq) + H2O(l)} \\
+\hline
+Large reservoir of \ce{HA} and \ce{A-} present is able to cope with small amount of \ce{H+} and \ce{OH-} added. & Large reservoir of \ce{B} and \ce{BH+} present is able to cope with small amount of \ce{H+} and \ce{OH-} added. \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+Buffer solutions are used in systems where pH must not deviate widely. \ce{H2CO3} / \ce{HCO3-} buffer pair is used to control pH of blood:
+\[ \ce{H2CO3(aq) <=> H+(aq) + HCO3-(aq)} \]
+\begin{itemize}
+\item On addition of acid: \ce{HCO3-(aq) + H+(aq) -> H2CO3(aq)}
+\item On addition of base: \ce{H2CO3(aq) + OH-(aq) -> HCO3-(aq) + H2O(l)}
+\end{itemize}
+\pagebreak
+
+\subsubsection{Titration}
+Titrate titrant against analyte / Analyte titrated against titrant
+
+\vocab{Equivalence point}: stoichiometric amounts of acid \& base react together
+
+\vocab{End-point}: when indicator first changes colour permanently
+
+Choice of pH indicator is considered appropriate if its pH transition range lies within range of rapid pH change over equivalence point.
+
+pH graph sketching
+\begin{enumerate}
+\item initial, equivalence, final pH
+\item initial, equivalence, final volume
+\item buffer region
+\end{enumerate}
+
+Types of titration
+\begin{itemize}
+\item strong acid--strong base
+
+\item strong acid--weak base
+
+\item weak acid--strong base
+
+\item weak acid--weak base
+\end{itemize}
+
+(d) describe the changes in pH during acid-base titrations and explain these changes in terms of the strengths of the acids and bases
+(e) explain the choice of suitable indicators for acid-base titrations, given appropriate data
+
+\subsubsection{Calculations}
+\begin{itemize}
+\item \textbf{Water}
+\[ \ce{H2O(l) <=> H+(aq) + OH-(aq)} \]
+In pure water, $[\ce{H+}]=[\ce{OH-}]$
+
+$K_w=[\ce{H+}][\ce{OH-}]=10^{-14}\,\unit{mol^2\,dm^{-6}}$
+
+$[\ce{H+}]=[\ce{OH-}]=10^{-7}\,\unit{mol\,dm^{-3}}$
+
+\item \textbf{Strong acid}
+\[ \ce{H_nA(aq) -> nH+(aq) + A-(aq)} \]
+$[\ce{H+}]=n\times[\ce{H_nA}]$
+
+\vspace{5mm}
+
+\textbf{Strong base}
+\[ \ce{M(OH)_n(aq) -> M^{n+}(aq) + nOH-(aq)} \]
+$[\ce{OH-}]=n\times[\ce{M(OH)_n}]$
+
+\item \textbf{Weak acid} (monobasic)
+\[ \ce{HA(aq) <=> A-(aq) + H+(aq)} \]
+Since \ce{HA} is weak acid with small $K_a$, assume extent of dissociation of \ce{HA} is negligible, so $[\ce{H+}]$ is so small such that $[\ce{HA}]\approx[\ce{HA}]_\text{initial}$.
+
+$\displaystyle K_a=\frac{[\ce{H+}][\ce{A-}]}{[\ce{HA}]}=\frac{[\ce{H+}]^2}{[\ce{HA}]}\approx\frac{[\ce{H+}]^2}{[\ce{HA}]_\text{initial}}$
+
+\[ \boxed{[\ce{H+}]=\sqrt{K_a\times[\ce{HA}]_\text{initial}}} \]
+from which we can calculate $pH$.
+
+\begin{remark}
+This formula CANNOT be used to calculate $K_a$ or $[\ce{HA}]_\text{initial}$! Instead use ICE table.
+\end{remark}
+
+\vspace{5mm}
+
+\textbf{Weak base} (monoacidic)
+\[ \ce{B(aq) + H2O(l) <=> BH+(aq) + OH-(aq)} \]
+Since \ce{B} is weak base with small $K_b$, assume extent of dissociation of \ce{B} is negligible, so $[\ce{OH-}]$ is so small such that $[\ce{B}]=[\ce{B}]_\text{initial}$.
+
+$\displaystyle K_b=\frac{[\ce{BH+}][\ce{OH-}]}{[\ce{B}]}=\frac{[\ce{OH-}]^2}{[\ce{B}]}\approx\frac{[\ce{OH-}]^2}{[\ce{B}]_\text{initial}}$
+\[ \boxed{[\ce{OH-}]=\sqrt{K_b\times[\ce{B}]_\text{initial}}} \]
+from which we can calculate $pOH$ and then $pH$.
+
+\begin{remark}
+This formula CANNOT be used to calculate $K_b$ or $[\ce{B}]_\text{initial}$! Instead use ICE table.
+\end{remark}
+
+\item \textbf{Acidic salt solution}
+\[ \ce{BH+X-(aq) -> BH+(aq) + X-(aq)} \]
+\[ \ce{BH+(aq) + H2O(l) <=> B(aq) + H3O+(aq)} \]
+
+\[ \boxed{[\ce{H+}]=\sqrt{K_a\times[\ce{HA}]_\text{initial}}} \]
+
+\vspace{5mm}
+
+\textbf{Alkaline salt solution}
+\[ \ce{M+A-(aq) -> M+(aq) + A-(aq)} \]
+\[ \ce{A-(aq) + H2O(l) <=> HA(aq) + OH-(aq)} \]
+
+\[ \boxed{[\ce{OH-}]=\sqrt{K_b\times[\ce{B}]_\text{initial}}} \]
+
+\begin{remark}
+When solutions are mixed, remember to calculate the new concentrations.
+\end{remark}
+
+\item \textbf{Acidic buffer solution}
+\[ \boxed{pH = pK_a + \lg\frac{[\ce{A-}]}{[\ce{HA}]}} \]
+Maximum buffer capacity: $[\ce{HA}]=[\ce{A-}] \implies pH=pK_a$
+
+\vspace{5mm}
+
+\textbf{Basic buffer solution}
+\[ \boxed{pOH = pK_b + \lg\frac{[\ce{BH+}]}{[\ce{B}]}} \]
+Maximum buffer capacity: $[\ce{B}]=[\ce{BH+}] \implies pOH=pK_b$
+
+\end{itemize}
+
+Taking -log on both sides gives us
+\begin{equation}
+pK_a + pK_b = pK_w
+\end{equation}
+At 298 K, $pK_a+pK_b=14$.
+
+(c) calculate [H+(aq)] and pH values for strong acids, weak monobasic (monoprotic) acids, strong bases, and weak monoacidic bases [Calculations involving weak acids/bases will not require solving of quadratic equations]
+
+
+\pagebreak
+
+\subsection{Solubility Equilibria}
+\begin{defn}{Solubility}{}
+\emph{Maximum} mass / amount of solute that can be dissolved per $\unit{dm^3}$ of solvent to produce a \emph{saturated solution} at a given temperature.
+\end{defn}
+
+\begin{defn}{Solubility product $K_{sp}$}{}
+\emph{Equilibrium constant} which is the product of molar concentrations of dissolved / dissociated ions (each raised to its appropriate power) in a \emph{saturated solution} of salt at a given temperature.
+\end{defn}
+
+For a sparingly soluble salt \ce{MX}, \ce{MX (s) <=> M+(aq) + X-(aq)}.
+\begin{equation}
+K_{sp} = [\ce{M+}]_\text{satn}[\ce{X-}]_\text{satn}
+\end{equation}
+
+Factors affecting solubility of salt
+\begin{itemize}
+\item \textbf{Common ion effect} (addition of cation/anion) 
+
+Reduced solubility of a solute in a solution that already contains the same ion.
+
+Saturated sparingly soluble salt solution \ce{MX} added to soluble salt solution \ce{NaX(aq)} (containing common ion \ce{X-}). $[\ce{X-}]$ increases. By Le Chatelier's Principle, position of equilibrium shifts left to decrease $[\ce{X-}]$, so dissociation of \ce{MX} supressed, \ce{MX} precipitated. Hence solubility decreases in \ce{NaX(aq)} compared to that in water.
+
+\item \textbf{Formation of complex ions} (removal of cation)
+
+Suitable base added to saturated sparingly soluble salt solution \ce{MX}. Formation of complex ions remove cations \ce{M+}, $[\ce{M+}]$ decreases. By Le Chatelier's Principle, position of equilibrium shifts right to increase $[\ce{M+}]$, so dissociation of \ce{MX} favoured. Hence solubility increases.
+
+$[\ce{M+}]$ decreases, ionic product decreases to below $K_{sp}$, so \ce{MX} dissolves.
+
+\item \textbf{pH of solution} (removal of anion)
+
+\ce{H+} added to saturated sparingly soluble salt solution \ce{MOH}. $[\ce{OH-}]$ decreases. By Le Chatelier's Principle, position of equilibrium shifts right to increase $[\ce{OH-}]$. Hence solubility increases.
+\end{itemize}
+
+\begin{defn}{Ionic product $\text{IP}$}{}
+Product of molar concentrations of constituent ions in solution \emph{at that instant} (each raised to its appropriate power) at a given temperature.
+\end{defn}
+\begin{equation}
+\text{IP} = [\ce{M+}][\ce{X-}]
+\end{equation}
+
+Precipitation occurs when $\text{IP}>K_{sp}$.
+\begin{table}[H]
+\centering
+\begin{tabular}{ccc}
+\hline\hline
+\textbf{Condition} & \textbf{Saturation} & \textbf{Precipitation} \\
+\hline
+$\text{IP}<K_{sp}$ & Below saturation point (unsaturated) & No \\
+$\text{IP}=K_{sp}$ & At saturation point (saturated) & No \\
+$\text{IP}>K_{sp}$ & Beyond saturation point (beyond saturation) & Yes \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+
+Candidates should be able to:
+(b) calculate Ksp from concentrations and vice versa
+(c) discuss the effects on the solubility of ionic salts by the following:
+(i) common ion effect
+(ii) formation of complex ion, as exemplified by the reactions of halide ions with aqueous silver ions followed by aqueous ammonia (see also Section 13)
+
+\pagebreak

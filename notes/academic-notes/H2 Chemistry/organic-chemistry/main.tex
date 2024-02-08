@@ -1,0 +1,705 @@
+\documentclass[12pt,a4 paper]{article}
+\usepackage{ryan}
+\usepackage{appendix}
+\pgfplotsset{compat=newest}
+\renewcommand*{\arraystretch}{1.5}
+
+\begin{document}
+\title{\textbf{H2 Chemistry\\ Organic Chemistry}}
+\author{Ryan Joo}
+
+\maketitle
+
+\begin{abstract}
+This set of notes is written with the intention to provide readers with a brief summary of each topic in the Singapore GCE A-Level Chemistry at the H2 Level. The full syllabus can be found \href{https://www.seab.gov.sg/docs/default-source/national-examinations/syllabus/alevel/2024syllabus/9729_y24_sy.pdf}{here}.
+
+As the notes are rather terse, you are recommended to use the lecture notes provided by your school for the understanding of more fundamental concepts.
+\end{abstract}
+\pagebreak
+
+\tableofcontents
+\pagebreak
+
+\section*{Question Types}
+\begin{enumerate}
+\item \textbf{Mechanism question}
+
+Remember to indicate: arrows, dipole moments, lone pairs
+
+\item \textbf{Synthesis question}
+	\begin{itemize}
+	\item Change in functional group
+	
+	Method 1: Change the functional group by substitution. If the functional group cannot be substituted to give the desired compound in a single step, substitute the functional group into another functional group that can undergo substitution readily (e.g.
+	halogenoalkane)
+	
+	Method 2: Convert the functional group by oxidation/reduction if the starting compound cannot undergo substitution.
+	
+	\item Change in position of functional group (may or may not be the same as starting reagent)
+	
+	Step 1: Convert the starting reagent into an alkene by elimination of the functional group.
+	
+	Step 2: Add the new functional group (same or different) back to the alkene.
+	
+	\item Increase in carbon chain length
+	
+	Method 1: Electrophilic substitution of nitrile group onto compound with halogen group. Nitrile group can be further converted into amine or carboxylic acid group.
+	[This method does not increase the number of functional groups in the compound.]
+	
+	Method 2: Electrophilic Add the nitrile group into the compound using HCN. (i.e. The compound needs to have a carbonyl group already) The product formed will contain a hydroxyl group adjacent to the nitrile group. The nitrile group can be further converted into amine or carboxylic acid functional group.
+	[This method increases the number of functional groups in the compound by 1.]
+	
+	Method 3: Employ other reactions that will increase in number of carbon atoms by more than one. (e.g. Reaction of alcohol with carboxylic acid, phenol with acyl chloride, amine with acyl chloride)
+	
+	\item Decrease in carbon chain length
+	
+	Method 1: Oxidise the alkene to rupture the \ce{C=C} double bond.
+	
+	Method 2: Oxidise the compound that contain \ce{CH3CH(OH){-}} group or the \ce{CH3CO{-}} group using alkaline \ce{I2(aq)}. This reduces the number of carbon atoms by one.
+	
+	Method 3: Hydrolysis of esters and amides. 
+	\end{itemize}
+
+\item \textbf{Structural elucidation question}
+
+
+
+\item \textbf{Distinguishing test}
+
+\item \textbf{Explanation question}
+
+\end{enumerate}
+\pagebreak
+
+\section{Introduction}
+\subsection{Formulae}
+\begin{table}[H]
+\begin{tabular}{p{0.35\textwidth}p{0.55\textwidth}}
+\hline\hline
+Formula & Description \\
+\hline
+\vocab{Empirical formula} & simplest ratio of number of atoms of the elements \\
+\vocab{Molecular formula} & actual number of atoms of the elements present \\
+\vocab{Structural formula} & atoms sequentially arranged, using conventional groups for an unambiguous structure \\
+\vocab{Displayed formula} (full structural formula) & detailed structure of all atoms and bonds, with relative placing of atoms \\
+\vocab{Skeletal formula} & only show bonds and functional groups \\
+\vocab{Stereochemical formula} & 3D spatial arrangement \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+\subsection{Functional Groups}
+Classes of compounds
+\begin{enumerate}
+\item hydrocarbons (alkanes, alkenes, arenes)
+\item halogen derivatives (halogenoalkanes, halogenoarenes)
+\item hydroxyl compounds (alcohols, phenols)
+\item carbonyl compounds (aldehydes, ketones)
+\item carboxylic acids and derivatives (acyl chlorides, esters)
+\item nitrogen compounds (amines, amides, amino acids, nitriles)
+\end{enumerate}
+
+\begin{defn}{Functional group}{}
+An atom or a group of atoms common to a series, governs the principal chemical reaction of the series
+\end{defn}
+
+\begin{longtable}[H]{p{5cm}p{4cm}p{6cm}}
+\toprule
+\textbf{Class of compound} & \textbf{General formula} & \textbf{Functional group} \\
+\midrule
+\endhead
+Alkane & \ce{C_{n}H_{2n+2}} & \\*
+\midrule
+Alkene & \ce{C_{n}H_{2n}} & \chemfig{C(-[:120])(-[:-120])=C(-[:60])-[:-60]} \\*
+\midrule
+Alkyne & \ce{C_{n}H_{2n-2}} & \chemfig{-C~C-} \\*
+\midrule
+Benzene & \ce{C6H6} & \chemfig{[:-30]**6(------)} \\*
+\midrule
+Halogenoalkane & \ce{C_{n}H_{2n+1}X} & \chemfig{-X} \\*
+\midrule
+Halogenoarene & \ce{C6H5X} & \chemfig{[:-30]**6(---(-X)---)} \\*
+\midrule
+Alcohol & \ce{ROH} & \chemfig{-OH} \\*
+\midrule
+Ether & \ce{ROR{'}} & \chemfig{-C(-[2])(-[6])-O-C(-[2])(-[6])-} \\*
+\midrule
+Aldehyde & \ce{RCHO} & \chemfig{-C(=[2]O)-H} \\*
+\midrule
+Ketone & \ce{RCOR{'}} & \chemfig{-C(=[2]O)-} \\*
+\midrule
+Carboxylic acid & \ce{RCOOH} & \chemfig{-C(=[:60]O)-[:-60]OH} \\*
+\midrule
+Acyl chloride & \ce{RCOCl} & \chemfig{-C(=[:60]O)-[:-60]Cl} \\*
+\midrule
+Ester & \ce{RCOOR{'}} & \chemfig{-C(=[2]O)-O-} \\*
+\midrule
+Amine & \ce{RNH2} & \chemfig{-NH_2} \\*
+\midrule
+Amide & \ce{RCONH2} & \chemfig{-C(=[2]O)-N(-[6]H)-H} \\*
+\midrule
+Amino acid & \ce{H2NC_{n}H_{2n}COOH} & \chemfig{H_2N-C_nH_{2n}-C(=[:60]O)-[:-60]OH} \\*
+\midrule
+Nitrile & \ce{RCN} & \chemfig{-C~N} \\*
+\bottomrule
+\end{longtable}
+
+\begin{defn}{Homologous series}{}
+A family of organic compounds with similar general formula.
+\end{defn}
+
+Successive members are represented by a general formula, differ by constant \ce{CH2} units in the carbon skeleton
+\begin{itemize}
+\item Physical properties: graduation in physical properties (increase in molecular size and mass)
+\item Chemical properties: similar chemical properties (same functional group)
+\end{itemize}
+\pagebreak
+
+\subsection{Nomenclature}
+
+\pagebreak
+
+\subsection{Terminology for reactions}
+Types of organic species
+\begin{table}[H]
+\centering
+\begin{tabular}{p{0.15\textwidth}p{0.15\textwidth}p{0.3\textwidth}p{0.35\textwidth}}
+\hline\hline
+\textbf{Species} & \textbf{Notation} & \textbf{Definition} & \textbf{Description} \\
+\hline
+\vocab{free radical} & Cl\textbullet & Highly reactive, electrically neutral, has unpaired electron & Attack atom in a molecule to form new bond and generate another radical \\
+\vocab{nucleophile} (Lewis base) & :Nu$^\ominus$ & Electron pair donor & Electron-rich (negatively charged ion, lone pair, $\delta-$ in polar bonds)
+
+Attracted to electron-deficient sites \\
+\vocab{electrophile} (Lewis acid) & E$^\oplus$ & Electron pair acceptor & Electron-deficient (positively charged ion, $\delta+$ in polar bonds)
+
+Attracted to electron-rich sites  \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+Types of bond fission
+\begin{table}[H]
+\begin{tabular}{p{0.5\textwidth}p{0.5\textwidth}}
+\hline\hline
+\vocab{homolytic fission} & \vocab{heterolytic fission} \\
+\hline
+Breaking of covalent bond such that shared pair of electrons are split equally between the two atoms, which forms free radicals & 
+Breaking of covalent bond such that shared pair of electrons are split unequally between the two atoms after bond broken, which forms ions \\
+\hline
+Movement of single electron (half arrow): &
+
+Movement of electron pair (full arrow): \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+Types of reactions\footnote{Do not use these terms when asked for the type of reaction! Give answers such as free radical substitution, electrophilic addition etc.}
+\begin{table}[H]
+\centering
+\begin{tabular}{p{3cm}p{8cm}p{4cm}}
+\hline\hline
+\textbf{Reaction} & \textbf{Description} & \textbf{Bonds} \\
+\hline
+\textbf{addition} & Two reactants added together to form one single product & One $\pi$ bond broken, two $\sigma$ bonds formed \\
+\textbf{substitution} & An atom / a group of atoms replaces another atom / group of atoms & One $\sigma$ bond broken, one $\sigma$ bond formed \\
+\textbf{elimination} & Two atoms / groups of atoms from adjacent atoms removed from one molecule & Two $\sigma$ bonds broken, one $\pi$ bond formed \\
+\textbf{condensation} & Two molecules react to form a larger molecule + elimination of simple molecule &  \\
+\textbf{hydrolysis} & Reaction with water / \ce{H+} / \ce{OH-} &  \\
+\textbf{oxidation} & Increase in oxidation state, oxidised by [O] &  \\
+\textbf{reduction} & Decrease in oxidation state, reduced by [H] &  \\
+\hline\hline
+\end{tabular}
+\end{table}
+\pagebreak
+
+\subsection{Hybridisation}
+One of 2s electron is promoted to empty 2p orbital (from ground state to excited state)
+→ 4 singly occupied orbitals for forming 4 covalent bonds
+
+\begin{exercise}{A-Level 2021/III/2(e)}{}
+Describe and explain, in terms of orbital overlap, the shape and bonding in an ethyne molecule \ce{C2H2}. \hfill \textbf{[3]}
+\end{exercise}
+\begin{proof}[Answer]
+Ethyne molecule is linear whereby all four atoms lie in a straight line. 
+
+Both carbons are sp-hybridised. In an sp-hybridised carbon, 2s orbital combines with 2p$_x$ orbital to form two hybrid orbitals that are oriented at an angle of $180\degree$ with respect to each other, along $x$-axis. 2p$_y$ and 2p$_z$ orbitals remain unhybridised, orientated perpendicularly along $y$- and $z$-axes respectively.
+
+\ce{C-C} $\sigma$ bond is formed by the overlap of one sp orbital from each carbon atom. Two \ce{C-H} $\sigma$ bonds are formed by overlap of the second sp orbital on each carbon with 1s orbital on hydrogen atom. \ce{C#C} bond is formed by overlap of 2p$_y$ and 2p$_z$ orbitals of each carbon atom overlap sideways to form two $\pi$ bonds between the carbons.
+\end{proof}
+
+\begin{exercise}{A-Level 2017/II/7(a)(iii)}{}
+Describe the hybridisation of the orbitals in, and the bonds between, the carbon atoms within a naphthalene molecule. \hfill \textbf{[3]}
+\end{exercise}
+\begin{proof}[Answer]
+One of the 2s electrons in each carbon atom is promoted to the vacant 2p orbital, and the 2s orbital and two 2p orbitals hybridise to give three sp$^2$ hybrid orbitals.
+
+Adjacent carbon atoms are bonded by a $\sigma$ bond through head-on overlapping of sp$^2$ hybrid orbitals, and a $\pi$ bond through sideways overlapping of unused p$_z$ orbital of each carbon atom, that is \ce{C=C} bond. Due to delocalisation of electrons, all carbon atoms are covalently bonded by sp$^2$--sp$^2$ overlap.
+\end{proof}
+\pagebreak
+
+\section{Isomerism}
+\begin{defn}{Isomers}{}
+Compounds having same molecular formula but different arrangement of atoms.
+\end{defn}
+
+\begin{enumerate}
+\item \textbf{Structural isomerism}
+
+Same molecular formula but different arrangements of atoms
+
+\begin{itemize}
+\item \textbf{Chain isomerism}: different arrangement of carbon chain (straight or branched)
+\begin{center}
+\chemname{\chemfig{-[:30]-[:-30]-[:30]}}{butane}
+\qquad
+\chemname{\chemfig{-[:30](-[:90])-[:-30]}}{methylpropane}
+\end{center}
+
+\item \textbf{Positional isomerism}: different position of functional group
+\begin{center}
+\chemname{\chemfig{-[:30]-[:-30]-[:30]OH}}{propan-1-ol}
+\qquad
+\chemname{\chemfig{-[:30](-[:90]OH)-[:-30]}}{propan-2-ol}
+\end{center}
+
+\item \textbf{Functional group isomerism}: different functional group
+\begin{center}
+\chemname{\chemfig{=[:30]-[:-30]-[:30]}}{but-1-ene}
+\qquad
+\chemname{\chemfig{*4(----)}}{cyclobutane}
+\end{center}
+\end{itemize}
+
+\item \textbf{Stereoisomerism}
+
+\begin{itemize}
+\item \textbf{Cis-trans isomerism}
+\begin{center}
+\chemname{\chemfig{(-[:120])=-[:60]}}{cis-but-2-ene}
+\qquad
+\chemname{\chemfig{(-[:240])=-[:60]}}{trans-but-2-ene}
+\end{center}
+
+\item \textbf{Enantiomerism}
+\begin{center}
+\chemfig{(<:[:210]B)(<[:255]C)(-[:330]D)-[:90]A}
+\qquad
+\chemfig{(-[:210]D)(<[:285]C)(<:[:330]B)-[:90]A}
+\end{center}
+\end{itemize}
+\end{enumerate}
+
+
+
+\begin{exercise}{A-Level 2021/III/4(e)(ii)}{}
+The Diels-Alder reaction is a one-step reaction between a diene and a substituted alkene to form a substituted cyclohexene X.
+
+\vspace{.5cm}
+\schemestart
+\chemfig{(=[:30])-[:270]=[:-30]}
+\+
+\chemfig{([:270]=)-[:30]CO_2R}
+\arrow(.mid east--.mid west){->[heat]}
+\chemfig{*6(---(-CO_2R)--=)}
+\schemestop
+\vspace{.5cm}
+
+Compound X has no effect on the plane of polarised light. Explain your reasoning. \hfill \textbf{[1]}
+\end{exercise}
+
+\begin{proof}[Answer]
+Diene can attack sp$^2$ carbon on \ce{C=C} bond of the substituted alkene from both top and bottom of the plane with equal probability, since it is trigonal planar.
+
+As such, a racemic mixture is obtained which is optically inactive since optical activity of one enantiomer exactly cancels the other.
+\end{proof}
+\pagebreak
+
+\part{Hydrocarbons}
+\section{Alkanes}
+\subsection*{Chemical properties}
+Generally unreactive
+\begin{itemize}
+\item Fully saturated: all carbon atoms are sp$^3$ hybridised and \ce{C-C}, \ce{C-H} bonds are strong and difficult to break, so alkanes \emph{do not undergo addition}.
+\item \ce{C-H} bonds are non-polar: lack electron-rich ($\delta-$) and electron-deficient ($\delta+$) sites, so alkanes are \emph{unreactive towards polar reagents}.
+\end{itemize}
+
+Small cycloalkanes (e.g. cyclopropane, cyclobutane) are unstable due to \textbf{ring strain}, as molecules are forced into smaller bond angles.
+
+\subsection{Mechanism: Free radical substitution}
+\begin{mechanism}{Free radical substitution}{}
+\begin{enumerate}[leftmargin=0.65in,label=\textbf{Step \arabic*:}]
+\item Initiation
+\item Propagation
+\item Termination
+\end{enumerate}
+
+Overall equation:
+
+\vspace{.5cm}
+\schemestart
+\chemfig{-[:30]-[:-30]}
+\arrow(.mid east--.mid west){->[\ce{X2}, UV]}[,2.1]
+\chemfig{(-[:90]X)(-[:210])-[:-30]}
+\schemestop
+\end{mechanism}
+
+\subsection{Reactions}
+\begin{enumerate}
+\item \textbf{Free radical substitution}
+\end{enumerate}
+
+\subsection{Preparation}
+\begin{enumerate}
+\item Reduction of alkene
+\end{enumerate}
+\pagebreak
+
+\section{Alkenes}
+\subsection*{Chemical properties}
+Generally reactive
+\begin{itemize}
+\item Electron rich C=C bond is easily accessible to approaching reactants ($\pi$ electrons are located above and below the plane of bond) → act as nucleophiles, attract electrophiles OR induce dipoles in approaching molecules to form electrophiles
+
+\item Carbon atoms in C=C bond are unsaturated: sp2 hybridised, can bond with one more atom → undergo electrophilic addition
+\end{itemize}
+
+\subsection{Mechanism: Electrophilic addition}
+\begin{mechanism}{Electrophilic addition}{}
+\begin{enumerate}[leftmargin=0.65in,label=\textbf{Step \arabic*:}]
+\item Addition of electrophile
+
+formation of carbocation (Markovnikov’s rule)
+
+\item Ions combine
+\end{enumerate}
+\end{mechanism}
+
+\subsection{Reactions}
+\begin{enumerate}
+\item \textbf{Electrophilic addition}
+	\begin{itemize}
+	\item Addition of halogen
+	\item Addition of halogen in water\footnote{If water is used as solvent, \ce{H2O} can act as nucleophile to attack product formed.}
+	\item Addition of hydrogen halide
+	\item Addition of water
+	\end{itemize}
+\item \textbf{Reduction}
+\item \textbf{Oxidation}
+	\begin{itemize}
+	\item Mild oxidation
+	\item Strong oxidation (to form carbon dioxide, carboxylic acid, or ketone)
+	\end{itemize}
+\end{enumerate}
+
+\begin{remark}
+Remember how to write oxidation / reduction equations.
+\end{remark}
+
+\subsection{Preparation}
+\begin{enumerate}
+\item Elimination of alcohol
+\item Elimination of halogenoalkane
+\end{enumerate}
+\pagebreak
+
+\section{Benzene}
+\subsection*{Chemical properties}
+Resonance stability
+\begin{itemize}
+\item Due to overlapping p-orbitals, delocalised $\pi$ electron cloud above and below plane of ring. Benzene is resonance stabilised, resonance structure of benzene is very stable i.e. aromaticity.
+\item Do not undergo reactions that destroy resonance stability (even through electron-rich due to presence of $\pi$ electrons), e.g. electrophilic addition. Hence benzene only undergoes electrophilic substitution, remain resonance stabilised.
+\end{itemize}
+
+\subsection{Mechanism: Electrophilic substitution}
+\begin{mechanism}{Electrophilic substitution}{}
+
+\begin{enumerate}[leftmargin=0.65in,label=\textbf{Step \arabic*:}]
+\item Generation of strong electrophile
+\item Addition into benzene ring
+
+position dependent on group which is already present
+
+\item Deprotonation
+\end{enumerate}
+\end{mechanism}
+
+\subsection{Reactions}
+\begin{enumerate}
+\item \textbf{Electrophilic substitution}
+	\begin{itemize}
+	\item Electrophilic substitution of halogen (halogenation)
+	\item Electrophilic substitution of nitro group (nitration)
+	\item Electrophilic substitution of alkyl group (Friedel-Crafts alkylation)
+	\end{itemize}
+\item \textbf{Reduction}
+\end{enumerate}
+\pagebreak
+
+\section{Methylbenzene}
+\subsection*{Chemical properties}
+
+\subsection{Mechanism: Electrophilic substitution}
+Same as above.
+
+\subsection{Reactions}
+\begin{enumerate}
+\item \textbf{Electrophilic substitution}
+	\begin{itemize}
+	\item Electrophilic substitution of halogen (halogenation)
+	\item Electrophilic substitution of nitro group (nitration)
+	\end{itemize}
+\item \textbf{Free radical substitution} (side chain)
+\item \textbf{Oxidation} (side chain)
+\end{enumerate}
+
+\subsection{Preparation}
+\begin{enumerate}
+\item Electrophilic substitution of benzene
+\end{enumerate}
+\pagebreak
+
+\part{Halogen Derivatives}
+\section{Halogenoalkane}
+\subsection{Mechanism: Nucleophilic substitution}
+\begin{mechanism}{Unimolecular nucleophilic substitution (S$_\text{N}$1)}{}
+\begin{enumerate}[leftmargin=0.65in,label=\textbf{Step \arabic*:}]
+\item Formation of carbocation intermediate
+
+%\schemestart
+%\chemfig{-(-[:30])[:-30]X}
+%\arrow(.mid east--.mid west){->[slow]}
+%\chemfig{-(-[:-30])[:-150]}
+%\schemestop
+
+\item Attack of carbocation by nucleophile
+\end{enumerate}
+\end{mechanism}
+
+\begin{mechanism}{Bimolecular nucleophilic substitution (S$_\text{N}$2)}{}
+\begin{enumerate}[leftmargin=0.65in,label=\textbf{Step \arabic*:}]
+\item Nucleophile attacks from opposite side of halogen atom
+
+Pentavalent transition state formed, where both nucleophile and halogen are partially bonded to carbon atom, both bond breaking and bond forming process take place simultaneously.
+\end{enumerate}
+\end{mechanism}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{0.5\textwidth}p{0.5\textwidth}}
+\hline\hline
+S$_\text{N}$1 & S$_\text{N}$2 \\
+\hline
+one molecule in first step & two molecules in first step \\
+two steps & one step \\
+\textbf{Electronic:} tertiary halogenoalkane gives stable tertiary carbocation intermediate & \textbf{Electronic:} methyl and primary halogenoalkane give less stable methyl carbocation and primary cartion intermediate \\
+\textbf{Steric:} tertiary halogenoalkane has three bulky groups which hinder approach of nucleophile to electron-deficient carbon atom, more steric hindrance & \textbf{Steric:} methyl and primary halogenoalkane have no or only one alkyl group which allows easy approach of nucleophile to electron-deficient carbon atom, less steric hindrance \\
+\textbf{Stereochemistry:} inversion of stereochemical configuration (for chiral reactants) & \textbf{Stereochemistry:} racemic mixture (for chiral reactants) \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+Exceptions (due to other electronic and steric considerations)
+\begin{itemize}
+\item 
+\end{itemize}
+
+\subsection{Reactions}
+\begin{enumerate}
+\item \textbf{Nucleophilic substitution}
+	\begin{itemize}
+	\item Nucleophilic substitution of \ce{OH-}
+	\item Nucleophilic substitution of \ce{CN-}
+	\item Nucleophilic substitution of \ce{NH3} (step-up reaction)
+	
+	Acidic hydrolysis, basic hydrolysis, reduction
+	\item Nucleophilic substitution of \ce{RO-}, formed from alcohol [FYI]
+	\end{itemize}
+\item \textbf{Elimination}
+\end{enumerate}
+
+\subsection{Preparation}
+\begin{enumerate}
+\item Free radical substitution of alkane
+\item Electrophilic addition of alkene
+\item Nucleophilic substitution of alcohol
+\end{enumerate}
+
+\subsection{Reactivities of Halogenoalkanes}
+Down the group, atomic orbital of halogen atom becomes more diffused, effectiveness of orbital overlap decreases, strength of \ce{C-X} bond decreases down the group, relative ease of breaking \ce{C-X} bond increases, reactivity of \ce{R-X} towards nucleophilic substitution increases
+
+\begin{remark}
+Do not use bond polarity to explain.
+\end{remark}
+
+\subsection{Uses}
+Fluoroalkanes and fluorohalogenoalkanes are generally stable and unreactive (chemically inert) due to strong \ce{C-F} bond (high bond energy), used as \textbf{inert materials} in fire extinguisher, refrigerant, aerosol propellant etc.
+
+\textbf{Chlorofluorocarbons (CFCs)} lead to ozone depletion, by free radical substitution:
+\[ \ce{CFCl3 -> Cl. + .CFCl2} \]
+\[ \ce{Cl. + O3 -> ClO. + O2} \]
+\[ \ce{ClO. + O. -> Cl. + O2} \]
+\pagebreak
+
+\section{Halogenoarene}
+\subsection*{Chemical properties}
+Unreactive towards nucleophilic substitution
+\begin{itemize}
+\item \textbf{Electronic:}
+
+p orbital of halogen atom overlaps with p-orbitals of carbon atoms on benzene ring. Lone pair of electrons in p-orbital of halogen atom delocalises into benzene ring to form delocalised $\pi$ electron cloud.
+
+\emph{Partial double bond character} in \ce{C-X} bond, more energy required to break stronger \ce{C-X} bond to displace halogen atom.
+
+\item \textbf{Steric:}
+
+Rear side of \ce{C-X} bond is blocked by bulky benzene ring. $\pi$ electron cloud of benzene ring repulses lone pair of electrons of nucleophile, difficult for nucleophile to attack.
+\end{itemize}
+
+\subsection{Reactions}
+
+\subsection{Preparation}
+\pagebreak
+
+\part{Hydroxy Compounds}
+\section{Alcohol}
+\subsection{Acidity}
+
+\subsection{Reactions}
+\begin{enumerate}
+\item \textbf{Redox reaction} (acid-metal displacement)
+\item \textbf{Condensation reaction}
+	\begin{itemize}
+	\item Condensation using carboxylic acid
+	\item Condensation using acyl chloride
+	\end{itemize}
+\item \textbf{Nucleophilic substitution}
+\item \textbf{Elimination}
+\item \textbf{Oxidation}
+	\begin{itemize}
+	\item Oxidation of $1\degree$ and $2\degree$ alcohols
+	\item Oxidation of \ce{CH3CH(OH)-R} alcohols (tri-iodoform test)
+	\end{itemize}
+\end{enumerate}
+
+\subsection{Preparation}
+\begin{enumerate}
+\item Electrophilic addition of alkene
+\item Nucleophilic substitution of halogenoalkane
+\item Reduction of carbonyl compound
+\end{enumerate}
+\pagebreak
+
+\section{Phenol}
+\subsection{Acidity}
+(i) its acidity; reaction with bases and sodium
+(ii) nitration of, and bromination of, the aromatic ring
+
+\subsection{Reactions}
+\begin{enumerate}
+\item Electrophilic substitution
+	\begin{itemize}
+	\item Electrophilic substitution of halogen
+	\item Electrophilic substitution of nitro group (nitration)
+	\end{itemize}
+\item Redox reaction (acid-metal displacement)
+\item Neutralisation
+\item Condensation
+\item Complex formation
+\end{enumerate}
+
+explain the relative acidities of water, phenol and ethanol in aqueous medium (interpret as Brønsted-Lowry acids)
+\pagebreak
+
+\part{Carbonyl Compounds}
+\section{Aldehydes}
+(i) oxidation to carboxylic acid
+(ii) nucleophilic addition with hydrogen cyanide
+(iii) characteristic tests for aldehydes
+\pagebreak
+
+\section{Ketones}
+(i) nucleophilic addition with hydrogen cyanide
+(ii) characteristic tests for ketones
+
+(a) describe the formation of aldehydes and ketones from, and their reduction to, primary and secondary
+alcohols respectively
+(b) describe the mechanism of the nucleophilic addition reactions of hydrogen cyanide with aldehydes and
+ketones
+(c) explain the differences in reactivity between carbonyl compounds and alkenes towards nucleophilic
+reagents, such as lithium aluminium hydride and hydrogen cyanide
+(d) describe the use of 2,4-dinitrophenylhydrazine (2,4-DNPH) to detect the presence of carbonyl compounds
+(e) deduce the nature (aldehyde or ketone) of an unknown carbonyl compound from the results of simple tests
+(i.e. Fehling’s and Tollens’ reagents; ease of oxidation)
+(f) deduce the presence of a CH3CO– group in a carbonyl compound from its reaction with alkaline aqueous iodine to form tri-iodomethane
+\pagebreak
+
+\part{Carboxylic Acid and Derivative}
+\section{Carboxylic acids}
+(i) formation from primary alcohols and nitriles
+(ii) salt, ester and acyl chloride formation
+\pagebreak
+
+\section{Acyl chlorides}
+(i) ease of hydrolysis compared with alkyl and aryl chlorides
+(ii) reaction with alcohols, phenols and primary amines
+\pagebreak
+
+\section{Esters}
+(i) formation from carboxylic acids and from acyl chlorides
+(ii) hydrolysis (under acidic and under basic conditions)
+
+
+(a) describe the formation of carboxylic acids from alcohols, aldehydes and nitriles
+(b) describe the reactions of carboxylic acids in the formation of:
+(i) salts
+(ii) esters on condensation with alcohols, using ethyl ethanoate as an example
+(iii) acyl chlorides, using ethanoyl chloride as an example
+(iv) primary alcohols, via reduction with lithium aluminium hydride, using ethanol as an example
+(c) explain the acidity of carboxylic acids and of chlorine-substituted ethanoic acids in terms of their structures
+(d) describe the hydrolysis of acyl chlorides
+(e) describe the condensation reactions of acyl chlorides with alcohols, phenols and primary amines
+(f) explain the relative ease of hydrolysis of acyl chlorides, alkyl chlorides and aryl chlorides
+(g) describe the formation of esters from the condensation reaction of acyl chlorides, using phenyl benzoate as an example
+(h) describe the acid and base hydrolysis of esters
+\pagebreak
+
+\part{Nitrogen Compounds}
+\section{Amines}
+(i) their formation
+(ii) salt formation
+(iii) other reactions of phenylamine
+\pagebreak
+
+\section{Amides}
+(i) formation from acyl chlorides
+(ii) neutrality of amides
+(iii) hydrolysis (under acidic and under basic conditions)
+\pagebreak
+
+\section{Amino acids}
+(i) their acid and base properties
+(ii) zwitterion formation
+\pagebreak
+
+\section{Proteins}
+(i) formation of proteins
+(ii) hydrolysis of proteins
+
+(a) describe the formation of amines as exemplified by ethylamine (through amide and nitrile reduction; see also Section 11.4) and by phenylamine (through the reduction of nitrobenzene)
+(b) describe the reaction of amines in the formation of salts
+(c) describe and explain the basicity of primary, secondary and tertiary amines in the gaseous phase (interpret
+as Lewis bases)
+(d) explain the relative basicities of ammonia, ethylamine and phenylamine in aqueous medium, in terms of
+their structures
+(e) describe the reaction of phenylamine with aqueous bromine
+(f) describe the formation of amides from the condensation reaction between RNH2 and R'COCl
+(g) explain why an amide is neutral in terms of delocalisation of the lone pair of electrons on nitrogen
+(h) describe the chemistry of amides, exemplified by the following reactions:
+(i) hydrolysis on treatment with aqueous alkali or acid
+(ii) reduction to amines with lithium aluminium hydride
+(i) describe the acid/base properties of amino acids and the formation of zwitterions
+[knowledge of isoelectric points is not required]
+(j) describe the formation of peptide (amide) bonds between $\alpha$-amino acids, and hence explain protein formation
+(k) describe the hydrolysis of proteins
+\end{document}
